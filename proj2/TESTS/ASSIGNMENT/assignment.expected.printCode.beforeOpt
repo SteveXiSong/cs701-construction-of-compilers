@@ -1,0 +1,25 @@
+
+FUNCTION foo
+
+BASIC BLOCK entry
+%1:	alloca	 XXX
+%2:	call	 XXX %1 __isoc99_scanf
+%3:	load	 %1
+%4:	sdiv	 %3 XXX
+%5:	ret	
+
+FUNCTION main
+
+BASIC BLOCK entry
+%6:	alloca	 XXX
+%7:	call	 XXX %6 __isoc99_scanf
+%8:	load	 %6
+%9:	mul	 %8 XXX
+%10:	load	 %6
+%11:	add	 %10 XXX
+%12:	load	 %6
+%13:	call	 %12 foo
+%14:	load	 %6
+%15:	mul	 %14 XXX
+%16:	call	 XXX %15 printf
+%17:	ret	 XXX

@@ -1,0 +1,62 @@
+FUNCTION mygetline
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:1   L-Before: { }	L-After: { %1 }
+%:2   L-Before: { %1 }	L-After: { %2 }
+%:3   L-Before: { %2 }	L-After: { %3 }
+%:4   L-Before: { %3 }	L-After: { %4 }
+%:5   L-Before: { %4 }	L-After: { %5 }
+%:6   L-Before: { %5 }	L-After: { }
+
+FUNCTION addstr
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:7   L-Before: { }	L-After: { }
+%:8   L-Before: { }	L-After: { %8 }
+%:9   L-Before: { %8 }	L-After: { %9 }
+%:10   L-Before: { %9 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%:11   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else  L-Before: { }  L-After: { }
+%:12   L-Before: { %7 }	L-After: { %7 %12 }
+%:13   L-Before: { %7 %12 }	L-After: { %7 %13 }
+%:14   L-Before: { %7 %13 }	L-After: { %7 %14 }
+%:15   L-Before: { %7 %14 }	L-After: { }
+%:16   L-Before: { }	L-After: { %16 }
+%:17   L-Before: { %16 }	L-After: { %17 }
+%:18   L-Before: { %17 }	L-After: { }
+%:19   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%:20   L-Before: { }	L-After: { %20 }
+%:21   L-Before: { %20 }	L-After: { %21 }
+%:22   L-Before: { %21 }	L-After: { }
+
+removing useless assignment %7
+While deleting: i8 %c
+Use still stuck around after Def is destroyed:  store i8 %c, i8* %arrayidx, align 1
+opt: /tmp/ll/llvm-3.3.src/lib/IR/Value.cpp:79: virtual llvm::Value::~Value(): Assertion `use_empty() && "Uses remain when a value is destroyed!"' failed.
+0  libLLVM-3.3.so  0x00007fa47253c362 llvm::sys::PrintStackTrace(_IO_FILE*) + 34
+1  libLLVM-3.3.so  0x00007fa47253e2da
+2  libpthread.so.0 0x0000003adc00f710
+3  libc.so.6       0x0000003adb432635 gsignal + 53
+4  libc.so.6       0x0000003adb433e15 abort + 373
+5  libc.so.6       0x0000003adb42b75e
+6  libc.so.6       0x0000003adb42b820 __assert_perror_fail + 0
+7  libLLVM-3.3.so  0x00007fa471e8586f
+8  libLLVM-3.3.so  0x00007fa471e576c7
+9  P2.so           0x00007fa4712b8aca
+10 P2.so           0x00007fa4712b8cf3
+11 libLLVM-3.3.so  0x00007fa471e6de08 llvm::FPPassManager::runOnFunction(llvm::Function&) + 568
+12 libLLVM-3.3.so  0x00007fa471e6deeb llvm::FPPassManager::runOnModule(llvm::Module&) + 43
+13 libLLVM-3.3.so  0x00007fa471e6d88a llvm::MPPassManager::runOnModule(llvm::Module&) + 666
+14 libLLVM-3.3.so  0x00007fa471e6dab7 llvm::PassManagerImpl::run(llvm::Module&) + 247
+15 opt             0x000000000041a567 main + 5607
+16 libc.so.6       0x0000003adb41ed5d __libc_start_main + 253
+17 opt             0x000000000040bc99
+Stack dump:
+0.	Program arguments: opt -load Debug/lib/P2.so -liveVars TESTS/REPLACE/replace.bc -o TESTS/REPLACE/replace.liveVars 
+1.	Running pass 'Function Pass Manager' on module 'TESTS/REPLACE/replace.bc'.
+2.	Running pass 'live vars analysis' on function '@addstr'

@@ -1,0 +1,341 @@
+FUNCTION main
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:1   L-Before: { }	L-After: { %1 }
+%:2   L-Before: { %1 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%:3   L-Before: { }	L-After: { %3 }
+%:4   L-Before: { %3 }	L-After: { }
+%:5   L-Before: { }	L-After: { }
+%:6   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%:7   L-Before: { }	L-After: { %7 }
+%:8   L-Before: { %7 }	L-After: { %8 }
+%:9   L-Before: { %8 }	L-After: { }
+%:10   L-Before: { }	L-After: { }
+
+BASIC BLOCK while.cond  L-Before: { }  L-After: { }
+%:11   L-Before: { %9 }	L-After: { %11 }
+%:12   L-Before: { %11 }	L-After: { %12 }
+%:13   L-Before: { %12 }	L-After: { %13 }
+%:14   L-Before: { %13 }	L-After: { %14 }
+%:15   L-Before: { %14 }	L-After: { }
+
+BASIC BLOCK while.body  L-Before: { }  L-After: { }
+%:16   L-Before: { %11 }	L-After: { }
+%:17   L-Before: { }	L-After: { }
+
+BASIC BLOCK while.end  L-Before: { }  L-After: { }
+%:18   L-Before: { %11 }	L-After: { }
+%:19   L-Before: { }	L-After: { }
+%:20   L-Before: { }	L-After: { }
+
+BASIC BLOCK return  L-Before: { }  L-After: { }
+%:21   L-Before: { }	L-After: { }
+
+FUNCTION print_token
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:22   L-Before: { }	L-After: { %22 }
+%:23   L-Before: { %22 }	L-After: { %23 }
+%:24   L-Before: { %23 }	L-After: { }
+
+BASIC BLOCK sw.bb  L-Before: { }  L-After: { }
+%:25   L-Before: { }	L-After: { %25 }
+%:26   L-Before: { %25 }	L-After: { }
+%:27   L-Before: { }	L-After: { %27 }
+%:28   L-Before: { %27 }	L-After: { %27 %28 }
+%:29   L-Before: { %27 %28 }	L-After: { %27 %29 }
+%:30   L-Before: { %27 %29 }	L-After: { }
+%:31   L-Before: { }	L-After: { %31 }
+%:32   L-Before: { %31 }	L-After: { }
+%:33   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb3  L-Before: { }  L-After: { }
+%:34   L-Before: { }	L-After: { %34 }
+%:35   L-Before: { %34 }	L-After: { }
+%:36   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb5  L-Before: { }  L-After: { }
+%:37   L-Before: { }	L-After: { %37 }
+%:38   L-Before: { %37 }	L-After: { }
+%:39   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb7  L-Before: { }  L-After: { }
+%:40   L-Before: { }	L-After: { %40 }
+%:41   L-Before: { %40 }	L-After: { }
+%:42   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb9  L-Before: { }  L-After: { }
+%:43   L-Before: { }	L-After: { %43 }
+%:44   L-Before: { %43 }	L-After: { }
+%:45   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb11  L-Before: { }  L-After: { }
+%:46   L-Before: { }	L-After: { %46 }
+%:47   L-Before: { %46 }	L-After: { }
+%:48   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb13  L-Before: { }  L-After: { }
+%:49   L-Before: { }	L-After: { %49 }
+%:50   L-Before: { %49 }	L-After: { }
+%:51   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb15  L-Before: { }  L-After: { }
+%:52   L-Before: { }	L-After: { %52 }
+%:53   L-Before: { %52 }	L-After: { }
+%:54   L-Before: { }	L-After: { %54 }
+%:55   L-Before: { %54 }	L-After: { %54 %55 }
+%:56   L-Before: { %54 %55 }	L-After: { %54 %56 }
+%:57   L-Before: { %54 %56 }	L-After: { }
+%:58   L-Before: { }	L-After: { %58 }
+%:59   L-Before: { %58 }	L-After: { }
+%:60   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb21  L-Before: { }  L-After: { }
+%:61   L-Before: { }	L-After: { %61 }
+%:62   L-Before: { %61 }	L-After: { }
+%:63   L-Before: { }	L-After: { %63 }
+%:64   L-Before: { %63 }	L-After: { %63 %64 }
+%:65   L-Before: { %63 %64 }	L-After: { %63 %65 }
+%:66   L-Before: { %63 %65 }	L-After: { }
+%:67   L-Before: { }	L-After: { %67 }
+%:68   L-Before: { %67 }	L-After: { }
+%:69   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb27  L-Before: { }  L-After: { }
+%:70   L-Before: { }	L-After: { %70 }
+%:71   L-Before: { %70 }	L-After: { }
+%:72   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb29  L-Before: { }  L-After: { }
+%:73   L-Before: { }	L-After: { %73 }
+%:74   L-Before: { %73 }	L-After: { }
+%:75   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb31  L-Before: { }  L-After: { }
+%:76   L-Before: { }	L-After: { %76 }
+%:77   L-Before: { %76 }	L-After: { }
+%:78   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb33  L-Before: { }  L-After: { }
+%:79   L-Before: { }	L-After: { %79 }
+%:80   L-Before: { %79 }	L-After: { }
+%:81   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb35  L-Before: { }  L-After: { }
+%:82   L-Before: { }	L-After: { %82 }
+%:83   L-Before: { %82 }	L-After: { }
+%:84   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb37  L-Before: { }  L-After: { }
+%:85   L-Before: { }	L-After: { %85 }
+%:86   L-Before: { %85 }	L-After: { }
+%:87   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb39  L-Before: { }  L-After: { }
+%:88   L-Before: { }	L-After: { %88 }
+%:89   L-Before: { %88 }	L-After: { }
+%:90   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb41  L-Before: { }  L-After: { }
+%:91   L-Before: { }	L-After: { %91 }
+%:92   L-Before: { %91 }	L-After: { }
+%:93   L-Before: { }	L-After: { %93 }
+%:94   L-Before: { %93 }	L-After: { %93 %94 }
+%:95   L-Before: { %93 %94 }	L-After: { %93 %95 }
+%:96   L-Before: { %93 %95 }	L-After: { }
+%:97   L-Before: { }	L-After: { %97 }
+%:98   L-Before: { %97 }	L-After: { }
+%:99   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb47  L-Before: { }  L-After: { }
+%:100   L-Before: { }	L-After: { %100 }
+%:101   L-Before: { %100 }	L-After: { }
+%:102   L-Before: { }	L-After: { %102 }
+%:103   L-Before: { %102 }	L-After: { %102 %103 }
+%:104   L-Before: { %102 %103 }	L-After: { %102 %104 }
+%:105   L-Before: { %102 %104 }	L-After: { }
+%:106   L-Before: { }	L-After: { %106 }
+%:107   L-Before: { %106 }	L-After: { }
+%:108   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb53  L-Before: { }  L-After: { }
+%:109   L-Before: { }	L-After: { %109 }
+%:110   L-Before: { %109 }	L-After: { }
+%:111   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.default  L-Before: { }  L-After: { }
+%:112   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.epilog  L-Before: { }  L-After: { }
+%:113   L-Before: { }	L-After: { }
+
+BASIC BLOCK return  L-Before: { }  L-After: { }
+%:114   L-Before: { }	L-After: { %114 }
+%:115   L-Before: { %114 }	L-After: { }
+
+FUNCTION open_character_stream
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:116   L-Before: { }	L-After: { %116 }
+%:117   L-Before: { %116 }	L-After: { %117 }
+%:118   L-Before: { %117 }	L-After: { %117 %118 }
+%:119   L-Before: { %117 %118 }	L-After: { %117 }
+%:120   L-Before: { %117 }	L-After: { %120 }
+%:121   L-Before: { %120 }	L-After: { %121 }
+%:122   L-Before: { %121 }	L-After: { }
+%:123   L-Before: { }	L-After: { %123 }
+%:124   L-Before: { %123 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%:125   L-Before: { %117 }	L-After: { %117 %125 }
+%:126   L-Before: { %117 %125 }	L-After: { %125 %126 }
+%:127   L-Before: { %125 %126 }	L-After: { }
+%:128   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else  L-Before: { }  L-After: { }
+%:129   L-Before: { %117 }	L-After: { %117 %129 }
+%:130   L-Before: { %117 %129 }	L-After: { %129 %130 }
+%:131   L-Before: { %129 %130 }	L-After: { %129 }
+%:132   L-Before: { %129 }	L-After: { %132 }
+%:133   L-Before: { %132 }	L-After: { }
+
+BASIC BLOCK if.then4  L-Before: { }  L-After: { }
+%:134   L-Before: { }	L-After: { %134 }
+%:135   L-Before: { %134 }	L-After: { }
+%:136   L-Before: { }	L-After: { }
+%:137   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%:138   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end6  L-Before: { }  L-After: { }
+%:139   L-Before: { %117 }	L-After: { }
+
+FUNCTION get_char
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:140   L-Before: { }	L-After: { %140 }
+%:141   L-Before: { %140 }	L-After: { %141 }
+%:142   L-Before: { %141 }	L-After: { %142 }
+%:143   L-Before: { %142 }	L-After: { %142 %143 }
+%:144   L-Before: { %142 %143 }	L-After: { %144 }
+%:145   L-Before: { %144 }	L-After: { %145 }
+%:146   L-Before: { %145 }	L-After: { %146 }
+%:147   L-Before: { %146 }	L-After: { %147 }
+%:148   L-Before: { %147 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%:149   L-Before: { }	L-After: { %149 }
+%:150   L-Before: { %149 }	L-After: { %150 }
+%:151   L-Before: { %150 }	L-After: { %151 }
+%:152   L-Before: { %151 }	L-After: { %151 %152 }
+%:153   L-Before: { %151 %152 }	L-After: { %151 %153 }
+%:154   L-Before: { %151 %153 }	L-After: { %154 }
+%:155   L-Before: { %154 }	L-After: { %155 }
+%:156   L-Before: { %155 }	L-After: { }
+
+BASIC BLOCK if.then5  L-Before: { }  L-After: { }
+%:157   L-Before: { }	L-After: { %157 }
+%:158   L-Before: { %157 }	L-After: { %158 }
+%:159   L-Before: { %158 }	L-After: { }
+%:160   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%:161   L-Before: { }	L-After: { %161 }
+%:162   L-Before: { %161 }	L-After: { }
+%:163   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end9  L-Before: { }  L-After: { }
+%:164   L-Before: { }	L-After: { %164 }
+%:165   L-Before: { %164 }	L-After: { %164 %165 }
+%:166   L-Before: { %164 %165 }	L-After: { %164 %165 %166 }
+%:167   L-Before: { %164 %165 %166 }	L-After: { %165 }
+%:168   L-Before: { %165 }	L-After: { %168 }
+%:169   L-Before: { %168 }	L-After: { %168 %169 }
+%:170   L-Before: { %168 %169 }	L-After: { %170 }
+%:171   L-Before: { %170 }	L-After: { %171 }
+%:172   L-Before: { %171 }	L-After: { }
+
+FUNCTION is_end_of_character_stream
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:173   L-Before: { }	L-After: { %173 }
+%:174   L-Before: { %173 }	L-After: { %174 }
+%:175   L-Before: { %174 }	L-After: { %175 }
+%:176   L-Before: { %175 }	L-After: { %176 }
+%:177   L-Before: { %176 }	L-After: { %176 %177 }
+%:178   L-Before: { %176 %177 }	L-After: { %178 }
+%:179   L-Before: { %178 }	L-After: { %179 }
+%:180   L-Before: { %179 }	L-After: { %180 }
+%:181   L-Before: { %180 }	L-After: { %181 }
+%:182   L-Before: { %181 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%:183   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else  L-Before: { }  L-After: { }
+%:184   L-Before: { }	L-After: { }
+
+BASIC BLOCK return  L-Before: { }  L-After: { }
+%:185   L-Before: { }	L-After: { %185 }
+%:186   L-Before: { %185 }	L-After: { }
+
+FUNCTION unget_char
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:187   L-Before: { }	L-After: { }
+%:188   L-Before: { }	L-After: { %188 }
+%:189   L-Before: { %188 }	L-After: { %189 }
+%:190   L-Before: { %189 }	L-After: { %190 }
+%:191   L-Before: { %190 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%:192   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else  L-Before: { }  L-After: { }
+%:193   L-Before: { %187 }	L-After: { %187 %193 }
+%:194   L-Before: { %187 %193 }	L-After: { %187 %193 %194 }
+%:195   L-Before: { %187 %193 %194 }	L-After: { %187 %193 %195 }
+%:196   L-Before: { %187 %193 %195 }	L-After: { %187 %195 }
+%:197   L-Before: { %187 %195 }	L-After: { %187 %197 }
+%:198   L-Before: { %187 %197 }	L-After: { %187 %197 %198 }
+%:199   L-Before: { %187 %197 %198 }	L-After: { %187 %199 }
+%:200   L-Before: { %187 %199 }	L-After: { }
+%:201   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%:202   L-Before: { }	L-After: { }
+
+BASIC BLOCK return  L-Before: { }  L-After: { }
+%:203   L-Before: { }	L-After: { }
+
+removing useless assignment %187
+While deleting: i8 %ch
+Use still stuck around after Def is destroyed:  store i8 %ch, i8* %arrayidx, align 1
+opt: /tmp/ll/llvm-3.3.src/lib/IR/Value.cpp:79: virtual llvm::Value::~Value(): Assertion `use_empty() && "Uses remain when a value is destroyed!"' failed.
+0  libLLVM-3.3.so  0x00007f2808d55362 llvm::sys::PrintStackTrace(_IO_FILE*) + 34
+1  libLLVM-3.3.so  0x00007f2808d572da
+2  libpthread.so.0 0x0000003adc00f710
+3  libc.so.6       0x0000003adb432635 gsignal + 53
+4  libc.so.6       0x0000003adb433e15 abort + 373
+5  libc.so.6       0x0000003adb42b75e
+6  libc.so.6       0x0000003adb42b820 __assert_perror_fail + 0
+7  libLLVM-3.3.so  0x00007f280869e86f
+8  libLLVM-3.3.so  0x00007f28086706c7
+9  P2.so           0x00007f2807ad1aca
+10 P2.so           0x00007f2807ad1cf3
+11 libLLVM-3.3.so  0x00007f2808686e08 llvm::FPPassManager::runOnFunction(llvm::Function&) + 568
+12 libLLVM-3.3.so  0x00007f2808686eeb llvm::FPPassManager::runOnModule(llvm::Module&) + 43
+13 libLLVM-3.3.so  0x00007f280868688a llvm::MPPassManager::runOnModule(llvm::Module&) + 666
+14 libLLVM-3.3.so  0x00007f2808686ab7 llvm::PassManagerImpl::run(llvm::Module&) + 247
+15 opt             0x000000000041a567 main + 5607
+16 libc.so.6       0x0000003adb41ed5d __libc_start_main + 253
+17 opt             0x000000000040bc99
+Stack dump:
+0.	Program arguments: opt -load Debug/lib/P2.so -liveVars TESTS/PRINT-TOKENS/print_tokens.bc -o TESTS/PRINT-TOKENS/print_tokens.liveVars 
+1.	Running pass 'Function Pass Manager' on module 'TESTS/PRINT-TOKENS/print_tokens.bc'.
+2.	Running pass 'live vars analysis' on function '@unget_char'

@@ -1,0 +1,310 @@
+FUNCTION gnu_dev_major
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:1   L-Before: { }	L-After: { %1 }
+%:2   L-Before: { %1 }	L-After: { %2 }
+%:3   L-Before: { %2 }	L-After: { %2 %3 }
+%:4   L-Before: { %2 %3 }	L-After: { %2 %4 }
+%:5   L-Before: { %2 %4 }	L-After: { %2 %5 }
+%:6   L-Before: { %2 %5 }	L-After: { %2 %6 }
+%:7   L-Before: { %2 %6 }	L-After: { %7 }
+%:8   L-Before: { %7 }	L-After: { %8 }
+%:9   L-Before: { %8 }	L-After: { }
+
+FUNCTION gnu_dev_minor
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:10   L-Before: { }	L-After: { %10 }
+%:11   L-Before: { %10 }	L-After: { %10 %11 }
+%:12   L-Before: { %10 %11 }	L-After: { %10 %12 }
+%:13   L-Before: { %10 %12 }	L-After: { %10 %13 }
+%:14   L-Before: { %10 %13 }	L-After: { %10 %14 }
+%:15   L-Before: { %10 %14 }	L-After: { %15 }
+%:16   L-Before: { %15 }	L-After: { %16 }
+%:17   L-Before: { %16 }	L-After: { }
+
+FUNCTION gnu_dev_makedev
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:18   L-Before: { }	L-After: { %18 }
+%:19   L-Before: { %18 }	L-After: { %18 %19 }
+%:20   L-Before: { %18 %19 }	L-After: { %18 %20 }
+%:21   L-Before: { %18 %20 }	L-After: { %21 }
+%:22   L-Before: { %21 }	L-After: { %22 }
+%:23   L-Before: { %22 }	L-After: { %22 %23 }
+%:24   L-Before: { %22 %23 }	L-After: { %22 %24 }
+%:25   L-Before: { %22 %24 }	L-After: { %22 %25 }
+%:26   L-Before: { %22 %25 }	L-After: { %26 }
+%:27   L-Before: { %26 }	L-After: { %26 %27 }
+%:28   L-Before: { %26 %27 }	L-After: { %26 %28 }
+%:29   L-Before: { %26 %28 }	L-After: { %26 %29 }
+%:30   L-Before: { %26 %29 }	L-After: { %30 }
+%:31   L-Before: { %30 }	L-After: { }
+
+FUNCTION stat
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:32   L-Before: { }	L-After: { %32 }
+%:33   L-Before: { %32 }	L-After: { }
+
+FUNCTION lstat
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:34   L-Before: { }	L-After: { %34 }
+%:35   L-Before: { %34 }	L-After: { }
+
+FUNCTION fstat
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:36   L-Before: { }	L-After: { %36 }
+%:37   L-Before: { %36 }	L-After: { }
+
+FUNCTION mknod
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:38   L-Before: { }	L-After: { %38 }
+%:39   L-Before: { %38 }	L-After: { %38 }
+%:40   L-Before: { %38 }	L-After: { %40 }
+%:41   L-Before: { %40 }	L-After: { }
+
+FUNCTION file_read
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:42   L-Before: { }	L-After: { %42 }
+%:43   L-Before: { %42 }	L-After: { %42 %43 }
+%:44   L-Before: { %42 %43 }	L-After: { %44 }
+%:45   L-Before: { %44 }	L-After: { %45 }
+%:46   L-Before: { %45 }	L-After: { %46 }
+%:47   L-Before: { %46 }	L-After: { }
+
+BASIC BLOCK lor.lhs.false  L-Before: { }  L-After: { }
+%:48   L-Before: { %45 }	L-After: { %48 }
+%:49   L-Before: { %48 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%:50   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%:51   L-Before: { %45 }	L-After: { %45 %51 }
+%:52   L-Before: { %45 %51 }	L-After: { %45 }
+%:53   L-Before: { %45 }	L-After: { %53 }
+%:54   L-Before: { %53 }	L-After: { %53 %54 }
+%:55   L-Before: { %53 %54 }	L-After: { %55 }
+%:56   L-Before: { %55 }	L-After: { }
+%:57   L-Before: { }	L-After: { }
+
+BASIC BLOCK return  L-Before: { }  L-After: { }
+%:58   L-Before: { %45 }	L-After: { }
+
+FUNCTION bi_init
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:59   L-Before: { }	L-After: { }
+%:60   L-Before: { }	L-After: { }
+%:61   L-Before: { }	L-After: { }
+%:62   L-Before: { }	L-After: { %62 }
+%:63   L-Before: { %62 }	L-After: { %63 }
+%:64   L-Before: { %63 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%:65   L-Before: { }	L-After: { }
+%:66   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%:67   L-Before: { }	L-After: { }
+
+FUNCTION send_bits
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:68   L-Before: { }	L-After: { %68 }
+%:69   L-Before: { %68 }	L-After: { %68 %69 }
+%:70   L-Before: { %68 %69 }	L-After: { %70 }
+%:71   L-Before: { %70 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%:72   L-Before: { }	L-After: { %72 }
+%:73   L-Before: { %72 }	L-After: { %73 }
+%:74   L-Before: { %73 }	L-After: { %73 %74 }
+%:75   L-Before: { %73 %74 }	L-After: { %73 %75 }
+%:76   L-Before: { %73 %75 }	L-After: { %76 }
+%:77   L-Before: { %76 }	L-After: { %77 }
+%:78   L-Before: { %77 }	L-After: { }
+%:79   L-Before: { }	L-After: { %79 }
+%:80   L-Before: { %79 }	L-After: { %80 }
+%:81   L-Before: { %80 }	L-After: { }
+
+BASIC BLOCK if.then4  L-Before: { }  L-After: { }
+%:82   L-Before: { }	L-After: { %82 }
+%:83   L-Before: { %82 }	L-After: { %83 }
+%:84   L-Before: { %83 }	L-After: { %84 }
+%:85   L-Before: { %84 }	L-After: { %85 }
+%:86   L-Before: { %85 }	L-After: { %85 %86 }
+%:87   L-Before: { %85 %86 }	L-After: { %85 %86 %87 }
+%:88   L-Before: { %85 %86 %87 }	L-After: { %85 %86 }
+%:89   L-Before: { %85 %86 }	L-After: { %85 %89 }
+%:90   L-Before: { %85 %89 }	L-After: { %85 %90 }
+%:91   L-Before: { %85 %90 }	L-After: { }
+%:92   L-Before: { }	L-After: { %92 }
+%:93   L-Before: { %92 }	L-After: { %93 }
+%:94   L-Before: { %93 }	L-After: { %94 }
+%:95   L-Before: { %94 }	L-After: { %95 }
+%:96   L-Before: { %95 }	L-After: { %95 %96 }
+%:97   L-Before: { %95 %96 }	L-After: { %95 %96 %97 }
+%:98   L-Before: { %95 %96 %97 }	L-After: { %95 %96 }
+%:99   L-Before: { %95 %96 }	L-After: { %95 %99 }
+%:100   L-Before: { %95 %99 }	L-After: { %95 %100 }
+%:101   L-Before: { %95 %100 }	L-After: { }
+%:102   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else  L-Before: { }  L-After: { }
+%:103   L-Before: { }	L-After: { %103 }
+%:104   L-Before: { %103 }	L-After: { %104 }
+%:105   L-Before: { %104 }	L-After: { %105 }
+%:106   L-Before: { %105 }	L-After: { %106 }
+%:107   L-Before: { %106 }	L-After: { %106 %107 }
+%:108   L-Before: { %106 %107 }	L-After: { %106 %107 %108 }
+%:109   L-Before: { %106 %107 %108 }	L-After: { %106 %107 }
+%:110   L-Before: { %106 %107 }	L-After: { %106 %110 }
+%:111   L-Before: { %106 %110 }	L-After: { %106 %111 }
+%:112   L-Before: { %106 %111 }	L-After: { }
+%:113   L-Before: { }	L-After: { %113 }
+%:114   L-Before: { %113 }	L-After: { %114 }
+%:115   L-Before: { %114 }	L-After: { }
+
+BASIC BLOCK if.then20  L-Before: { }  L-After: { }
+%:116   L-Before: { }	L-After: { }
+%:117   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%:118   L-Before: { }	L-After: { %118 }
+%:119   L-Before: { %118 }	L-After: { %119 }
+%:120   L-Before: { %119 }	L-After: { %120 }
+%:121   L-Before: { %120 }	L-After: { %121 }
+%:122   L-Before: { %121 }	L-After: { %121 %122 }
+%:123   L-Before: { %121 %122 }	L-After: { %121 %122 %123 }
+%:124   L-Before: { %121 %122 %123 }	L-After: { %121 %122 }
+%:125   L-Before: { %121 %122 }	L-After: { %121 %125 }
+%:126   L-Before: { %121 %125 }	L-After: { %121 %126 }
+%:127   L-Before: { %121 %126 }	L-After: { }
+%:128   L-Before: { }	L-After: { %128 }
+%:129   L-Before: { %128 }	L-After: { %129 }
+%:130   L-Before: { %129 }	L-After: { }
+
+BASIC BLOCK if.then29  L-Before: { }  L-After: { }
+%:131   L-Before: { }	L-After: { }
+%:132   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end30  L-Before: { }  L-After: { }
+%:133   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end31  L-Before: { }  L-After: { }
+%:134   L-Before: { }	L-After: { %134 }
+%:135   L-Before: { %134 }	L-After: { %135 }
+%:136   L-Before: { %135 }	L-After: { %135 %136 }
+%:137   L-Before: { %135 %136 }	L-After: { %135 %137 }
+%:138   L-Before: { %135 %137 }	L-After: { %135 %138 }
+%:139   L-Before: { %135 %138 }	L-After: { %135 %139 }
+%:140   L-Before: { %135 %139 }	L-After: { %140 }
+%:141   L-Before: { %140 }	L-After: { %141 }
+%:142   L-Before: { %141 }	L-After: { }
+%:143   L-Before: { }	L-After: { %143 }
+%:144   L-Before: { %143 }	L-After: { %144 }
+%:145   L-Before: { %144 }	L-After: { %144 %145 }
+%:146   L-Before: { %144 %145 }	L-After: { %144 %146 }
+%:147   L-Before: { %144 %146 }	L-After: { %147 }
+%:148   L-Before: { %147 }	L-After: { %148 }
+%:149   L-Before: { %148 }	L-After: { }
+%:150   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else42  L-Before: { }  L-After: { }
+%:151   L-Before: { }	L-After: { %151 }
+%:152   L-Before: { %151 }	L-After: { %152 }
+%:153   L-Before: { %152 }	L-After: { %152 %153 }
+%:154   L-Before: { %152 %153 }	L-After: { %152 %154 }
+%:155   L-Before: { %152 %154 }	L-After: { %155 }
+%:156   L-Before: { %155 }	L-After: { %156 }
+%:157   L-Before: { %156 }	L-After: { }
+%:158   L-Before: { }	L-After: { %158 }
+%:159   L-Before: { %158 }	L-After: { %159 }
+%:160   L-Before: { %159 }	L-After: { }
+%:161   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end48  L-Before: { }  L-After: { }
+%:162   L-Before: { }	L-After: { }
+
+FUNCTION flush_outbuf
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:163   L-Before: { }	L-After: { %163 }
+%:164   L-Before: { %163 }	L-After: { %164 }
+%:165   L-Before: { %164 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%:166   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%:167   L-Before: { }	L-After: { %167 }
+%:168   L-Before: { %167 }	L-After: { %167 %168 }
+%:169   L-Before: { %167 %168 }	L-After: { }
+%:170   L-Before: { }	L-After: { %170 }
+%:171   L-Before: { %170 }	L-After: { %171 }
+%:172   L-Before: { %171 }	L-After: { %171 %172 }
+%:173   L-Before: { %171 %172 }	L-After: { %173 }
+%:174   L-Before: { %173 }	L-After: { }
+%:175   L-Before: { }	L-After: { }
+%:176   L-Before: { }	L-After: { }
+
+BASIC BLOCK return  L-Before: { }  L-After: { }
+%:177   L-Before: { }	L-After: { }
+
+FUNCTION bi_reverse
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:178   L-Before: { }	L-After: { }
+
+BASIC BLOCK do.body  L-Before: { }  L-After: { }
+%:179   L-Before: { %184 %185 %187 }	L-After: { %179 %184 %187 }
+%:180   L-Before: { %179 %184 %187 }	L-After: { %179 %184 }
+%:181   L-Before: { %179 %184 }	L-After: { %179 %181 }
+%:182   L-Before: { %179 %181 }	L-After: { %179 %181 %182 }
+%:183   L-Before: { %179 %181 %182 }	L-After: { %181 %183 }
+%:184   L-Before: { %181 %183 }	L-After: { %183 }
+%:185   L-Before: { %183 }	L-After: { }
+%:186   L-Before: { }	L-After: { }
+
+BASIC BLOCK do.cond  L-Before: { }  L-After: { }
+%:187   L-Before: { %180 }	L-After: { %187 }
+%:188   L-Before: { %187 }	L-After: { %188 }
+%:189   L-Before: { %188 }	L-After: { }
+
+BASIC BLOCK do.end  L-Before: { }  L-After: { }
+%:190   L-Before: { %185 }	L-After: { %190 }
+%:191   L-Before: { %190 }	L-After: { }
+
+removing useless assignment %184
+removing useless assignment %185
+While deleting: i32 %shr
+Use still stuck around after Def is destroyed:  %code.addr.0 = phi i32 [ %code, %entry ], [ %shr, %do.cond ]
+opt: /tmp/ll/llvm-3.3.src/lib/IR/Value.cpp:79: virtual llvm::Value::~Value(): Assertion `use_empty() && "Uses remain when a value is destroyed!"' failed.
+0  libLLVM-3.3.so  0x00007f51d67b7362 llvm::sys::PrintStackTrace(_IO_FILE*) + 34
+1  libLLVM-3.3.so  0x00007f51d67b92da
+2  libpthread.so.0 0x0000003adc00f710
+3  libc.so.6       0x0000003adb432635 gsignal + 53
+4  libc.so.6       0x0000003adb433e15 abort + 373
+5  libc.so.6       0x0000003adb42b75e
+6  libc.so.6       0x0000003adb42b820 __assert_perror_fail + 0
+7  libLLVM-3.3.so  0x00007f51d610086f
+8  libLLVM-3.3.so  0x00007f51d60d2347
+9  P2.so           0x00007f51d5533aca
+10 P2.so           0x00007f51d5533cf3
+11 libLLVM-3.3.so  0x00007f51d60e8e08 llvm::FPPassManager::runOnFunction(llvm::Function&) + 568
+12 libLLVM-3.3.so  0x00007f51d60e8eeb llvm::FPPassManager::runOnModule(llvm::Module&) + 43
+13 libLLVM-3.3.so  0x00007f51d60e888a llvm::MPPassManager::runOnModule(llvm::Module&) + 666
+14 libLLVM-3.3.so  0x00007f51d60e8ab7 llvm::PassManagerImpl::run(llvm::Module&) + 247
+15 opt             0x000000000041a567 main + 5607
+16 libc.so.6       0x0000003adb41ed5d __libc_start_main + 253
+17 opt             0x000000000040bc99
+Stack dump:
+0.	Program arguments: opt -load Debug/lib/P2.so -liveVars TESTS/GZIP/gzip.bc -o TESTS/GZIP/gzip.liveVars 
+1.	Running pass 'Function Pass Manager' on module 'TESTS/GZIP/gzip.bc'.
+2.	Running pass 'live vars analysis' on function '@bi_reverse'

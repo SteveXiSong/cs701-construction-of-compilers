@@ -1,0 +1,31 @@
+FUNCTION foo
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:1   L-Before: { }	L-After: { %1 }
+%:2   L-Before: { %1 }	L-After: { %1 }
+%:3   L-Before: { %1 }	L-After: { }
+%:4   L-Before: { }	L-After: { }
+
+removing useless assignment %3
+FUNCTION main
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:5   L-Before: { }	L-After: { %5 }
+%:6   L-Before: { %5 }	L-After: { %5 }
+%:7   L-Before: { %5 }	L-After: { %5 }
+%:8   L-Before: { %5 }	L-After: { %5 }
+%:9   L-Before: { %5 }	L-After: { %5 %9 }
+%:10   L-Before: { %5 %9 }	L-After: { %5 }
+%:11   L-Before: { %5 }	L-After: { %11 }
+%:12   L-Before: { %11 }	L-After: { %12 }
+%:13   L-Before: { %12 }	L-After: { }
+%:14   L-Before: { }	L-After: { }
+
+removing useless assignment %7
+removing useless assignment %8
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+3 liveVars - Number of useless assignments found.
+

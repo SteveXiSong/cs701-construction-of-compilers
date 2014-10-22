@@ -1,0 +1,41 @@
+
+FUNCTION main
+
+BASIC BLOCK entry
+%1:	alloca	 XXX
+%2:	alloca	 XXX
+%3:	alloca	 XXX
+%4:	alloca	 XXX
+%5:	alloca	 XXX
+%6:	alloca	 XXX
+%7:	alloca	 XXX
+%8:	alloca	 XXX
+%9:	alloca	 XXX
+%10:	call	 XXX %1 __isoc99_scanf
+%11:	load	 %1
+%12:	store	 %11 %2
+%13:	load	 %2
+%14:	add	 %13 XXX
+%15:	store	 %14 %3
+%16:	call	 XXX %7 __isoc99_scanf
+%17:	load	 %2
+%18:	add	 %17 XXX
+%19:	store	 %18 %4
+%20:	call	 XXX %8 __isoc99_scanf
+%21:	load	 %2
+%22:	add	 %21 XXX
+%23:	store	 %22 %5
+%24:	call	 XXX %9 __isoc99_scanf
+%25:	load	 %3
+%26:	load	 %4
+%27:	add	 %25 %26
+%28:	load	 %5
+%29:	add	 %27 %28
+%30:	store	 %29 %1
+%31:	load	 %1
+%32:	load	 %2
+%33:	load	 %3
+%34:	load	 %4
+%35:	load	 %5
+%36:	call	 XXX %31 %32 %33 %34 %35 printf
+%37:	ret	 XXX

@@ -1,0 +1,47 @@
+
+BASIC BLOCK entry
+%1:	br	 while.cond
+
+BASIC BLOCK while.cond
+%3:	br	 %2 while.end while.body
+%2:	icmp	 XXX XXX
+
+BASIC BLOCK while.body
+%5:	br	 %4 if.else if.then
+%4:	icmp	 XXX XXX
+
+BASIC BLOCK if.then
+%6:	br	 if.end
+
+BASIC BLOCK if.else
+%7:	br	 if.end
+
+BASIC BLOCK if.end
+%8:	br	 while.cond
+
+BASIC BLOCK while.end
+%9:	ret	 XXX
+FUNCTION main
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%1:   L-Before: { }	L-After: { }
+
+BASIC BLOCK while.cond  L-Before: { }  L-After: { }
+%2:   L-Before: { }	L-After: { %2 }
+%3:   L-Before: { %2 }	L-After: { }
+
+BASIC BLOCK while.body  L-Before: { }  L-After: { }
+%4:   L-Before: { }	L-After: { %4 }
+%5:   L-Before: { %4 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%6:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else  L-Before: { }  L-After: { }
+%7:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%8:   L-Before: { }	L-After: { }
+
+BASIC BLOCK while.end  L-Before: { }  L-After: { }
+%9:   L-Before: { }	L-After: { }

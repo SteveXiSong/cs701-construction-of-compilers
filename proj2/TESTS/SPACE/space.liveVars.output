@@ -1,0 +1,158 @@
+FUNCTION gnu_dev_major
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:1   L-Before: { }	L-After: { %1 }
+%:2   L-Before: { %1 }	L-After: { %2 }
+%:3   L-Before: { %2 }	L-After: { %2 %3 }
+%:4   L-Before: { %2 %3 }	L-After: { %2 %4 }
+%:5   L-Before: { %2 %4 }	L-After: { %2 %5 }
+%:6   L-Before: { %2 %5 }	L-After: { %2 %6 }
+%:7   L-Before: { %2 %6 }	L-After: { %7 }
+%:8   L-Before: { %7 }	L-After: { %8 }
+%:9   L-Before: { %8 }	L-After: { }
+
+FUNCTION gnu_dev_minor
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:10   L-Before: { }	L-After: { %10 }
+%:11   L-Before: { %10 }	L-After: { %10 %11 }
+%:12   L-Before: { %10 %11 }	L-After: { %10 %12 }
+%:13   L-Before: { %10 %12 }	L-After: { %10 %13 }
+%:14   L-Before: { %10 %13 }	L-After: { %10 %14 }
+%:15   L-Before: { %10 %14 }	L-After: { %15 }
+%:16   L-Before: { %15 }	L-After: { %16 }
+%:17   L-Before: { %16 }	L-After: { }
+
+FUNCTION gnu_dev_makedev
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:18   L-Before: { }	L-After: { %18 }
+%:19   L-Before: { %18 }	L-After: { %18 %19 }
+%:20   L-Before: { %18 %19 }	L-After: { %18 %20 }
+%:21   L-Before: { %18 %20 }	L-After: { %21 }
+%:22   L-Before: { %21 }	L-After: { %22 }
+%:23   L-Before: { %22 }	L-After: { %22 %23 }
+%:24   L-Before: { %22 %23 }	L-After: { %22 %24 }
+%:25   L-Before: { %22 %24 }	L-After: { %22 %25 }
+%:26   L-Before: { %22 %25 }	L-After: { %26 }
+%:27   L-Before: { %26 }	L-After: { %26 %27 }
+%:28   L-Before: { %26 %27 }	L-After: { %26 %28 }
+%:29   L-Before: { %26 %28 }	L-After: { %26 %29 }
+%:30   L-Before: { %26 %29 }	L-After: { %30 }
+%:31   L-Before: { %30 }	L-After: { }
+
+FUNCTION main
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:32   L-Before: { }	L-After: { %32 }
+%:33   L-Before: { %32 }	L-After: { %32 %33 }
+%:34   L-Before: { %32 %33 }	L-After: { %32 %33 %34 }
+%:35   L-Before: { %32 %33 %34 }	L-After: { %32 %33 %34 %35 }
+%:36   L-Before: { %32 %33 %34 %35 }	L-After: { %32 %33 %34 %35 }
+%:37   L-Before: { %32 %33 %34 %35 }	L-After: { %33 %34 %35 }
+%:38   L-Before: { %33 %34 %35 }	L-After: { %34 %35 }
+%:39   L-Before: { %34 %35 }	L-After: { %35 }
+%:40   L-Before: { %35 }	L-After: { }
+%:41   L-Before: { }	L-After: { %41 }
+%:42   L-Before: { %41 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%:43   L-Before: { }	L-After: { }
+%:44   L-Before: { }	L-After: { }
+%:45   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%:46   L-Before: { %32 %33 %36 }	L-After: { %32 %33 %36 %46 }
+%:47   L-Before: { %32 %33 %36 %46 }	L-After: { %32 %33 %36 %47 }
+%:48   L-Before: { %32 %33 %36 %47 }	L-After: { %32 %33 %36 }
+%:49   L-Before: { %32 %33 %36 }	L-After: { %32 %33 %36 }
+%:50   L-Before: { %32 %33 %36 }	L-After: { %32 %33 %36 %50 }
+%:51   L-Before: { %32 %33 %36 %50 }	L-After: { %32 %33 %36 }
+%:52   L-Before: { %32 %33 %36 }	L-After: { %32 %33 %52 }
+%:53   L-Before: { %32 %33 %52 }	L-After: { %53 }
+%:54   L-Before: { %53 }	L-After: { %54 }
+%:55   L-Before: { %54 }	L-After: { }
+
+BASIC BLOCK if.then5  L-Before: { }  L-After: { }
+%:56   L-Before: { }	L-After: { }
+%:57   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end6  L-Before: { }  L-After: { }
+%:58   L-Before: { %32 %34 %35 }	L-After: { %32 %34 %35 %58 }
+%:59   L-Before: { %32 %34 %35 %58 }	L-After: { %32 %34 %35 }
+%:60   L-Before: { %32 %34 %35 }	L-After: { %34 %35 %60 }
+%:61   L-Before: { %34 %35 %60 }	L-After: { %61 }
+%:62   L-Before: { %61 }	L-After: { %61 }
+%:63   L-Before: { %61 }	L-After: { %63 }
+%:64   L-Before: { %63 }	L-After: { }
+
+BASIC BLOCK if.then9  L-Before: { }  L-After: { }
+%:65   L-Before: { }	L-After: { }
+%:66   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end10  L-Before: { }  L-After: { }
+%:67   L-Before: { %35 }	L-After: { %67 }
+%:68   L-Before: { %67 }	L-After: { %68 }
+%:69   L-Before: { %68 }	L-After: { %69 }
+%:70   L-Before: { %69 }	L-After: { }
+
+BASIC BLOCK if.then12  L-Before: { }  L-After: { }
+%:71   L-Before: { }	L-After: { }
+%:72   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end13  L-Before: { }  L-After: { }
+%:73   L-Before: { %35 }	L-After: { %73 }
+%:74   L-Before: { %73 }	L-After: { %74 }
+%:75   L-Before: { %74 }	L-After: { %75 }
+%:76   L-Before: { %75 }	L-After: { }
+
+BASIC BLOCK if.then16  L-Before: { }  L-After: { }
+%:77   L-Before: { }	L-After: { }
+%:78   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end17  L-Before: { }  L-After: { }
+%:79   L-Before: { %35 }	L-After: { %79 }
+%:80   L-Before: { %79 }	L-After: { %80 }
+%:81   L-Before: { %80 }	L-After: { %81 }
+%:82   L-Before: { %81 }	L-After: { }
+
+BASIC BLOCK if.then20  L-Before: { }  L-After: { }
+%:83   L-Before: { }	L-After: { }
+%:84   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end21  L-Before: { }  L-After: { }
+%:85   L-Before: { %35 %36 }	L-After: { %35 %36 %85 }
+%:86   L-Before: { %35 %36 %85 }	L-After: { %35 %36 }
+%:87   L-Before: { %35 %36 }	L-After: { %35 %36 }
+%:88   L-Before: { %35 %36 }	L-After: { %36 %88 }
+%:89   L-Before: { %36 %88 }	L-After: { %88 %89 }
+%:90   L-Before: { %88 %89 }	L-After: { }
+%:91   L-Before: { }	L-After: { }
+
+removing useless assignment %36
+While deleting: [31 x i8]* %fn
+Use still stuck around after Def is destroyed:  %arraydecay23 = getelementptr inbounds [31 x i8]* %fn, i32 0, i32 0
+Use still stuck around after Def is destroyed:  %arraydecay2 = getelementptr inbounds [31 x i8]* %fn, i32 0, i32 0
+Use still stuck around after Def is destroyed:  %arraydecay = getelementptr inbounds [31 x i8]* %fn, i32 0, i32 0
+opt: /tmp/ll/llvm-3.3.src/lib/IR/Value.cpp:79: virtual llvm::Value::~Value(): Assertion `use_empty() && "Uses remain when a value is destroyed!"' failed.
+0  libLLVM-3.3.so  0x00007fa297b08362 llvm::sys::PrintStackTrace(_IO_FILE*) + 34
+1  libLLVM-3.3.so  0x00007fa297b0a2da
+2  libpthread.so.0 0x0000003adc00f710
+3  libc.so.6       0x0000003adb432635 gsignal + 53
+4  libc.so.6       0x0000003adb433e15 abort + 373
+5  libc.so.6       0x0000003adb42b75e
+6  libc.so.6       0x0000003adb42b820 __assert_perror_fail + 0
+7  libLLVM-3.3.so  0x00007fa29745186f
+8  libLLVM-3.3.so  0x00007fa297412b49 llvm::AllocaInst::~AllocaInst() + 9
+9  P2.so           0x00007fa296884cba
+10 libLLVM-3.3.so  0x00007fa297439e08 llvm::FPPassManager::runOnFunction(llvm::Function&) + 568
+11 libLLVM-3.3.so  0x00007fa297439eeb llvm::FPPassManager::runOnModule(llvm::Module&) + 43
+12 libLLVM-3.3.so  0x00007fa29743988a llvm::MPPassManager::runOnModule(llvm::Module&) + 666
+13 libLLVM-3.3.so  0x00007fa297439ab7 llvm::PassManagerImpl::run(llvm::Module&) + 247
+14 opt             0x000000000041a567 main + 5607
+15 libc.so.6       0x0000003adb41ed5d __libc_start_main + 253
+16 opt             0x000000000040bc99
+Stack dump:
+0.	Program arguments: opt -load Debug/lib/P2.so -liveVars TESTS/SPACE/space.bc -o TESTS/SPACE/space.liveVars 
+1.	Running pass 'Function Pass Manager' on module 'TESTS/SPACE/space.bc'.
+2.	Running pass 'live vars analysis' on function '@main'

@@ -1,0 +1,826 @@
+
+FUNCTION new_ele
+
+BASIC BLOCK entry
+%1:	alloca	 XXX
+%2:	alloca	 XXX
+%3:	store	 new_num %1
+%4:	call	 XXX malloc
+%5:	bitcast	 %4
+%6:	store	 %5 %2
+%7:	load	 %2
+%8:	getelementptr	 %7 XXX XXX
+%9:	store	 XXX %8
+%10:	load	 %2
+%11:	getelementptr	 %10 XXX XXX
+%12:	store	 XXX %11
+%13:	load	 %1
+%14:	load	 %2
+%15:	getelementptr	 %14 XXX XXX
+%16:	store	 %13 %15
+%17:	load	 %2
+%18:	ret	 %17
+
+FUNCTION new_list
+
+BASIC BLOCK entry
+%19:	alloca	 XXX
+%20:	call	 XXX malloc
+%21:	bitcast	 %20
+%22:	store	 %21 %19
+%23:	load	 %19
+%24:	getelementptr	 %23 XXX XXX
+%25:	store	 XXX %24
+%26:	load	 %19
+%27:	getelementptr	 %26 XXX XXX
+%28:	store	 XXX %27
+%29:	load	 %19
+%30:	getelementptr	 %29 XXX XXX
+%31:	store	 XXX %30
+%32:	load	 %19
+%33:	ret	 %32
+
+FUNCTION append_ele
+
+BASIC BLOCK entry
+%34:	alloca	 XXX
+%35:	alloca	 XXX
+%36:	store	 a_list %34
+%37:	store	 a_ele %35
+%38:	load	 %34
+%39:	icmp	 %38 XXX
+%40:	br	 %39 if.then if.end
+
+BASIC BLOCK if.then
+%41:	call	 new_list
+%42:	store	 %41 %34
+%43:	br	 if.end
+
+BASIC BLOCK if.end
+%44:	load	 %34
+%45:	getelementptr	 %44 XXX XXX
+%46:	load	 %45
+%47:	load	 %35
+%48:	getelementptr	 %47 XXX XXX
+%49:	store	 %46 %48
+%50:	load	 %34
+%51:	getelementptr	 %50 XXX XXX
+%52:	load	 %51
+%53:	icmp	 %52 XXX
+%54:	br	 %53 if.else if.then3
+
+BASIC BLOCK if.then3
+%55:	load	 %35
+%56:	load	 %34
+%57:	getelementptr	 %56 XXX XXX
+%58:	load	 %57
+%59:	getelementptr	 %58 XXX XXX
+%60:	store	 %55 %59
+%61:	br	 if.end5
+
+BASIC BLOCK if.else
+%62:	load	 %35
+%63:	load	 %34
+%64:	getelementptr	 %63 XXX XXX
+%65:	store	 %62 %64
+%66:	br	 if.end5
+
+BASIC BLOCK if.end5
+%67:	load	 %35
+%68:	load	 %34
+%69:	getelementptr	 %68 XXX XXX
+%70:	store	 %67 %69
+%71:	load	 %35
+%72:	getelementptr	 %71 XXX XXX
+%73:	store	 XXX %72
+%74:	load	 %34
+%75:	getelementptr	 %74 XXX XXX
+%76:	load	 %75
+%77:	add	 %76 XXX
+%78:	store	 %77 %75
+%79:	load	 %34
+%80:	ret	 %79
+
+FUNCTION find_nth
+
+BASIC BLOCK entry
+%81:	alloca	 XXX
+%82:	alloca	 XXX
+%83:	alloca	 XXX
+%84:	alloca	 XXX
+%85:	alloca	 XXX
+%86:	store	 f_list %82
+%87:	store	 n %83
+%88:	load	 %82
+%89:	icmp	 %88 XXX
+%90:	br	 %89 if.then if.end
+
+BASIC BLOCK if.then
+%91:	store	 XXX %81
+%92:	br	 return
+
+BASIC BLOCK if.end
+%93:	load	 %82
+%94:	getelementptr	 %93 XXX XXX
+%95:	load	 %94
+%96:	store	 %95 %84
+%97:	store	 XXX %85
+%98:	br	 for.cond
+
+BASIC BLOCK for.cond
+%99:	load	 %84
+%100:	icmp	 %99 XXX
+%101:	br	 %100 land.end land.rhs
+
+BASIC BLOCK land.rhs
+%102:	load	 %85
+%103:	load	 %83
+%104:	icmp	 %102 %103
+%105:	br	 land.end
+
+BASIC BLOCK land.end
+%106:	phi	 XXX %104
+%107:	br	 %106 for.end for.body
+
+BASIC BLOCK for.body
+%108:	load	 %84
+%109:	getelementptr	 %108 XXX XXX
+%110:	load	 %109
+%111:	store	 %110 %84
+%112:	br	 for.inc
+
+BASIC BLOCK for.inc
+%113:	load	 %85
+%114:	add	 %113 XXX
+%115:	store	 %114 %85
+%116:	br	 for.cond
+
+BASIC BLOCK for.end
+%117:	load	 %84
+%118:	store	 %117 %81
+%119:	br	 return
+
+BASIC BLOCK return
+%120:	load	 %81
+%121:	ret	 %120
+
+FUNCTION del_ele
+
+BASIC BLOCK entry
+%122:	alloca	 XXX
+%123:	alloca	 XXX
+%124:	alloca	 XXX
+%125:	store	 d_list %123
+%126:	store	 d_ele %124
+%127:	load	 %123
+%128:	icmp	 %127 XXX
+%129:	br	 %128 if.then lor.lhs.false
+
+BASIC BLOCK lor.lhs.false
+%130:	load	 %124
+%131:	icmp	 %130 XXX
+%132:	br	 %131 if.then if.end
+
+BASIC BLOCK if.then
+%133:	store	 XXX %122
+%134:	br	 return
+
+BASIC BLOCK if.end
+%135:	load	 %124
+%136:	getelementptr	 %135 XXX XXX
+%137:	load	 %136
+%138:	icmp	 %137 XXX
+%139:	br	 %138 if.else if.then3
+
+BASIC BLOCK if.then3
+%140:	load	 %124
+%141:	getelementptr	 %140 XXX XXX
+%142:	load	 %141
+%143:	load	 %124
+%144:	getelementptr	 %143 XXX XXX
+%145:	load	 %144
+%146:	getelementptr	 %145 XXX XXX
+%147:	store	 %142 %146
+%148:	br	 if.end7
+
+BASIC BLOCK if.else
+%149:	load	 %124
+%150:	getelementptr	 %149 XXX XXX
+%151:	load	 %150
+%152:	load	 %123
+%153:	getelementptr	 %152 XXX XXX
+%154:	store	 %151 %153
+%155:	br	 if.end7
+
+BASIC BLOCK if.end7
+%156:	load	 %124
+%157:	getelementptr	 %156 XXX XXX
+%158:	load	 %157
+%159:	icmp	 %158 XXX
+%160:	br	 %159 if.else14 if.then10
+
+BASIC BLOCK if.then10
+%161:	load	 %124
+%162:	getelementptr	 %161 XXX XXX
+%163:	load	 %162
+%164:	load	 %124
+%165:	getelementptr	 %164 XXX XXX
+%166:	load	 %165
+%167:	getelementptr	 %166 XXX XXX
+%168:	store	 %163 %167
+%169:	br	 if.end16
+
+BASIC BLOCK if.else14
+%170:	load	 %124
+%171:	getelementptr	 %170 XXX XXX
+%172:	load	 %171
+%173:	load	 %123
+%174:	getelementptr	 %173 XXX XXX
+%175:	store	 %172 %174
+%176:	br	 if.end16
+
+BASIC BLOCK if.end16
+%177:	load	 %123
+%178:	getelementptr	 %177 XXX XXX
+%179:	load	 %178
+%180:	add	 %179 XXX
+%181:	store	 %180 %178
+%182:	load	 %123
+%183:	store	 %182 %122
+%184:	br	 return
+
+BASIC BLOCK return
+%185:	load	 %122
+%186:	ret	 %185
+
+FUNCTION free_ele
+
+BASIC BLOCK entry
+%187:	alloca	 XXX
+%188:	store	 ptr %187
+%189:	load	 %187
+%190:	bitcast	 %189
+%191:	call	 %190 free
+%192:	ret	
+
+FUNCTION finish_process
+
+BASIC BLOCK entry
+%193:	call	 schedule
+%194:	load	 cur_proc
+%195:	icmp	 %194 XXX
+%196:	br	 %195 if.end if.then
+
+BASIC BLOCK if.then
+%197:	load	 stdout
+%198:	load	 cur_proc
+%199:	getelementptr	 %198 XXX XXX
+%200:	load	 %199
+%201:	call	 %197 XXX %200 fprintf
+%202:	load	 cur_proc
+%203:	call	 %202 free_ele
+%204:	load	 num_processes
+%205:	add	 %204 XXX
+%206:	store	 %205 num_processes
+%207:	br	 if.end
+
+BASIC BLOCK if.end
+%208:	ret	
+
+FUNCTION finish_all_processes
+
+BASIC BLOCK entry
+%209:	alloca	 XXX
+%210:	alloca	 XXX
+%211:	load	 num_processes
+%212:	store	 %211 %210
+%213:	store	 XXX %209
+%214:	br	 for.cond
+
+BASIC BLOCK for.cond
+%215:	load	 %209
+%216:	load	 %210
+%217:	icmp	 %215 %216
+%218:	br	 %217 for.end for.body
+
+BASIC BLOCK for.body
+%219:	call	 finish_process
+%220:	br	 for.inc
+
+BASIC BLOCK for.inc
+%221:	load	 %209
+%222:	add	 %221 XXX
+%223:	store	 %222 %209
+%224:	br	 for.cond
+
+BASIC BLOCK for.end
+%225:	ret	
+
+FUNCTION schedule
+
+BASIC BLOCK entry
+%226:	alloca	 XXX
+%227:	store	 XXX cur_proc
+%228:	store	 XXX %226
+%229:	br	 for.cond
+
+BASIC BLOCK for.cond
+%230:	load	 %226
+%231:	icmp	 %230 XXX
+%232:	br	 %231 for.end for.body
+
+BASIC BLOCK for.body
+%233:	load	 %226
+%234:	sext	 %233
+%235:	getelementptr	 prio_queue XXX %234
+%236:	load	 %235
+%237:	getelementptr	 %236 XXX XXX
+%238:	load	 %237
+%239:	icmp	 %238 XXX
+%240:	br	 %239 if.end if.then
+
+BASIC BLOCK if.then
+%241:	load	 %226
+%242:	sext	 %241
+%243:	getelementptr	 prio_queue XXX %242
+%244:	load	 %243
+%245:	getelementptr	 %244 XXX XXX
+%246:	load	 %245
+%247:	store	 %246 cur_proc
+%248:	load	 %226
+%249:	sext	 %248
+%250:	getelementptr	 prio_queue XXX %249
+%251:	load	 %250
+%252:	load	 cur_proc
+%253:	call	 %251 %252 del_ele
+%254:	load	 %226
+%255:	sext	 %254
+%256:	getelementptr	 prio_queue XXX %255
+%257:	store	 %253 %256
+%258:	br	 for.end
+
+BASIC BLOCK if.end
+%259:	br	 for.inc
+
+BASIC BLOCK for.inc
+%260:	load	 %226
+%261:	add	 %260 XXX
+%262:	store	 %261 %226
+%263:	br	 for.cond
+
+BASIC BLOCK for.end
+%264:	ret	
+
+FUNCTION upgrade_process_prio
+
+BASIC BLOCK entry
+%265:	alloca	 XXX
+%266:	alloca	 XXX
+%267:	alloca	 XXX
+%268:	alloca	 XXX
+%269:	alloca	 XXX
+%270:	alloca	 XXX
+%271:	alloca	 XXX
+%272:	store	 prio %265
+%273:	fptrunc	 XXX
+%274:	store	 %273 %266
+%275:	load	 %265
+%276:	icmp	 %275 XXX
+%277:	br	 %276 if.end if.then
+
+BASIC BLOCK if.then
+%278:	br	 if.end12
+
+BASIC BLOCK if.end
+%279:	load	 %265
+%280:	sext	 %279
+%281:	getelementptr	 prio_queue XXX %280
+%282:	load	 %281
+%283:	store	 %282 %270
+%284:	load	 %265
+%285:	add	 %284 XXX
+%286:	sext	 %285
+%287:	getelementptr	 prio_queue XXX %286
+%288:	load	 %287
+%289:	store	 %288 %271
+%290:	load	 %270
+%291:	getelementptr	 %290 XXX XXX
+%292:	load	 %291
+%293:	store	 %292 %267
+%294:	load	 %267
+%295:	icmp	 %294 XXX
+%296:	br	 %295 if.end12 if.then4
+
+BASIC BLOCK if.then4
+%297:	load	 %267
+%298:	sitofp	 %297
+%299:	load	 %266
+%300:	fmul	 %298 %299
+%301:	fadd	 %300 XXX
+%302:	fptosi	 %301
+%303:	store	 %302 %268
+%304:	load	 %270
+%305:	load	 %268
+%306:	call	 %304 %305 find_nth
+%307:	store	 %306 %269
+%308:	load	 %269
+%309:	icmp	 %308 XXX
+%310:	br	 %309 if.end11 if.then7
+
+BASIC BLOCK if.then7
+%311:	load	 %270
+%312:	load	 %269
+%313:	call	 %311 %312 del_ele
+%314:	store	 %313 %270
+%315:	load	 %265
+%316:	trunc	 %315
+%317:	load	 %269
+%318:	getelementptr	 %317 XXX XXX
+%319:	store	 %316 %318
+%320:	load	 %271
+%321:	load	 %269
+%322:	call	 %320 %321 append_ele
+%323:	store	 %322 %271
+%324:	br	 if.end11
+
+BASIC BLOCK if.end11
+%325:	br	 if.end12
+
+BASIC BLOCK if.end12
+%326:	ret	
+
+FUNCTION unblock_process
+
+BASIC BLOCK entry
+%327:	alloca	 XXX
+%328:	alloca	 XXX
+%329:	alloca	 XXX
+%330:	alloca	 XXX
+%331:	alloca	 XXX
+%332:	fptrunc	 XXX
+%333:	store	 %332 %327
+%334:	load	 block_queue
+%335:	icmp	 %334 XXX
+%336:	br	 %335 if.end9 if.then
+
+BASIC BLOCK if.then
+%337:	load	 block_queue
+%338:	getelementptr	 %337 XXX XXX
+%339:	load	 %338
+%340:	store	 %339 %328
+%341:	load	 %328
+%342:	sitofp	 %341
+%343:	load	 %327
+%344:	fmul	 %342 %343
+%345:	fadd	 %344 XXX
+%346:	fptosi	 %345
+%347:	store	 %346 %329
+%348:	load	 block_queue
+%349:	load	 %329
+%350:	call	 %348 %349 find_nth
+%351:	store	 %350 %330
+%352:	load	 %330
+%353:	icmp	 %352 XXX
+%354:	br	 %353 if.end if.then3
+
+BASIC BLOCK if.then3
+%355:	load	 block_queue
+%356:	load	 %330
+%357:	call	 %355 %356 del_ele
+%358:	store	 %357 block_queue
+%359:	load	 %330
+%360:	getelementptr	 %359 XXX XXX
+%361:	load	 %360
+%362:	sext	 %361
+%363:	store	 %362 %331
+%364:	load	 %331
+%365:	sext	 %364
+%366:	getelementptr	 prio_queue XXX %365
+%367:	load	 %366
+%368:	load	 %330
+%369:	call	 %367 %368 append_ele
+%370:	load	 %331
+%371:	sext	 %370
+%372:	getelementptr	 prio_queue XXX %371
+%373:	store	 %369 %372
+%374:	br	 if.end
+
+BASIC BLOCK if.end
+%375:	br	 if.end9
+
+BASIC BLOCK if.end9
+%376:	ret	
+
+FUNCTION quantum_expire
+
+BASIC BLOCK entry
+%377:	alloca	 XXX
+%378:	call	 schedule
+%379:	load	 cur_proc
+%380:	icmp	 %379 XXX
+%381:	br	 %380 if.end if.then
+
+BASIC BLOCK if.then
+%382:	load	 cur_proc
+%383:	getelementptr	 %382 XXX XXX
+%384:	load	 %383
+%385:	sext	 %384
+%386:	store	 %385 %377
+%387:	load	 %377
+%388:	sext	 %387
+%389:	getelementptr	 prio_queue XXX %388
+%390:	load	 %389
+%391:	load	 cur_proc
+%392:	call	 %390 %391 append_ele
+%393:	load	 %377
+%394:	sext	 %393
+%395:	getelementptr	 prio_queue XXX %394
+%396:	store	 %392 %395
+%397:	br	 if.end
+
+BASIC BLOCK if.end
+%398:	ret	
+
+FUNCTION block_process
+
+BASIC BLOCK entry
+%399:	call	 schedule
+%400:	load	 cur_proc
+%401:	icmp	 %400 XXX
+%402:	br	 %401 if.end if.then
+
+BASIC BLOCK if.then
+%403:	load	 block_queue
+%404:	load	 cur_proc
+%405:	call	 %403 %404 append_ele
+%406:	store	 %405 block_queue
+%407:	br	 if.end
+
+BASIC BLOCK if.end
+%408:	ret	
+
+FUNCTION new_process
+
+BASIC BLOCK entry
+%409:	alloca	 XXX
+%410:	alloca	 XXX
+%411:	store	 prio %409
+%412:	load	 alloc_proc_num
+%413:	add	 %412 XXX
+%414:	store	 %413 alloc_proc_num
+%415:	call	 %412 new_ele
+%416:	store	 %415 %410
+%417:	load	 %409
+%418:	trunc	 %417
+%419:	load	 %410
+%420:	getelementptr	 %419 XXX XXX
+%421:	store	 %418 %420
+%422:	load	 num_processes
+%423:	add	 %422 XXX
+%424:	store	 %423 num_processes
+%425:	load	 %410
+%426:	ret	 %425
+
+FUNCTION add_process
+
+BASIC BLOCK entry
+%427:	alloca	 XXX
+%428:	alloca	 XXX
+%429:	store	 prio %427
+%430:	load	 %427
+%431:	call	 %430 new_process
+%432:	store	 %431 %428
+%433:	load	 %427
+%434:	sext	 %433
+%435:	getelementptr	 prio_queue XXX %434
+%436:	load	 %435
+%437:	load	 %428
+%438:	call	 %436 %437 append_ele
+%439:	load	 %427
+%440:	sext	 %439
+%441:	getelementptr	 prio_queue XXX %440
+%442:	store	 %438 %441
+%443:	ret	
+
+FUNCTION init_prio_queue
+
+BASIC BLOCK entry
+%444:	alloca	 XXX
+%445:	alloca	 XXX
+%446:	alloca	 XXX
+%447:	alloca	 XXX
+%448:	alloca	 XXX
+%449:	store	 prio %444
+%450:	store	 num_proc %445
+%451:	call	 new_list
+%452:	store	 %451 %446
+%453:	store	 XXX %448
+%454:	br	 for.cond
+
+BASIC BLOCK for.cond
+%455:	load	 %448
+%456:	load	 %445
+%457:	icmp	 %455 %456
+%458:	br	 %457 for.end for.body
+
+BASIC BLOCK for.body
+%459:	load	 %444
+%460:	call	 %459 new_process
+%461:	store	 %460 %447
+%462:	load	 %446
+%463:	load	 %447
+%464:	call	 %462 %463 append_ele
+%465:	store	 %464 %446
+%466:	br	 for.inc
+
+BASIC BLOCK for.inc
+%467:	load	 %448
+%468:	add	 %467 XXX
+%469:	store	 %468 %448
+%470:	br	 for.cond
+
+BASIC BLOCK for.end
+%471:	load	 %446
+%472:	load	 %444
+%473:	sext	 %472
+%474:	getelementptr	 prio_queue XXX %473
+%475:	store	 %471 %474
+%476:	ret	
+
+FUNCTION initialize
+
+BASIC BLOCK entry
+%477:	store	 XXX alloc_proc_num
+%478:	store	 XXX num_processes
+%479:	ret	
+
+FUNCTION main
+
+BASIC BLOCK entry
+%480:	alloca	 XXX
+%481:	alloca	 XXX
+%482:	alloca	 XXX
+%483:	alloca	 XXX
+%484:	alloca	 XXX
+%485:	alloca	 XXX
+%486:	alloca	 XXX
+%487:	store	 XXX %480
+%488:	store	 argc %481
+%489:	store	 argv %482
+%490:	load	 %481
+%491:	icmp	 %490 XXX
+%492:	br	 %491 if.end if.then
+
+BASIC BLOCK if.then
+%493:	load	 stdout
+%494:	call	 %493 XXX fprintf
+%495:	store	 XXX %480
+%496:	br	 return
+
+BASIC BLOCK if.end
+%497:	call	 initialize
+%498:	store	 XXX %484
+%499:	br	 for.cond
+
+BASIC BLOCK for.cond
+%500:	load	 %484
+%501:	icmp	 %500 XXX
+%502:	br	 %501 for.end for.body
+
+BASIC BLOCK for.body
+%503:	load	 %484
+%504:	load	 %484
+%505:	sext	 %504
+%506:	load	 %482
+%507:	getelementptr	 %506 %505
+%508:	load	 %507
+%509:	call	 %508 atoi
+%510:	call	 %503 %509 init_prio_queue
+%511:	br	 for.inc
+
+BASIC BLOCK for.inc
+%512:	load	 %484
+%513:	add	 %512 XXX
+%514:	store	 %513 %484
+%515:	br	 for.cond
+
+BASIC BLOCK for.end
+%516:	load	 stdin
+%517:	call	 %516 XXX %483 __isoc99_fscanf
+%518:	store	 %517 %486
+%519:	br	 for.cond4
+
+BASIC BLOCK for.cond4
+%520:	load	 %486
+%521:	icmp	 %520 XXX
+%522:	br	 %521 land.end land.rhs
+
+BASIC BLOCK land.rhs
+%523:	load	 %486
+%524:	icmp	 %523 XXX
+%525:	br	 land.end
+
+BASIC BLOCK land.end
+%526:	phi	 XXX %524
+%527:	br	 %526 for.end36 for.body6
+
+BASIC BLOCK for.body6
+%528:	load	 %483
+%529:	switch	 %528 sw.epilog XXX sw.bb XXX sw.bb7 XXX sw.bb8 XXX sw.bb9 XXX sw.bb11 XXX sw.bb22 XXX sw.bb33
+
+BASIC BLOCK sw.bb
+%530:	call	 finish_process
+%531:	br	 sw.epilog
+
+BASIC BLOCK sw.bb7
+%532:	call	 block_process
+%533:	br	 sw.epilog
+
+BASIC BLOCK sw.bb8
+%534:	call	 quantum_expire
+%535:	br	 sw.epilog
+
+BASIC BLOCK sw.bb9
+%536:	load	 stdin
+%537:	call	 %536 XXX %485 __isoc99_fscanf
+%538:	load	 %485
+%539:	fpext	 %538
+%540:	call	 %539 unblock_process
+%541:	br	 sw.epilog
+
+BASIC BLOCK sw.bb11
+%542:	load	 stdin
+%543:	call	 %542 XXX %484 __isoc99_fscanf
+%544:	load	 stdin
+%545:	call	 %544 XXX %485 __isoc99_fscanf
+%546:	load	 %484
+%547:	icmp	 %546 XXX
+%548:	br	 %547 lor.lhs.false if.then18
+
+BASIC BLOCK lor.lhs.false
+%549:	load	 %484
+%550:	icmp	 %549 XXX
+%551:	br	 %550 if.else if.then18
+
+BASIC BLOCK if.then18
+%552:	load	 stdout
+%553:	call	 %552 XXX fprintf
+%554:	store	 XXX %480
+%555:	br	 return
+
+BASIC BLOCK if.else
+%556:	load	 %484
+%557:	load	 %485
+%558:	fpext	 %557
+%559:	call	 %556 %558 upgrade_process_prio
+%560:	br	 if.end21
+
+BASIC BLOCK if.end21
+%561:	br	 sw.epilog
+
+BASIC BLOCK sw.bb22
+%562:	load	 stdin
+%563:	call	 %562 XXX %484 __isoc99_fscanf
+%564:	load	 %484
+%565:	icmp	 %564 XXX
+%566:	br	 %565 lor.lhs.false26 if.then29
+
+BASIC BLOCK lor.lhs.false26
+%567:	load	 %484
+%568:	icmp	 %567 XXX
+%569:	br	 %568 if.else31 if.then29
+
+BASIC BLOCK if.then29
+%570:	load	 stdout
+%571:	call	 %570 XXX fprintf
+%572:	store	 XXX %480
+%573:	br	 return
+
+BASIC BLOCK if.else31
+%574:	load	 %484
+%575:	call	 %574 add_process
+%576:	br	 if.end32
+
+BASIC BLOCK if.end32
+%577:	br	 sw.epilog
+
+BASIC BLOCK sw.bb33
+%578:	call	 finish_all_processes
+%579:	br	 sw.epilog
+
+BASIC BLOCK sw.epilog
+%580:	br	 for.inc34
+
+BASIC BLOCK for.inc34
+%581:	load	 stdin
+%582:	call	 %581 XXX %483 __isoc99_fscanf
+%583:	store	 %582 %486
+%584:	br	 for.cond4
+
+BASIC BLOCK for.end36
+%585:	store	 XXX %480
+%586:	br	 return
+
+BASIC BLOCK return
+%587:	load	 %480
+%588:	ret	 %587

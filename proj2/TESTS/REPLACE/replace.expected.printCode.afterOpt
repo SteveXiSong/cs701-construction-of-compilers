@@ -1,0 +1,1430 @@
+
+FUNCTION mygetline
+
+BASIC BLOCK entry
+%1:	load	 stdin
+%2:	call	 s maxsize %1 fgets
+%3:	icmp	 %2 XXX
+%4:	zext	 %3
+%5:	trunc	 %4
+%6:	ret	 %5
+
+FUNCTION addstr
+
+BASIC BLOCK entry
+%7:	trunc	 XXX
+%8:	load	 j
+%9:	icmp	 %8 maxset
+%10:	br	 %9 if.else if.then
+
+BASIC BLOCK if.then
+%11:	br	 if.end
+
+BASIC BLOCK if.else
+%12:	load	 j
+%13:	sext	 %12
+%14:	getelementptr	 outset %13
+%15:	store	 %7 %14
+%16:	load	 j
+%17:	add	 %16 XXX
+%18:	store	 %17 j
+%19:	br	 if.end
+
+BASIC BLOCK if.end
+%20:	phi	 XXX XXX
+%21:	sext	 %20
+%22:	ret	 %21
+
+FUNCTION esc
+
+BASIC BLOCK entry
+%23:	load	 i
+%24:	sext	 %23
+%25:	getelementptr	 s %24
+%26:	load	 %25
+%27:	sext	 %26
+%28:	icmp	 %27 XXX
+%29:	br	 %28 if.else if.then
+
+BASIC BLOCK if.then
+%30:	load	 i
+%31:	sext	 %30
+%32:	getelementptr	 s %31
+%33:	load	 %32
+%34:	br	 if.end30
+
+BASIC BLOCK if.else
+%35:	load	 i
+%36:	add	 %35 XXX
+%37:	sext	 %36
+%38:	getelementptr	 s %37
+%39:	load	 %38
+%40:	sext	 %39
+%41:	icmp	 %40 XXX
+%42:	br	 %41 if.else10 if.then9
+
+BASIC BLOCK if.then9
+%43:	br	 if.end29
+
+BASIC BLOCK if.else10
+%44:	load	 i
+%45:	add	 %44 XXX
+%46:	store	 %45 i
+%47:	load	 i
+%48:	sext	 %47
+%49:	getelementptr	 s %48
+%50:	load	 %49
+%51:	sext	 %50
+%52:	icmp	 %51 XXX
+%53:	br	 %52 if.else18 if.then17
+
+BASIC BLOCK if.then17
+%54:	br	 if.end28
+
+BASIC BLOCK if.else18
+%55:	load	 i
+%56:	sext	 %55
+%57:	getelementptr	 s %56
+%58:	load	 %57
+%59:	sext	 %58
+%60:	icmp	 %59 XXX
+%61:	br	 %60 if.else25 if.then24
+
+BASIC BLOCK if.then24
+%62:	br	 if.end
+
+BASIC BLOCK if.else25
+%63:	load	 i
+%64:	sext	 %63
+%65:	getelementptr	 s %64
+%66:	load	 %65
+%67:	br	 if.end
+
+BASIC BLOCK if.end
+%68:	phi	 XXX %66
+%69:	br	 if.end28
+
+BASIC BLOCK if.end28
+%70:	phi	 XXX %68
+%71:	br	 if.end29
+
+BASIC BLOCK if.end29
+%72:	phi	 XXX %70
+%73:	br	 if.end30
+
+BASIC BLOCK if.end30
+%74:	phi	 %33 %72
+%75:	ret	 %74
+
+FUNCTION dodash
+
+BASIC BLOCK entry
+%76:	trunc	 XXX
+%77:	br	 while.cond
+
+BASIC BLOCK while.cond
+%78:	load	 i
+%79:	sext	 %78
+%80:	getelementptr	 src %79
+%81:	load	 %80
+%82:	sext	 %81
+%83:	sext	 %76
+%84:	icmp	 %82 %83
+%85:	br	 %84 land.end land.rhs
+
+BASIC BLOCK land.rhs
+%86:	load	 i
+%87:	sext	 %86
+%88:	getelementptr	 src %87
+%89:	load	 %88
+%90:	sext	 %89
+%91:	icmp	 %90 XXX
+%92:	br	 land.end
+
+BASIC BLOCK land.end
+%93:	phi	 XXX %91
+%94:	br	 %93 while.end while.body
+
+BASIC BLOCK while.body
+%95:	load	 i
+%96:	sub	 %95 XXX
+%97:	sext	 %96
+%98:	getelementptr	 src %97
+%99:	load	 %98
+%100:	sext	 %99
+%101:	icmp	 %100 XXX
+%102:	br	 %101 if.else if.then
+
+BASIC BLOCK if.then
+%103:	call	 src i esc
+%104:	sext	 %103
+%105:	call	 %104 dest j maxset addstr
+%106:	br	 if.end88
+
+BASIC BLOCK if.else
+%107:	load	 i
+%108:	sext	 %107
+%109:	getelementptr	 src %108
+%110:	load	 %109
+%111:	sext	 %110
+%112:	icmp	 %111 XXX
+%113:	br	 %112 if.else27 if.then21
+
+BASIC BLOCK if.then21
+%114:	load	 i
+%115:	sext	 %114
+%116:	getelementptr	 src %115
+%117:	load	 %116
+%118:	sext	 %117
+%119:	call	 %118 dest j maxset addstr
+%120:	br	 if.end87
+
+BASIC BLOCK if.else27
+%121:	load	 j
+%122:	icmp	 %121 XXX
+%123:	br	 %122 lor.lhs.false if.then35
+
+BASIC BLOCK lor.lhs.false
+%124:	load	 i
+%125:	add	 %124 XXX
+%126:	sext	 %125
+%127:	getelementptr	 src %126
+%128:	load	 %127
+%129:	sext	 %128
+%130:	icmp	 %129 XXX
+%131:	br	 %130 if.else38 if.then35
+
+BASIC BLOCK if.then35
+%132:	call	 XXX dest j maxset addstr
+%133:	br	 if.end86
+
+BASIC BLOCK if.else38
+%134:	load	 i
+%135:	sub	 %134 XXX
+%136:	sext	 %135
+%137:	getelementptr	 src %136
+%138:	load	 %137
+%139:	sext	 %138
+%140:	sext	 %139
+%141:	call	 __ctype_b_loc
+%142:	load	 %141
+%143:	getelementptr	 %142 %140
+%144:	load	 %143
+%145:	zext	 %144
+%146:	and	 %145 XXX
+%147:	icmp	 %146 XXX
+%148:	br	 %147 if.else83 land.lhs.true
+
+BASIC BLOCK land.lhs.true
+%149:	load	 i
+%150:	add	 %149 XXX
+%151:	sext	 %150
+%152:	getelementptr	 src %151
+%153:	load	 %152
+%154:	sext	 %153
+%155:	sext	 %154
+%156:	call	 __ctype_b_loc
+%157:	load	 %156
+%158:	getelementptr	 %157 %155
+%159:	load	 %158
+%160:	zext	 %159
+%161:	and	 %160 XXX
+%162:	icmp	 %161 XXX
+%163:	br	 %162 if.else83 land.lhs.true57
+
+BASIC BLOCK land.lhs.true57
+%164:	load	 i
+%165:	sub	 %164 XXX
+%166:	sext	 %165
+%167:	getelementptr	 src %166
+%168:	load	 %167
+%169:	sext	 %168
+%170:	load	 i
+%171:	add	 %170 XXX
+%172:	sext	 %171
+%173:	getelementptr	 src %172
+%174:	load	 %173
+%175:	sext	 %174
+%176:	icmp	 %169 %175
+%177:	br	 %176 if.else83 if.then68
+
+BASIC BLOCK if.then68
+%178:	load	 i
+%179:	sub	 %178 XXX
+%180:	sext	 %179
+%181:	getelementptr	 src %180
+%182:	load	 %181
+%183:	sext	 %182
+%184:	add	 %183 XXX
+%185:	br	 for.cond
+
+BASIC BLOCK for.cond
+%186:	phi	 %184 %197
+%187:	load	 i
+%188:	add	 %187 XXX
+%189:	sext	 %188
+%190:	getelementptr	 src %189
+%191:	load	 %190
+%192:	sext	 %191
+%193:	icmp	 %186 %192
+%194:	br	 %193 for.end for.body
+
+BASIC BLOCK for.body
+%195:	call	 %186 dest j maxset addstr
+%196:	br	 for.inc
+
+BASIC BLOCK for.inc
+%197:	add	 %186 XXX
+%198:	br	 for.cond
+
+BASIC BLOCK for.end
+%199:	load	 i
+%200:	add	 %199 XXX
+%201:	store	 %200 i
+%202:	br	 if.end
+
+BASIC BLOCK if.else83
+%203:	call	 XXX dest j maxset addstr
+%204:	br	 if.end
+
+BASIC BLOCK if.end
+%205:	br	 if.end86
+
+BASIC BLOCK if.end86
+%206:	br	 if.end87
+
+BASIC BLOCK if.end87
+%207:	br	 if.end88
+
+BASIC BLOCK if.end88
+%208:	load	 i
+%209:	add	 %208 XXX
+%210:	store	 %209 i
+%211:	br	 while.cond
+
+BASIC BLOCK while.end
+%212:	ret	
+
+FUNCTION getccl
+
+BASIC BLOCK entry
+%213:	load	 i
+%214:	add	 %213 XXX
+%215:	store	 %214 i
+%216:	load	 i
+%217:	sext	 %216
+%218:	getelementptr	 arg %217
+%219:	load	 %218
+%220:	sext	 %219
+%221:	icmp	 %220 XXX
+%222:	br	 %221 if.else if.then
+
+BASIC BLOCK if.then
+%223:	call	 XXX pat j XXX addstr
+%224:	load	 i
+%225:	add	 %224 XXX
+%226:	store	 %225 i
+%227:	br	 if.end
+
+BASIC BLOCK if.else
+%228:	call	 XXX pat j XXX addstr
+%229:	br	 if.end
+
+BASIC BLOCK if.end
+%230:	load	 j
+%231:	call	 XXX pat j XXX addstr
+%232:	call	 XXX arg i pat j XXX dodash
+%233:	load	 j
+%234:	sub	 %233 %230
+%235:	sub	 %234 XXX
+%236:	trunc	 %235
+%237:	sext	 %230
+%238:	getelementptr	 pat %237
+%239:	store	 %236 %238
+%240:	load	 i
+%241:	sext	 %240
+%242:	getelementptr	 arg %241
+%243:	load	 %242
+%244:	sext	 %243
+%245:	icmp	 %244 XXX
+%246:	zext	 %245
+%247:	trunc	 %246
+%248:	ret	 %247
+
+FUNCTION stclose
+
+BASIC BLOCK entry
+%249:	alloca	 XXX
+%250:	load	 j
+%251:	sub	 %250 XXX
+%252:	br	 for.cond
+
+BASIC BLOCK for.cond
+%253:	phi	 %251 %264
+%254:	icmp	 %253 lastj
+%255:	br	 %254 for.end for.body
+
+BASIC BLOCK for.body
+%256:	add	 %253 XXX
+%257:	store	 %256 %249
+%258:	sext	 %253
+%259:	getelementptr	 pat %258
+%260:	load	 %259
+%261:	sext	 %260
+%262:	call	 %261 pat %249 XXX addstr
+%263:	br	 for.inc
+
+BASIC BLOCK for.inc
+%264:	add	 %253 XXX
+%265:	br	 for.cond
+
+BASIC BLOCK for.end
+%266:	load	 j
+%267:	add	 %266 XXX
+%268:	store	 %267 j
+%269:	sext	 lastj
+%270:	getelementptr	 pat %269
+%271:	store	 XXX %270
+%272:	ret	
+
+FUNCTION in_set_2
+
+BASIC BLOCK entry
+%273:	trunc	 XXX
+%274:	sext	 %273
+%275:	icmp	 %274 XXX
+%276:	br	 %275 lor.lhs.false lor.end
+
+BASIC BLOCK lor.lhs.false
+%277:	sext	 %273
+%278:	icmp	 %277 XXX
+%279:	br	 %278 lor.rhs lor.end
+
+BASIC BLOCK lor.rhs
+%280:	sext	 %273
+%281:	icmp	 %280 XXX
+%282:	br	 lor.end
+
+BASIC BLOCK lor.end
+%283:	phi	 XXX XXX %281
+%284:	zext	 %283
+%285:	trunc	 %284
+%286:	ret	 %285
+
+FUNCTION in_pat_set
+
+BASIC BLOCK entry
+%287:	trunc	 XXX
+%288:	sext	 %287
+%289:	icmp	 %288 XXX
+%290:	br	 %289 lor.lhs.false lor.end
+
+BASIC BLOCK lor.lhs.false
+%291:	sext	 %287
+%292:	icmp	 %291 XXX
+%293:	br	 %292 lor.lhs.false5 lor.end
+
+BASIC BLOCK lor.lhs.false5
+%294:	sext	 %287
+%295:	icmp	 %294 XXX
+%296:	br	 %295 lor.lhs.false9 lor.end
+
+BASIC BLOCK lor.lhs.false9
+%297:	sext	 %287
+%298:	icmp	 %297 XXX
+%299:	br	 %298 lor.lhs.false13 lor.end
+
+BASIC BLOCK lor.lhs.false13
+%300:	sext	 %287
+%301:	icmp	 %300 XXX
+%302:	br	 %301 lor.lhs.false17 lor.end
+
+BASIC BLOCK lor.lhs.false17
+%303:	sext	 %287
+%304:	icmp	 %303 XXX
+%305:	br	 %304 lor.rhs lor.end
+
+BASIC BLOCK lor.rhs
+%306:	sext	 %287
+%307:	icmp	 %306 XXX
+%308:	br	 lor.end
+
+BASIC BLOCK lor.end
+%309:	phi	 XXX XXX XXX XXX XXX XXX %307
+%310:	zext	 %309
+%311:	trunc	 %310
+%312:	ret	 %311
+
+FUNCTION makepat
+
+BASIC BLOCK entry
+%313:	alloca	 XXX
+%314:	alloca	 XXX
+%315:	trunc	 XXX
+%316:	store	 XXX %314
+%317:	store	 start %313
+%318:	br	 while.cond
+
+BASIC BLOCK while.cond
+%319:	phi	 XXX %432
+%320:	phi	 XXX %433
+%321:	icmp	 %320 XXX
+%322:	br	 %321 land.lhs.true land.end
+
+BASIC BLOCK land.lhs.true
+%323:	load	 %313
+%324:	sext	 %323
+%325:	getelementptr	 arg %324
+%326:	load	 %325
+%327:	sext	 %326
+%328:	sext	 %315
+%329:	icmp	 %327 %328
+%330:	br	 %329 land.end land.rhs
+
+BASIC BLOCK land.rhs
+%331:	load	 %313
+%332:	sext	 %331
+%333:	getelementptr	 arg %332
+%334:	load	 %333
+%335:	sext	 %334
+%336:	icmp	 %335 XXX
+%337:	br	 land.end
+
+BASIC BLOCK land.end
+%338:	phi	 XXX XXX %336
+%339:	br	 %338 while.end while.body
+
+BASIC BLOCK while.body
+%340:	load	 %314
+%341:	load	 %313
+%342:	sext	 %341
+%343:	getelementptr	 arg %342
+%344:	load	 %343
+%345:	sext	 %344
+%346:	icmp	 %345 XXX
+%347:	br	 %346 if.else if.then
+
+BASIC BLOCK if.then
+%348:	call	 XXX pat %314 XXX addstr
+%349:	br	 if.end81
+
+BASIC BLOCK if.else
+%350:	load	 %313
+%351:	sext	 %350
+%352:	getelementptr	 arg %351
+%353:	load	 %352
+%354:	sext	 %353
+%355:	icmp	 %354 XXX
+%356:	br	 %355 if.else25 land.lhs.true19
+
+BASIC BLOCK land.lhs.true19
+%357:	load	 %313
+%358:	icmp	 %357 start
+%359:	br	 %358 if.else25 if.then22
+
+BASIC BLOCK if.then22
+%360:	call	 XXX pat %314 XXX addstr
+%361:	br	 if.end80
+
+BASIC BLOCK if.else25
+%362:	load	 %313
+%363:	sext	 %362
+%364:	getelementptr	 arg %363
+%365:	load	 %364
+%366:	sext	 %365
+%367:	icmp	 %366 XXX
+%368:	br	 %367 if.else41 land.lhs.true31
+
+BASIC BLOCK land.lhs.true31
+%369:	load	 %313
+%370:	add	 %369 XXX
+%371:	sext	 %370
+%372:	getelementptr	 arg %371
+%373:	load	 %372
+%374:	sext	 %373
+%375:	sext	 %315
+%376:	icmp	 %374 %375
+%377:	br	 %376 if.else41 if.then38
+
+BASIC BLOCK if.then38
+%378:	call	 XXX pat %314 XXX addstr
+%379:	br	 if.end79
+
+BASIC BLOCK if.else41
+%380:	load	 %313
+%381:	sext	 %380
+%382:	getelementptr	 arg %381
+%383:	load	 %382
+%384:	sext	 %383
+%385:	icmp	 %384 XXX
+%386:	br	 %385 if.else53 if.then47
+
+BASIC BLOCK if.then47
+%387:	call	 arg %313 pat %314 getccl
+%388:	sext	 %387
+%389:	icmp	 %388 XXX
+%390:	zext	 %389
+%391:	trunc	 %390
+%392:	br	 if.end78
+
+BASIC BLOCK if.else53
+%393:	load	 %313
+%394:	sext	 %393
+%395:	getelementptr	 arg %394
+%396:	load	 %395
+%397:	sext	 %396
+%398:	icmp	 %397 XXX
+%399:	br	 %398 if.else70 land.lhs.true59
+
+BASIC BLOCK land.lhs.true59
+%400:	load	 %313
+%401:	icmp	 %400 start
+%402:	br	 %401 if.else70 if.then62
+
+BASIC BLOCK if.then62
+%403:	sext	 %319
+%404:	getelementptr	 pat %403
+%405:	load	 %404
+%406:	sext	 %405
+%407:	call	 %406 in_set_2
+%408:	icmp	 %407 XXX
+%409:	br	 %408 if.else69 if.then68
+
+BASIC BLOCK if.then68
+%410:	br	 if.end
+
+BASIC BLOCK if.else69
+%411:	call	 pat %314 %319 stclose
+%412:	br	 if.end
+
+BASIC BLOCK if.end
+%413:	phi	 XXX %320
+%414:	br	 if.end77
+
+BASIC BLOCK if.else70
+%415:	call	 XXX pat %314 XXX addstr
+%416:	call	 arg %313 esc
+%417:	sext	 %416
+%418:	call	 %417 pat %314 XXX addstr
+%419:	br	 if.end77
+
+BASIC BLOCK if.end77
+%420:	phi	 %319 %340
+%421:	phi	 %413 %320
+%422:	br	 if.end78
+
+BASIC BLOCK if.end78
+%423:	phi	 %340 %420
+%424:	phi	 %391 %421
+%425:	br	 if.end79
+
+BASIC BLOCK if.end79
+%426:	phi	 %340 %423
+%427:	phi	 %320 %424
+%428:	br	 if.end80
+
+BASIC BLOCK if.end80
+%429:	phi	 %340 %426
+%430:	phi	 %320 %427
+%431:	br	 if.end81
+
+BASIC BLOCK if.end81
+%432:	phi	 %340 %429
+%433:	phi	 %320 %430
+%434:	icmp	 %433 XXX
+%435:	br	 %434 if.then83 if.end85
+
+BASIC BLOCK if.then83
+%436:	load	 %313
+%437:	add	 %436 XXX
+%438:	store	 %437 %313
+%439:	br	 if.end85
+
+BASIC BLOCK if.end85
+%440:	br	 while.cond
+
+BASIC BLOCK while.end
+%441:	call	 XXX pat %314 XXX addstr
+%442:	trunc	 %441
+%443:	sext	 %320
+%444:	icmp	 %443 XXX
+%445:	br	 %444 lor.lhs.false if.then96
+
+BASIC BLOCK lor.lhs.false
+%446:	load	 %313
+%447:	sext	 %446
+%448:	getelementptr	 arg %447
+%449:	load	 %448
+%450:	sext	 %449
+%451:	sext	 %315
+%452:	icmp	 %450 %451
+%453:	br	 %452 if.else97 if.then96
+
+BASIC BLOCK if.then96
+%454:	br	 if.end102
+
+BASIC BLOCK if.else97
+%455:	icmp	 %442 XXX
+%456:	br	 %455 if.then99 if.else100
+
+BASIC BLOCK if.then99
+%457:	br	 if.end101
+
+BASIC BLOCK if.else100
+%458:	load	 %313
+%459:	br	 if.end101
+
+BASIC BLOCK if.end101
+%460:	phi	 %458 XXX
+%461:	br	 if.end102
+
+BASIC BLOCK if.end102
+%462:	phi	 XXX %460
+%463:	ret	 %462
+
+FUNCTION getpat
+
+BASIC BLOCK entry
+%464:	call	 arg XXX XXX pat makepat
+%465:	icmp	 %464 XXX
+%466:	zext	 %465
+%467:	ret	 %466
+
+FUNCTION makesub
+
+BASIC BLOCK entry
+%468:	alloca	 XXX
+%469:	alloca	 XXX
+%470:	trunc	 XXX
+%471:	store	 XXX %469
+%472:	store	 from %468
+%473:	br	 while.cond
+
+BASIC BLOCK while.cond
+%474:	load	 %468
+%475:	sext	 %474
+%476:	getelementptr	 arg %475
+%477:	load	 %476
+%478:	sext	 %477
+%479:	sext	 %470
+%480:	icmp	 %478 %479
+%481:	br	 %480 land.end land.rhs
+
+BASIC BLOCK land.rhs
+%482:	load	 %468
+%483:	sext	 %482
+%484:	getelementptr	 arg %483
+%485:	load	 %484
+%486:	sext	 %485
+%487:	icmp	 %486 XXX
+%488:	br	 land.end
+
+BASIC BLOCK land.end
+%489:	phi	 XXX %487
+%490:	br	 %489 while.end while.body
+
+BASIC BLOCK while.body
+%491:	load	 %468
+%492:	sext	 %491
+%493:	getelementptr	 arg %492
+%494:	load	 %493
+%495:	sext	 %494
+%496:	icmp	 %495 XXX
+%497:	br	 %496 if.else if.then
+
+BASIC BLOCK if.then
+%498:	call	 XXX sub %469 XXX addstr
+%499:	br	 if.end
+
+BASIC BLOCK if.else
+%500:	call	 arg %468 esc
+%501:	sext	 %500
+%502:	call	 %501 sub %469 XXX addstr
+%503:	br	 if.end
+
+BASIC BLOCK if.end
+%504:	load	 %468
+%505:	add	 %504 XXX
+%506:	store	 %505 %468
+%507:	br	 while.cond
+
+BASIC BLOCK while.end
+%508:	load	 %468
+%509:	sext	 %508
+%510:	getelementptr	 arg %509
+%511:	load	 %510
+%512:	sext	 %511
+%513:	sext	 %470
+%514:	icmp	 %512 %513
+%515:	br	 %514 if.else25 if.then24
+
+BASIC BLOCK if.then24
+%516:	br	 if.end31
+
+BASIC BLOCK if.else25
+%517:	call	 XXX sub %469 XXX addstr
+%518:	trunc	 %517
+%519:	icmp	 %518 XXX
+%520:	br	 %519 if.then28 if.else29
+
+BASIC BLOCK if.then28
+%521:	br	 if.end30
+
+BASIC BLOCK if.else29
+%522:	load	 %468
+%523:	br	 if.end30
+
+BASIC BLOCK if.end30
+%524:	phi	 %522 XXX
+%525:	br	 if.end31
+
+BASIC BLOCK if.end31
+%526:	phi	 XXX %524
+%527:	ret	 %526
+
+FUNCTION getsub
+
+BASIC BLOCK entry
+%528:	call	 arg XXX XXX sub makesub
+%529:	icmp	 %528 XXX
+%530:	zext	 %529
+%531:	trunc	 %530
+%532:	ret	 %531
+
+FUNCTION locate
+
+BASIC BLOCK entry
+%533:	trunc	 XXX
+%534:	sext	 offset
+%535:	getelementptr	 pat %534
+%536:	load	 %535
+%537:	sext	 %536
+%538:	add	 offset %537
+%539:	br	 while.cond
+
+BASIC BLOCK while.cond
+%540:	phi	 %538 %554
+%541:	phi	 XXX %555
+%542:	icmp	 %540 offset
+%543:	br	 %542 while.end while.body
+
+BASIC BLOCK while.body
+%544:	sext	 %533
+%545:	sext	 %540
+%546:	getelementptr	 pat %545
+%547:	load	 %546
+%548:	sext	 %547
+%549:	icmp	 %544 %548
+%550:	br	 %549 if.else if.then
+
+BASIC BLOCK if.then
+%551:	br	 if.end
+
+BASIC BLOCK if.else
+%552:	sub	 %540 XXX
+%553:	br	 if.end
+
+BASIC BLOCK if.end
+%554:	phi	 offset %552
+%555:	phi	 XXX %541
+%556:	br	 while.cond
+
+BASIC BLOCK while.end
+%557:	ret	 %541
+
+FUNCTION omatch
+
+BASIC BLOCK entry
+%558:	load	 i
+%559:	sext	 %558
+%560:	getelementptr	 lin %559
+%561:	load	 %560
+%562:	sext	 %561
+%563:	icmp	 %562 XXX
+%564:	br	 %563 if.else if.then
+
+BASIC BLOCK if.then
+%565:	br	 if.end68
+
+BASIC BLOCK if.else
+%566:	sext	 j
+%567:	getelementptr	 pat %566
+%568:	load	 %567
+%569:	sext	 %568
+%570:	call	 %569 in_pat_set
+%571:	icmp	 %570 XXX
+%572:	br	 %571 if.then5 if.else7
+
+BASIC BLOCK if.then5
+%573:	load	 stdout
+%574:	call	 %573 XXX fprintf
+%575:	call	 abort
+%576:	unreachable	
+
+BASIC BLOCK if.else7
+%577:	sext	 j
+%578:	getelementptr	 pat %577
+%579:	load	 %578
+%580:	sext	 %579
+%581:	switch	 %580 sw.default XXX sw.bb XXX sw.bb20 XXX sw.bb25 XXX sw.bb33 XXX sw.bb41 XXX sw.bb50
+
+BASIC BLOCK sw.bb
+%582:	load	 i
+%583:	sext	 %582
+%584:	getelementptr	 lin %583
+%585:	load	 %584
+%586:	sext	 %585
+%587:	add	 j XXX
+%588:	sext	 %587
+%589:	getelementptr	 pat %588
+%590:	load	 %589
+%591:	sext	 %590
+%592:	icmp	 %586 %591
+%593:	br	 %592 if.end if.then19
+
+BASIC BLOCK if.then19
+%594:	br	 if.end
+
+BASIC BLOCK if.end
+%595:	phi	 XXX XXX
+%596:	br	 sw.epilog
+
+BASIC BLOCK sw.bb20
+%597:	load	 i
+%598:	icmp	 %597 XXX
+%599:	br	 %598 if.end24 if.then23
+
+BASIC BLOCK if.then23
+%600:	br	 if.end24
+
+BASIC BLOCK if.end24
+%601:	phi	 XXX XXX
+%602:	br	 sw.epilog
+
+BASIC BLOCK sw.bb25
+%603:	load	 i
+%604:	sext	 %603
+%605:	getelementptr	 lin %604
+%606:	load	 %605
+%607:	sext	 %606
+%608:	icmp	 %607 XXX
+%609:	br	 %608 if.end32 if.then31
+
+BASIC BLOCK if.then31
+%610:	br	 if.end32
+
+BASIC BLOCK if.end32
+%611:	phi	 XXX XXX
+%612:	br	 sw.epilog
+
+BASIC BLOCK sw.bb33
+%613:	load	 i
+%614:	sext	 %613
+%615:	getelementptr	 lin %614
+%616:	load	 %615
+%617:	sext	 %616
+%618:	icmp	 %617 XXX
+%619:	br	 %618 if.end40 if.then39
+
+BASIC BLOCK if.then39
+%620:	br	 if.end40
+
+BASIC BLOCK if.end40
+%621:	phi	 XXX XXX
+%622:	br	 sw.epilog
+
+BASIC BLOCK sw.bb41
+%623:	load	 i
+%624:	sext	 %623
+%625:	getelementptr	 lin %624
+%626:	load	 %625
+%627:	sext	 %626
+%628:	add	 j XXX
+%629:	call	 %627 pat %628 locate
+%630:	icmp	 %629 XXX
+%631:	br	 %630 if.end49 if.then48
+
+BASIC BLOCK if.then48
+%632:	br	 if.end49
+
+BASIC BLOCK if.end49
+%633:	phi	 XXX XXX
+%634:	br	 sw.epilog
+
+BASIC BLOCK sw.bb50
+%635:	load	 i
+%636:	sext	 %635
+%637:	getelementptr	 lin %636
+%638:	load	 %637
+%639:	sext	 %638
+%640:	icmp	 %639 XXX
+%641:	br	 %640 if.end63 land.lhs.true
+
+BASIC BLOCK land.lhs.true
+%642:	load	 i
+%643:	sext	 %642
+%644:	getelementptr	 lin %643
+%645:	load	 %644
+%646:	sext	 %645
+%647:	add	 j XXX
+%648:	call	 %646 pat %647 locate
+%649:	icmp	 %648 XXX
+%650:	br	 %649 if.then62 if.end63
+
+BASIC BLOCK if.then62
+%651:	br	 if.end63
+
+BASIC BLOCK if.end63
+%652:	phi	 XXX XXX XXX
+%653:	br	 sw.epilog
+
+BASIC BLOCK sw.default
+%654:	sext	 j
+%655:	getelementptr	 pat %654
+%656:	load	 %655
+%657:	sext	 %656
+%658:	call	 %657 Caseerror
+%659:	br	 sw.epilog
+
+BASIC BLOCK sw.epilog
+%660:	phi	 XXX %652 %633 %621 %611 %601 %595
+%661:	br	 if.end67
+
+BASIC BLOCK if.end67
+%662:	br	 if.end68
+
+BASIC BLOCK if.end68
+%663:	phi	 XXX %660
+%664:	sext	 %663
+%665:	icmp	 %664 XXX
+%666:	br	 %665 if.else75 if.then72
+
+BASIC BLOCK if.then72
+%667:	load	 i
+%668:	sext	 %663
+%669:	add	 %667 %668
+%670:	store	 %669 i
+%671:	br	 if.end76
+
+BASIC BLOCK if.else75
+%672:	br	 if.end76
+
+BASIC BLOCK if.end76
+%673:	phi	 XXX XXX
+%674:	ret	 %673
+
+FUNCTION patsize
+
+BASIC BLOCK entry
+%675:	sext	 n
+%676:	getelementptr	 pat %675
+%677:	load	 %676
+%678:	sext	 %677
+%679:	call	 %678 in_pat_set
+%680:	icmp	 %679 XXX
+%681:	br	 %680 if.then if.else
+
+BASIC BLOCK if.then
+%682:	load	 stdout
+%683:	call	 %682 XXX fprintf
+%684:	call	 abort
+%685:	unreachable	
+
+BASIC BLOCK if.else
+%686:	sext	 n
+%687:	getelementptr	 pat %686
+%688:	load	 %687
+%689:	sext	 %688
+%690:	switch	 %689 sw.default XXX sw.bb XXX sw.bb5 XXX sw.bb5 XXX sw.bb5 XXX sw.bb6 XXX sw.bb6 XXX sw.bb11
+
+BASIC BLOCK sw.bb
+%691:	br	 sw.epilog
+
+BASIC BLOCK sw.bb5
+%692:	br	 sw.epilog
+
+BASIC BLOCK sw.bb6
+%693:	add	 n XXX
+%694:	sext	 %693
+%695:	getelementptr	 pat %694
+%696:	load	 %695
+%697:	sext	 %696
+%698:	add	 %697 XXX
+%699:	br	 sw.epilog
+
+BASIC BLOCK sw.bb11
+%700:	br	 sw.epilog
+
+BASIC BLOCK sw.default
+%701:	sext	 n
+%702:	getelementptr	 pat %701
+%703:	load	 %702
+%704:	sext	 %703
+%705:	call	 %704 Caseerror
+%706:	br	 sw.epilog
+
+BASIC BLOCK sw.epilog
+%707:	phi	 XXX XXX %698 XXX XXX
+%708:	br	 if.end
+
+BASIC BLOCK if.end
+%709:	ret	 %707
+
+FUNCTION amatch
+
+BASIC BLOCK entry
+%710:	alloca	 XXX
+%711:	alloca	 XXX
+%712:	store	 offset %710
+%713:	br	 while.cond
+
+BASIC BLOCK while.cond
+%714:	phi	 XXX %793
+%715:	phi	 j %794
+%716:	phi	 XXX %795
+%717:	icmp	 %716 XXX
+%718:	br	 %717 land.rhs land.end
+
+BASIC BLOCK land.rhs
+%719:	sext	 %715
+%720:	getelementptr	 pat %719
+%721:	load	 %720
+%722:	sext	 %721
+%723:	icmp	 %722 XXX
+%724:	br	 land.end
+
+BASIC BLOCK land.end
+%725:	phi	 XXX %723
+%726:	br	 %725 while.end44 while.body
+
+BASIC BLOCK while.body
+%727:	sext	 %715
+%728:	getelementptr	 pat %727
+%729:	load	 %728
+%730:	sext	 %729
+%731:	icmp	 %730 XXX
+%732:	br	 %731 if.else35 if.then
+
+BASIC BLOCK if.then
+%733:	call	 pat %715 patsize
+%734:	add	 %715 %733
+%735:	load	 %710
+%736:	store	 %735 %711
+%737:	br	 while.cond7
+
+BASIC BLOCK while.cond7
+%738:	phi	 %716 %754
+%739:	icmp	 %738 XXX
+%740:	br	 %739 land.rhs9 land.end15
+
+BASIC BLOCK land.rhs9
+%741:	load	 %711
+%742:	sext	 %741
+%743:	getelementptr	 lin %742
+%744:	load	 %743
+%745:	sext	 %744
+%746:	icmp	 %745 XXX
+%747:	br	 land.end15
+
+BASIC BLOCK land.end15
+%748:	phi	 XXX %746
+%749:	br	 %748 while.end while.body16
+
+BASIC BLOCK while.body16
+%750:	call	 lin %711 pat %734 omatch
+%751:	icmp	 %750 XXX
+%752:	br	 %751 if.then19 if.end
+
+BASIC BLOCK if.then19
+%753:	br	 if.end
+
+BASIC BLOCK if.end
+%754:	phi	 %738 XXX
+%755:	br	 while.cond7
+
+BASIC BLOCK while.end
+%756:	br	 while.cond20
+
+BASIC BLOCK while.cond20
+%757:	phi	 %714 %770
+%758:	phi	 XXX %778
+%759:	icmp	 %758 XXX
+%760:	br	 %759 land.rhs22 land.end25
+
+BASIC BLOCK land.rhs22
+%761:	load	 %711
+%762:	load	 %710
+%763:	icmp	 %761 %762
+%764:	br	 land.end25
+
+BASIC BLOCK land.end25
+%765:	phi	 XXX %763
+%766:	br	 %765 while.end34 while.body26
+
+BASIC BLOCK while.body26
+%767:	load	 %711
+%768:	call	 pat %734 patsize
+%769:	add	 %734 %768
+%770:	call	 lin %767 pat %769 amatch
+%771:	icmp	 %770 XXX
+%772:	br	 %771 if.else if.then32
+
+BASIC BLOCK if.then32
+%773:	br	 if.end33
+
+BASIC BLOCK if.else
+%774:	load	 %711
+%775:	sub	 %774 XXX
+%776:	store	 %775 %711
+%777:	br	 if.end33
+
+BASIC BLOCK if.end33
+%778:	phi	 XXX %758
+%779:	br	 while.cond20
+
+BASIC BLOCK while.end34
+%780:	store	 %757 %710
+%781:	br	 if.end43
+
+BASIC BLOCK if.else35
+%782:	call	 lin %710 pat %715 omatch
+%783:	icmp	 %782 XXX
+%784:	br	 %783 if.then38 if.else39
+
+BASIC BLOCK if.then38
+%785:	store	 XXX %710
+%786:	br	 if.end42
+
+BASIC BLOCK if.else39
+%787:	call	 pat %715 patsize
+%788:	add	 %715 %787
+%789:	br	 if.end42
+
+BASIC BLOCK if.end42
+%790:	phi	 %788 %715
+%791:	phi	 %716 XXX
+%792:	br	 if.end43
+
+BASIC BLOCK if.end43
+%793:	phi	 %757 %714
+%794:	phi	 %734 %790
+%795:	phi	 XXX %791
+%796:	br	 while.cond
+
+BASIC BLOCK while.end44
+%797:	load	 %710
+%798:	ret	 %797
+
+FUNCTION putsub
+
+BASIC BLOCK entry
+%799:	br	 while.cond
+
+BASIC BLOCK while.cond
+%800:	phi	 XXX %834
+%801:	sext	 %800
+%802:	getelementptr	 sub %801
+%803:	load	 %802
+%804:	sext	 %803
+%805:	icmp	 %804 XXX
+%806:	br	 %805 while.end while.body
+
+BASIC BLOCK while.body
+%807:	sext	 %800
+%808:	getelementptr	 sub %807
+%809:	load	 %808
+%810:	sext	 %809
+%811:	icmp	 %810 XXX
+%812:	br	 %811 if.else if.then
+
+BASIC BLOCK if.then
+%813:	br	 for.cond
+
+BASIC BLOCK for.cond
+%814:	phi	 s1 %824
+%815:	icmp	 %814 s2
+%816:	br	 %815 for.end for.body
+
+BASIC BLOCK for.body
+%817:	sext	 %814
+%818:	getelementptr	 lin %817
+%819:	load	 %818
+%820:	sext	 %819
+%821:	load	 stdout
+%822:	call	 %820 %821 fputc
+%823:	br	 for.inc
+
+BASIC BLOCK for.inc
+%824:	add	 %814 XXX
+%825:	br	 for.cond
+
+BASIC BLOCK for.end
+%826:	br	 if.end
+
+BASIC BLOCK if.else
+%827:	sext	 %800
+%828:	getelementptr	 sub %827
+%829:	load	 %828
+%830:	sext	 %829
+%831:	load	 stdout
+%832:	call	 %830 %831 fputc
+%833:	br	 if.end
+
+BASIC BLOCK if.end
+%834:	add	 %800 XXX
+%835:	br	 while.cond
+
+BASIC BLOCK while.end
+%836:	ret	
+
+FUNCTION subline
+
+BASIC BLOCK entry
+%837:	br	 while.cond
+
+BASIC BLOCK while.cond
+%838:	phi	 XXX %867
+%839:	phi	 XXX %853
+%840:	sext	 %838
+%841:	getelementptr	 lin %840
+%842:	load	 %841
+%843:	sext	 %842
+%844:	icmp	 %843 XXX
+%845:	br	 %844 while.end while.body
+
+BASIC BLOCK while.body
+%846:	call	 lin %838 pat XXX amatch
+%847:	icmp	 %846 XXX
+%848:	br	 %847 if.end land.lhs.true
+
+BASIC BLOCK land.lhs.true
+%849:	icmp	 %839 %846
+%850:	br	 %849 if.end if.then
+
+BASIC BLOCK if.then
+%851:	call	 lin %838 %846 sub putsub
+%852:	br	 if.end
+
+BASIC BLOCK if.end
+%853:	phi	 %846 %839 %839
+%854:	icmp	 %846 XXX
+%855:	br	 %854 lor.lhs.false if.then10
+
+BASIC BLOCK lor.lhs.false
+%856:	icmp	 %846 %838
+%857:	br	 %856 if.else if.then10
+
+BASIC BLOCK if.then10
+%858:	sext	 %838
+%859:	getelementptr	 lin %858
+%860:	load	 %859
+%861:	sext	 %860
+%862:	load	 stdout
+%863:	call	 %861 %862 fputc
+%864:	add	 %838 XXX
+%865:	br	 if.end15
+
+BASIC BLOCK if.else
+%866:	br	 if.end15
+
+BASIC BLOCK if.end15
+%867:	phi	 %864 %846
+%868:	br	 while.cond
+
+BASIC BLOCK while.end
+%869:	ret	
+
+FUNCTION change
+
+BASIC BLOCK entry
+%870:	alloca	 XXX
+%871:	getelementptr	 %870 XXX XXX
+%872:	call	 %871 XXX mygetline
+%873:	br	 while.cond
+
+BASIC BLOCK while.cond
+%874:	phi	 %872 %880
+%875:	icmp	 %874 XXX
+%876:	br	 %875 while.end while.body
+
+BASIC BLOCK while.body
+%877:	getelementptr	 %870 XXX XXX
+%878:	call	 %877 pat sub subline
+%879:	getelementptr	 %870 XXX XXX
+%880:	call	 %879 XXX mygetline
+%881:	br	 while.cond
+
+BASIC BLOCK while.end
+%882:	ret	
+
+FUNCTION main
+
+BASIC BLOCK entry
+%883:	alloca	 XXX
+%884:	alloca	 XXX
+%885:	icmp	 argc XXX
+%886:	br	 %885 if.end if.then
+
+BASIC BLOCK if.then
+%887:	load	 stdout
+%888:	call	 %887 XXX fprintf
+%889:	call	 XXX exit
+%890:	unreachable	
+
+BASIC BLOCK if.end
+%891:	getelementptr	 argv XXX
+%892:	load	 %891
+%893:	getelementptr	 %883 XXX XXX
+%894:	call	 %892 %893 getpat
+%895:	trunc	 %894
+%896:	icmp	 %895 XXX
+%897:	br	 %896 if.then2 if.end4
+
+BASIC BLOCK if.then2
+%898:	load	 stdout
+%899:	call	 %898 XXX fprintf
+%900:	call	 XXX exit
+%901:	unreachable	
+
+BASIC BLOCK if.end4
+%902:	icmp	 argc XXX
+%903:	br	 %902 if.else if.then7
+
+BASIC BLOCK if.then7
+%904:	getelementptr	 argv XXX
+%905:	load	 %904
+%906:	getelementptr	 %884 XXX XXX
+%907:	call	 %905 %906 getsub
+%908:	icmp	 %907 XXX
+%909:	br	 %908 if.then12 if.end14
+
+BASIC BLOCK if.then12
+%910:	load	 stdout
+%911:	call	 %910 XXX fprintf
+%912:	call	 XXX exit
+%913:	unreachable	
+
+BASIC BLOCK if.end14
+%914:	br	 if.end16
+
+BASIC BLOCK if.else
+%915:	getelementptr	 %884 XXX XXX
+%916:	store	 XXX %915
+%917:	br	 if.end16
+
+BASIC BLOCK if.end16
+%918:	getelementptr	 %883 XXX XXX
+%919:	getelementptr	 %884 XXX XXX
+%920:	call	 %918 %919 change
+%921:	ret	 XXX
+
+FUNCTION Caseerror
+
+BASIC BLOCK entry
+%922:	load	 stdout
+%923:	call	 %922 XXX n fprintf
+%924:	call	 XXX exit
+%925:	unreachable	
+
+BASIC BLOCK return
+%926:	ret	

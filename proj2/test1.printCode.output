@@ -1,0 +1,25 @@
+FUNCTION main
+
+BASIC BLOCK entry
+%1:	br	 while.cond
+
+BASIC BLOCK while.cond
+%2:	icmp	 XXX XXX
+%3:	br	 %2 while.end while.body
+
+BASIC BLOCK while.body
+%4:	icmp	 XXX XXX
+%5:	br	 %4 if.else if.then
+
+BASIC BLOCK if.then
+%6:	br	 if.end
+
+BASIC BLOCK if.else
+%7:	br	 if.end
+
+BASIC BLOCK if.end
+%8:	br	 while.cond
+
+BASIC BLOCK while.end
+%9:	ret	 XXX
+

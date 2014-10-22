@@ -1,0 +1,161 @@
+FUNCTION gnu_dev_major
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:1   L-Before: { }	L-After: { %1 }
+%:2   L-Before: { %1 }	L-After: { %2 }
+%:3   L-Before: { %2 }	L-After: { %2 %3 }
+%:4   L-Before: { %2 %3 }	L-After: { %2 %4 }
+%:5   L-Before: { %2 %4 }	L-After: { %2 %5 }
+%:6   L-Before: { %2 %5 }	L-After: { %2 %6 }
+%:7   L-Before: { %2 %6 }	L-After: { %7 }
+%:8   L-Before: { %7 }	L-After: { %8 }
+%:9   L-Before: { %8 }	L-After: { }
+
+FUNCTION gnu_dev_minor
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:10   L-Before: { }	L-After: { %10 }
+%:11   L-Before: { %10 }	L-After: { %10 %11 }
+%:12   L-Before: { %10 %11 }	L-After: { %10 %12 }
+%:13   L-Before: { %10 %12 }	L-After: { %10 %13 }
+%:14   L-Before: { %10 %13 }	L-After: { %10 %14 }
+%:15   L-Before: { %10 %14 }	L-After: { %15 }
+%:16   L-Before: { %15 }	L-After: { %16 }
+%:17   L-Before: { %16 }	L-After: { }
+
+FUNCTION gnu_dev_makedev
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:18   L-Before: { }	L-After: { %18 }
+%:19   L-Before: { %18 }	L-After: { %18 %19 }
+%:20   L-Before: { %18 %19 }	L-After: { %18 %20 }
+%:21   L-Before: { %18 %20 }	L-After: { %21 }
+%:22   L-Before: { %21 }	L-After: { %22 }
+%:23   L-Before: { %22 }	L-After: { %22 %23 }
+%:24   L-Before: { %22 %23 }	L-After: { %22 %24 }
+%:25   L-Before: { %22 %24 }	L-After: { %22 %25 }
+%:26   L-Before: { %22 %25 }	L-After: { %26 }
+%:27   L-Before: { %26 }	L-After: { %26 %27 }
+%:28   L-Before: { %26 %27 }	L-After: { %26 %28 }
+%:29   L-Before: { %26 %28 }	L-After: { %26 %29 }
+%:30   L-Before: { %26 %29 }	L-After: { %30 }
+%:31   L-Before: { %30 }	L-After: { }
+
+FUNCTION main
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%:32   L-Before: { }	L-After: { %32 }
+%:33   L-Before: { %32 }	L-After: { %33 }
+%:34   L-Before: { %33 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%:35   L-Before: { %32 }	L-After: { %32 %35 }
+%:36   L-Before: { %32 %35 }	L-After: { %32 %35 %36 }
+%:37   L-Before: { %32 %35 %36 }	L-After: { %32 %35 %37 }
+%:38   L-Before: { %32 %35 %37 }	L-After: { %32 %35 }
+%:39   L-Before: { %32 %35 }	L-After: { %32 }
+%:40   L-Before: { %32 }	L-After: { }
+%:41   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%:42   L-Before: { %32 %39 %40 }	L-After: { %32 %40 %42 }
+%:43   L-Before: { %32 %40 %42 }	L-After: { %42 %43 }
+%:44   L-Before: { %42 %43 }	L-After: { }
+%:45   L-Before: { }	L-After: { }
+%:46   L-Before: { }	L-After: { }
+%:47   L-Before: { }	L-After: { }
+
+BASIC BLOCK for.cond  L-Before: { }  L-After: { }
+%:48   L-Before: { %68 }	L-After: { %48 }
+%:49   L-Before: { %48 }	L-After: { %48 %49 }
+%:50   L-Before: { %48 %49 }	L-After: { %50 }
+%:51   L-Before: { %50 }	L-After: { }
+
+BASIC BLOCK for.body  L-Before: { }  L-After: { }
+%:52   L-Before: { %48 }	L-After: { %52 }
+%:53   L-Before: { %52 }	L-After: { %52 %53 }
+%:54   L-Before: { %52 %53 }	L-After: { %54 }
+%:55   L-Before: { %54 }	L-After: { %55 }
+%:56   L-Before: { %55 }	L-After: { %56 }
+%:57   L-Before: { %56 }	L-After: { }
+
+BASIC BLOCK land.lhs.true  L-Before: { }  L-After: { }
+%:58   L-Before: { %48 }	L-After: { %48 %58 }
+%:59   L-Before: { %48 %58 }	L-After: { %59 }
+%:60   L-Before: { %59 }	L-After: { }
+
+BASIC BLOCK if.then4  L-Before: { }  L-After: { }
+%:61   L-Before: { %48 }	L-After: { %61 }
+%:62   L-Before: { %61 }	L-After: { %61 %62 }
+%:63   L-Before: { %61 %62 }	L-After: { %63 }
+%:64   L-Before: { %63 }	L-After: { %64 }
+%:65   L-Before: { %64 }	L-After: { }
+%:66   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end7  L-Before: { }  L-After: { }
+%:67   L-Before: { }	L-After: { }
+
+BASIC BLOCK for.inc  L-Before: { }  L-After: { }
+%:68   L-Before: { %48 }	L-After: { }
+%:69   L-Before: { }	L-After: { }
+
+BASIC BLOCK for.end  L-Before: { }  L-After: { }
+%:70   L-Before: { }	L-After: { %70 }
+%:71   L-Before: { %70 }	L-After: { %71 }
+%:72   L-Before: { %71 }	L-After: { }
+
+BASIC BLOCK land.lhs.true10  L-Before: { }  L-After: { }
+%:73   L-Before: { }	L-After: { %73 }
+%:74   L-Before: { %73 }	L-After: { %74 }
+%:75   L-Before: { %74 }	L-After: { }
+
+BASIC BLOCK land.lhs.true12  L-Before: { }  L-After: { }
+%:76   L-Before: { }	L-After: { %76 }
+%:77   L-Before: { %76 }	L-After: { %77 }
+%:78   L-Before: { %77 }	L-After: { %77 %78 }
+%:79   L-Before: { %77 %78 }	L-After: { %79 }
+%:80   L-Before: { %79 }	L-After: { %80 }
+%:81   L-Before: { %80 }	L-After: { %81 }
+%:82   L-Before: { %81 }	L-After: { }
+
+BASIC BLOCK if.then16  L-Before: { }  L-After: { }
+%:83   L-Before: { }	L-After: { %83 }
+%:84   L-Before: { %83 }	L-After: { %84 }
+%:85   L-Before: { %84 }	L-After: { %84 %85 }
+%:86   L-Before: { %84 %85 }	L-After: { %86 }
+%:87   L-Before: { %86 }	L-After: { %87 }
+%:88   L-Before: { %87 }	L-After: { }
+%:89   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end19  L-Before: { }  L-After: { }
+%:90   L-Before: { }	L-After: { }
+%:91   L-Before: { }	L-After: { }
+%:92   L-Before: { }	L-After: { }
+
+removing useless assignment %39
+removing useless assignment %40
+removing useless assignment %68
+While deleting: i8** %incdec.ptr1
+Use still stuck around after Def is destroyed:  %argv.addr.0 = phi i8** [ %incdec.ptr1, %if.then ], [ %argv, %entry ]
+opt: /tmp/ll/llvm-3.3.src/lib/IR/Value.cpp:79: virtual llvm::Value::~Value(): Assertion `use_empty() && "Uses remain when a value is destroyed!"' failed.
+0  libLLVM-3.3.so  0x00007f66bacff362 llvm::sys::PrintStackTrace(_IO_FILE*) + 34
+1  libLLVM-3.3.so  0x00007f66bad012da
+2  libpthread.so.0 0x0000003adc00f710
+3  libc.so.6       0x0000003adb432635 gsignal + 53
+4  libc.so.6       0x0000003adb433e15 abort + 373
+5  libc.so.6       0x0000003adb42b75e
+6  libc.so.6       0x0000003adb42b820 __assert_perror_fail + 0
+7  libLLVM-3.3.so  0x00007f66ba64886f
+8  libLLVM-3.3.so  0x00007f66ba61a187
+9  P2.so           0x00007f66b9a7bcba
+10 libLLVM-3.3.so  0x00007f66ba630e08 llvm::FPPassManager::runOnFunction(llvm::Function&) + 568
+11 libLLVM-3.3.so  0x00007f66ba630eeb llvm::FPPassManager::runOnModule(llvm::Module&) + 43
+12 libLLVM-3.3.so  0x00007f66ba63088a llvm::MPPassManager::runOnModule(llvm::Module&) + 666
+13 libLLVM-3.3.so  0x00007f66ba630ab7 llvm::PassManagerImpl::run(llvm::Module&) + 247
+14 opt             0x000000000041a567 main + 5607
+15 libc.so.6       0x0000003adb41ed5d __libc_start_main + 253
+16 opt             0x000000000040bc99
+Stack dump:
+0.	Program arguments: opt -load Debug/lib/P2.so -liveVars TESTS/FLEX/flex.bc -o TESTS/FLEX/flex.liveVars 
+1.	Running pass 'Function Pass Manager' on module 'TESTS/FLEX/flex.bc'.
+2.	Running pass 'live vars analysis' on function '@main'

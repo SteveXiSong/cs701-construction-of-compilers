@@ -1,0 +1,429 @@
+FUNCTION initialize
+
+BASIC BLOCK entry
+%1:	store	 XXX XXX
+%2:	store	 XXX XXX
+%3:	store	 XXX XXX
+%4:	store	 XXX XXX
+%5:	ret	
+
+FUNCTION ALIM
+
+BASIC BLOCK entry
+%6:	load	 Alt_Layer_Value
+%7:	sext	 %6
+%8:	getelementptr	 Positive_RA_Alt_Thresh XXX %7
+%9:	load	 %8
+%10:	ret	 %9
+
+FUNCTION Inhibit_Biased_Climb
+
+BASIC BLOCK entry
+%11:	load	 Climb_Inhibit
+%12:	icmp	 %11 XXX
+%13:	br	 %12 cond.false cond.true
+
+BASIC BLOCK cond.true
+%14:	load	 Up_Separation
+%15:	add	 %14 XXX
+%16:	br	 cond.end
+
+BASIC BLOCK cond.false
+%17:	load	 Up_Separation
+%18:	br	 cond.end
+
+BASIC BLOCK cond.end
+%19:	phi	 %15 %17
+%20:	ret	 %19
+
+FUNCTION Non_Crossing_Biased_Climb
+
+BASIC BLOCK entry
+%21:	alloca	 XXX
+%22:	alloca	 XXX
+%23:	alloca	 XXX
+%24:	call	 Inhibit_Biased_Climb
+%25:	load	 Down_Separation
+%26:	icmp	 %24 %25
+%27:	zext	 %26
+%28:	store	 %27 %21
+%29:	load	 %21
+%30:	icmp	 %29 XXX
+%31:	br	 %30 if.else if.then
+
+BASIC BLOCK if.then
+%32:	call	 Own_Below_Threat
+%33:	icmp	 %32 XXX
+%34:	br	 %33 lor.end lor.rhs
+
+BASIC BLOCK lor.rhs
+%35:	call	 Own_Below_Threat
+%36:	icmp	 %35 XXX
+%37:	br	 %36 land.end land.rhs
+
+BASIC BLOCK land.rhs
+%38:	load	 Down_Separation
+%39:	call	 ALIM
+%40:	icmp	 %38 %39
+%41:	xor	 %40 XXX
+%42:	br	 land.end
+
+BASIC BLOCK land.end
+%43:	phi	 XXX %41
+%44:	br	 lor.end
+
+BASIC BLOCK lor.end
+%45:	phi	 XXX %43
+%46:	zext	 %45
+%47:	store	 %46 %23
+%48:	br	 if.end
+
+BASIC BLOCK if.else
+%49:	call	 Own_Above_Threat
+%50:	icmp	 %49 XXX
+%51:	br	 %50 land.end16 land.lhs.true
+
+BASIC BLOCK land.lhs.true
+%52:	load	 Cur_Vertical_Sep
+%53:	icmp	 %52 XXX
+%54:	br	 %53 land.end16 land.rhs12
+
+BASIC BLOCK land.rhs12
+%55:	load	 Up_Separation
+%56:	call	 ALIM
+%57:	icmp	 %55 %56
+%58:	br	 land.end16
+
+BASIC BLOCK land.end16
+%59:	phi	 XXX XXX %57
+%60:	zext	 %59
+%61:	store	 %60 %23
+%62:	br	 if.end
+
+BASIC BLOCK if.end
+%63:	load	 %23
+%64:	ret	 %63
+
+FUNCTION Non_Crossing_Biased_Descend
+
+BASIC BLOCK entry
+%65:	alloca	 XXX
+%66:	alloca	 XXX
+%67:	alloca	 XXX
+%68:	call	 Inhibit_Biased_Climb
+%69:	load	 Down_Separation
+%70:	icmp	 %68 %69
+%71:	zext	 %70
+%72:	store	 %71 %65
+%73:	load	 %65
+%74:	icmp	 %73 XXX
+%75:	br	 %74 if.else if.then
+
+BASIC BLOCK if.then
+%76:	call	 Own_Below_Threat
+%77:	icmp	 %76 XXX
+%78:	br	 %77 land.end land.lhs.true
+
+BASIC BLOCK land.lhs.true
+%79:	load	 Cur_Vertical_Sep
+%80:	icmp	 %79 XXX
+%81:	br	 %80 land.end land.rhs
+
+BASIC BLOCK land.rhs
+%82:	load	 Down_Separation
+%83:	call	 ALIM
+%84:	icmp	 %82 %83
+%85:	br	 land.end
+
+BASIC BLOCK land.end
+%86:	phi	 XXX XXX %84
+%87:	zext	 %86
+%88:	store	 %87 %67
+%89:	br	 if.end
+
+BASIC BLOCK if.else
+%90:	call	 Own_Above_Threat
+%91:	icmp	 %90 XXX
+%92:	br	 %91 lor.end lor.rhs
+
+BASIC BLOCK lor.rhs
+%93:	call	 Own_Above_Threat
+%94:	icmp	 %93 XXX
+%95:	br	 %94 land.end16 land.rhs12
+
+BASIC BLOCK land.rhs12
+%96:	load	 Up_Separation
+%97:	call	 ALIM
+%98:	icmp	 %96 %97
+%99:	br	 land.end16
+
+BASIC BLOCK land.end16
+%100:	phi	 XXX %98
+%101:	br	 lor.end
+
+BASIC BLOCK lor.end
+%102:	phi	 XXX %100
+%103:	zext	 %102
+%104:	store	 %103 %67
+%105:	br	 if.end
+
+BASIC BLOCK if.end
+%106:	load	 %67
+%107:	ret	 %106
+
+FUNCTION Own_Below_Threat
+
+BASIC BLOCK entry
+%108:	load	 Own_Tracked_Alt
+%109:	load	 Other_Tracked_Alt
+%110:	icmp	 %108 %109
+%111:	zext	 %110
+%112:	ret	 %111
+
+FUNCTION Own_Above_Threat
+
+BASIC BLOCK entry
+%113:	load	 Other_Tracked_Alt
+%114:	load	 Own_Tracked_Alt
+%115:	icmp	 %113 %114
+%116:	zext	 %115
+%117:	ret	 %116
+
+FUNCTION alt_sep_test
+
+BASIC BLOCK entry
+%118:	alloca	 XXX
+%119:	alloca	 XXX
+%120:	alloca	 XXX
+%121:	alloca	 XXX
+%122:	alloca	 XXX
+%123:	alloca	 XXX
+%124:	load	 High_Confidence
+%125:	icmp	 %124 XXX
+%126:	br	 %125 land.end land.lhs.true
+
+BASIC BLOCK land.lhs.true
+%127:	load	 Own_Tracked_Alt_Rate
+%128:	icmp	 %127 XXX
+%129:	br	 %128 land.end land.rhs
+
+BASIC BLOCK land.rhs
+%130:	load	 Cur_Vertical_Sep
+%131:	icmp	 %130 XXX
+%132:	br	 land.end
+
+BASIC BLOCK land.end
+%133:	phi	 XXX XXX %131
+%134:	zext	 %133
+%135:	store	 %134 %118
+%136:	load	 Other_Capability
+%137:	icmp	 %136 XXX
+%138:	zext	 %137
+%139:	store	 %138 %119
+%140:	load	 Two_of_Three_Reports_Valid
+%141:	icmp	 %140 XXX
+%142:	br	 %141 land.end7 land.rhs4
+
+BASIC BLOCK land.rhs4
+%143:	load	 Other_RAC
+%144:	icmp	 %143 XXX
+%145:	br	 land.end7
+
+BASIC BLOCK land.end7
+%146:	phi	 XXX %144
+%147:	zext	 %146
+%148:	store	 %147 %120
+%149:	store	 XXX %123
+%150:	load	 %118
+%151:	icmp	 %150 XXX
+%152:	br	 %151 if.end40 land.lhs.true10
+
+BASIC BLOCK land.lhs.true10
+%153:	load	 %119
+%154:	icmp	 %153 XXX
+%155:	br	 %154 lor.lhs.false land.lhs.true12
+
+BASIC BLOCK land.lhs.true12
+%156:	load	 %120
+%157:	icmp	 %156 XXX
+%158:	br	 %157 lor.lhs.false if.then
+
+BASIC BLOCK lor.lhs.false
+%159:	load	 %119
+%160:	icmp	 %159 XXX
+%161:	br	 %160 if.then if.end40
+
+BASIC BLOCK if.then
+%162:	call	 Non_Crossing_Biased_Climb
+%163:	icmp	 %162 XXX
+%164:	br	 %163 land.end19 land.rhs16
+
+BASIC BLOCK land.rhs16
+%165:	call	 Own_Below_Threat
+%166:	icmp	 %165 XXX
+%167:	br	 land.end19
+
+BASIC BLOCK land.end19
+%168:	phi	 XXX %166
+%169:	zext	 %168
+%170:	store	 %169 %121
+%171:	call	 Non_Crossing_Biased_Descend
+%172:	icmp	 %171 XXX
+%173:	br	 %172 land.end26 land.rhs23
+
+BASIC BLOCK land.rhs23
+%174:	call	 Own_Above_Threat
+%175:	icmp	 %174 XXX
+%176:	br	 land.end26
+
+BASIC BLOCK land.end26
+%177:	phi	 XXX %175
+%178:	zext	 %177
+%179:	store	 %178 %122
+%180:	load	 %121
+%181:	icmp	 %180 XXX
+%182:	br	 %181 if.else land.lhs.true29
+
+BASIC BLOCK land.lhs.true29
+%183:	load	 %122
+%184:	icmp	 %183 XXX
+%185:	br	 %184 if.else if.then31
+
+BASIC BLOCK if.then31
+%186:	store	 XXX %123
+%187:	br	 if.end39
+
+BASIC BLOCK if.else
+%188:	load	 %121
+%189:	icmp	 %188 XXX
+%190:	br	 %189 if.else34 if.then33
+
+BASIC BLOCK if.then33
+%191:	store	 XXX %123
+%192:	br	 if.end38
+
+BASIC BLOCK if.else34
+%193:	load	 %122
+%194:	icmp	 %193 XXX
+%195:	br	 %194 if.else37 if.then36
+
+BASIC BLOCK if.then36
+%196:	store	 XXX %123
+%197:	br	 if.end
+
+BASIC BLOCK if.else37
+%198:	store	 XXX %123
+%199:	br	 if.end
+
+BASIC BLOCK if.end
+%200:	br	 if.end38
+
+BASIC BLOCK if.end38
+%201:	br	 if.end39
+
+BASIC BLOCK if.end39
+%202:	br	 if.end40
+
+BASIC BLOCK if.end40
+%203:	load	 %123
+%204:	ret	 %203
+
+FUNCTION main
+
+BASIC BLOCK entry
+%205:	alloca	 XXX
+%206:	alloca	 XXX
+%207:	alloca	 XXX
+%208:	store	 XXX %205
+%209:	store	 argc %206
+%210:	store	 argv %207
+%211:	load	 %206
+%212:	icmp	 %211 XXX
+%213:	br	 %212 if.end if.then
+
+BASIC BLOCK if.then
+%214:	load	 stdout
+%215:	call	 %214 XXX fprintf
+%216:	load	 stdout
+%217:	call	 %216 XXX fprintf
+%218:	load	 stdout
+%219:	call	 %218 XXX fprintf
+%220:	load	 stdout
+%221:	call	 %220 XXX fprintf
+%222:	load	 stdout
+%223:	call	 %222 XXX fprintf
+%224:	call	 XXX exit
+%225:	unreachable	
+
+BASIC BLOCK if.end
+%226:	call	 initialize
+%227:	load	 %207
+%228:	getelementptr	 %227 XXX
+%229:	load	 %228
+%230:	call	 %229 atoi
+%231:	store	 %230 Cur_Vertical_Sep
+%232:	load	 %207
+%233:	getelementptr	 %232 XXX
+%234:	load	 %233
+%235:	call	 %234 atoi
+%236:	store	 %235 High_Confidence
+%237:	load	 %207
+%238:	getelementptr	 %237 XXX
+%239:	load	 %238
+%240:	call	 %239 atoi
+%241:	store	 %240 Two_of_Three_Reports_Valid
+%242:	load	 %207
+%243:	getelementptr	 %242 XXX
+%244:	load	 %243
+%245:	call	 %244 atoi
+%246:	store	 %245 Own_Tracked_Alt
+%247:	load	 %207
+%248:	getelementptr	 %247 XXX
+%249:	load	 %248
+%250:	call	 %249 atoi
+%251:	store	 %250 Own_Tracked_Alt_Rate
+%252:	load	 %207
+%253:	getelementptr	 %252 XXX
+%254:	load	 %253
+%255:	call	 %254 atoi
+%256:	store	 %255 Other_Tracked_Alt
+%257:	load	 %207
+%258:	getelementptr	 %257 XXX
+%259:	load	 %258
+%260:	call	 %259 atoi
+%261:	store	 %260 Alt_Layer_Value
+%262:	load	 %207
+%263:	getelementptr	 %262 XXX
+%264:	load	 %263
+%265:	call	 %264 atoi
+%266:	store	 %265 Up_Separation
+%267:	load	 %207
+%268:	getelementptr	 %267 XXX
+%269:	load	 %268
+%270:	call	 %269 atoi
+%271:	store	 %270 Down_Separation
+%272:	load	 %207
+%273:	getelementptr	 %272 XXX
+%274:	load	 %273
+%275:	call	 %274 atoi
+%276:	store	 %275 Other_RAC
+%277:	load	 %207
+%278:	getelementptr	 %277 XXX
+%279:	load	 %278
+%280:	call	 %279 atoi
+%281:	store	 %280 Other_Capability
+%282:	load	 %207
+%283:	getelementptr	 %282 XXX
+%284:	load	 %283
+%285:	call	 %284 atoi
+%286:	store	 %285 Climb_Inhibit
+%287:	load	 stdout
+%288:	call	 alt_sep_test
+%289:	call	 %287 XXX %288 fprintf
+%290:	call	 XXX exit
+%291:	unreachable	
+
+BASIC BLOCK return
+%292:	load	 %205
+%293:	ret	 %292
+

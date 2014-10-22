@@ -1,0 +1,950 @@
+
+FUNCTION main
+
+BASIC BLOCK entry
+%1:	icmp	 argc XXX
+%2:	br	 %1 if.end if.then
+
+BASIC BLOCK if.then
+%3:	load	 stdout
+%4:	call	 %3 XXX fprintf
+%5:	call	 XXX exit
+%6:	unreachable	
+
+BASIC BLOCK if.end
+%7:	getelementptr	 argv XXX
+%8:	load	 %7
+%9:	call	 %8 open_token_stream
+%10:	br	 while.cond
+
+BASIC BLOCK while.cond
+%11:	call	 %9 get_token
+%12:	call	 %11 is_eof_token
+%13:	icmp	 %12 XXX
+%14:	xor	 %13 XXX
+%15:	br	 %14 while.end while.body
+
+BASIC BLOCK while.body
+%16:	call	 %11 print_token
+%17:	br	 while.cond
+
+BASIC BLOCK while.end
+%18:	call	 %11 print_token
+%19:	call	 XXX exit
+%20:	unreachable	
+
+BASIC BLOCK return
+%21:	ret	 XXX
+
+FUNCTION print_token
+
+BASIC BLOCK entry
+%22:	getelementptr	 token_ptr XXX XXX
+%23:	load	 %22
+%24:	switch	 %23 sw.default XXX sw.bb XXX sw.bb3 XXX sw.bb5 XXX sw.bb7 XXX sw.bb9 XXX sw.bb11 XXX sw.bb13 XXX sw.bb15 XXX sw.bb21 XXX sw.bb27 XXX sw.bb29 XXX sw.bb31 XXX sw.bb33 XXX sw.bb35 XXX sw.bb37 XXX sw.bb39 XXX sw.bb41 XXX sw.bb47 XXX sw.bb53
+
+BASIC BLOCK sw.bb
+%25:	load	 stdout
+%26:	call	 %25 XXX fprintf
+%27:	load	 stdout
+%28:	getelementptr	 token_ptr XXX XXX
+%29:	getelementptr	 %28 XXX XXX
+%30:	call	 %27 XXX %29 fprintf
+%31:	load	 stdout
+%32:	call	 %31 XXX fprintf
+%33:	br	 return
+
+BASIC BLOCK sw.bb3
+%34:	load	 stdout
+%35:	call	 %34 XXX fprintf
+%36:	br	 return
+
+BASIC BLOCK sw.bb5
+%37:	load	 stdout
+%38:	call	 %37 XXX fprintf
+%39:	br	 return
+
+BASIC BLOCK sw.bb7
+%40:	load	 stdout
+%41:	call	 %40 XXX fprintf
+%42:	br	 return
+
+BASIC BLOCK sw.bb9
+%43:	load	 stdout
+%44:	call	 %43 XXX fprintf
+%45:	br	 return
+
+BASIC BLOCK sw.bb11
+%46:	load	 stdout
+%47:	call	 %46 XXX fprintf
+%48:	br	 return
+
+BASIC BLOCK sw.bb13
+%49:	load	 stdout
+%50:	call	 %49 XXX fprintf
+%51:	br	 return
+
+BASIC BLOCK sw.bb15
+%52:	load	 stdout
+%53:	call	 %52 XXX fprintf
+%54:	load	 stdout
+%55:	getelementptr	 token_ptr XXX XXX
+%56:	getelementptr	 %55 XXX XXX
+%57:	call	 %54 XXX %56 fprintf
+%58:	load	 stdout
+%59:	call	 %58 XXX fprintf
+%60:	br	 return
+
+BASIC BLOCK sw.bb21
+%61:	load	 stdout
+%62:	call	 %61 XXX fprintf
+%63:	load	 stdout
+%64:	getelementptr	 token_ptr XXX XXX
+%65:	getelementptr	 %64 XXX XXX
+%66:	call	 %63 XXX %65 fprintf
+%67:	load	 stdout
+%68:	call	 %67 XXX fprintf
+%69:	br	 return
+
+BASIC BLOCK sw.bb27
+%70:	load	 stdout
+%71:	call	 %70 XXX fprintf
+%72:	br	 return
+
+BASIC BLOCK sw.bb29
+%73:	load	 stdout
+%74:	call	 %73 XXX fprintf
+%75:	br	 return
+
+BASIC BLOCK sw.bb31
+%76:	load	 stdout
+%77:	call	 %76 XXX fprintf
+%78:	br	 return
+
+BASIC BLOCK sw.bb33
+%79:	load	 stdout
+%80:	call	 %79 XXX fprintf
+%81:	br	 return
+
+BASIC BLOCK sw.bb35
+%82:	load	 stdout
+%83:	call	 %82 XXX fprintf
+%84:	br	 return
+
+BASIC BLOCK sw.bb37
+%85:	load	 stdout
+%86:	call	 %85 XXX fprintf
+%87:	br	 return
+
+BASIC BLOCK sw.bb39
+%88:	load	 stdout
+%89:	call	 %88 XXX fprintf
+%90:	br	 return
+
+BASIC BLOCK sw.bb41
+%91:	load	 stdout
+%92:	call	 %91 XXX fprintf
+%93:	load	 stdout
+%94:	getelementptr	 token_ptr XXX XXX
+%95:	getelementptr	 %94 XXX XXX
+%96:	call	 %93 XXX %95 fprintf
+%97:	load	 stdout
+%98:	call	 %97 XXX fprintf
+%99:	br	 return
+
+BASIC BLOCK sw.bb47
+%100:	load	 stdout
+%101:	call	 %100 XXX fprintf
+%102:	load	 stdout
+%103:	getelementptr	 token_ptr XXX XXX
+%104:	getelementptr	 %103 XXX XXX
+%105:	call	 %102 XXX %104 fprintf
+%106:	load	 stdout
+%107:	call	 %106 XXX fprintf
+%108:	br	 return
+
+BASIC BLOCK sw.bb53
+%109:	load	 stdout
+%110:	call	 %109 XXX fprintf
+%111:	br	 return
+
+BASIC BLOCK sw.default
+%112:	br	 sw.epilog
+
+BASIC BLOCK sw.epilog
+%113:	br	 return
+
+BASIC BLOCK return
+%114:	phi	 XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX
+%115:	ret	 %114
+
+FUNCTION open_character_stream
+
+BASIC BLOCK entry
+%116:	call	 XXX malloc
+%117:	bitcast	 %116
+%118:	getelementptr	 %117 XXX XXX
+%119:	store	 XXX %118
+%120:	getelementptr	 %117 XXX XXX
+%121:	getelementptr	 %120 XXX XXX
+%122:	store	 XXX %121
+%123:	icmp	 FILENAME XXX
+%124:	br	 %123 if.else if.then
+
+BASIC BLOCK if.then
+%125:	load	 stdin
+%126:	getelementptr	 %117 XXX XXX
+%127:	store	 %125 %126
+%128:	br	 if.end6
+
+BASIC BLOCK if.else
+%129:	call	 FILENAME XXX fopen
+%130:	getelementptr	 %117 XXX XXX
+%131:	store	 %129 %130
+%132:	icmp	 %129 XXX
+%133:	br	 %132 if.end if.then4
+
+BASIC BLOCK if.then4
+%134:	load	 stdout
+%135:	call	 %134 XXX FILENAME fprintf
+%136:	call	 XXX exit
+%137:	unreachable	
+
+BASIC BLOCK if.end
+%138:	br	 if.end6
+
+BASIC BLOCK if.end6
+%139:	ret	 %117
+
+FUNCTION get_char
+
+BASIC BLOCK entry
+%140:	getelementptr	 stream_ptr XXX XXX
+%141:	load	 %140
+%142:	sext	 %141
+%143:	getelementptr	 stream_ptr XXX XXX
+%144:	getelementptr	 %143 XXX %142
+%145:	load	 %144
+%146:	sext	 %145
+%147:	icmp	 %146 XXX
+%148:	br	 %147 if.end9 if.then
+
+BASIC BLOCK if.then
+%149:	getelementptr	 stream_ptr XXX XXX
+%150:	getelementptr	 %149 XXX XXX
+%151:	getelementptr	 %150 XXX
+%152:	getelementptr	 stream_ptr XXX XXX
+%153:	load	 %152
+%154:	call	 %151 XXX %153 fgets
+%155:	icmp	 %154 XXX
+%156:	br	 %155 if.end if.then5
+
+BASIC BLOCK if.then5
+%157:	getelementptr	 stream_ptr XXX XXX
+%158:	getelementptr	 %157 XXX XXX
+%159:	store	 XXX %158
+%160:	br	 if.end
+
+BASIC BLOCK if.end
+%161:	getelementptr	 stream_ptr XXX XXX
+%162:	store	 XXX %161
+%163:	br	 if.end9
+
+BASIC BLOCK if.end9
+%164:	getelementptr	 stream_ptr XXX XXX
+%165:	load	 %164
+%166:	add	 %165 XXX
+%167:	store	 %166 %164
+%168:	sext	 %165
+%169:	getelementptr	 stream_ptr XXX XXX
+%170:	getelementptr	 %169 XXX %168
+%171:	load	 %170
+%172:	ret	 %171
+
+FUNCTION is_end_of_character_stream
+
+BASIC BLOCK entry
+%173:	getelementptr	 stream_ptr XXX XXX
+%174:	load	 %173
+%175:	sub	 %174 XXX
+%176:	sext	 %175
+%177:	getelementptr	 stream_ptr XXX XXX
+%178:	getelementptr	 %177 XXX %176
+%179:	load	 %178
+%180:	sext	 %179
+%181:	icmp	 %180 XXX
+%182:	br	 %181 if.else if.then
+
+BASIC BLOCK if.then
+%183:	br	 return
+
+BASIC BLOCK if.else
+%184:	br	 return
+
+BASIC BLOCK return
+%185:	phi	 XXX XXX
+%186:	ret	 %185
+
+FUNCTION unget_char
+
+BASIC BLOCK entry
+%187:	trunc	 XXX
+%188:	getelementptr	 stream_ptr XXX XXX
+%189:	load	 %188
+%190:	icmp	 %189 XXX
+%191:	br	 %190 if.else if.then
+
+BASIC BLOCK if.then
+%192:	br	 return
+
+BASIC BLOCK if.else
+%193:	getelementptr	 stream_ptr XXX XXX
+%194:	load	 %193
+%195:	add	 %194 XXX
+%196:	store	 %195 %193
+%197:	sext	 %195
+%198:	getelementptr	 stream_ptr XXX XXX
+%199:	getelementptr	 %198 XXX %197
+%200:	store	 %187 %199
+%201:	br	 if.end
+
+BASIC BLOCK if.end
+%202:	br	 return
+
+BASIC BLOCK return
+%203:	ret	
+
+FUNCTION open_token_stream
+
+BASIC BLOCK entry
+%204:	call	 XXX malloc
+%205:	bitcast	 %204
+%206:	call	 FILENAME open_character_stream
+%207:	getelementptr	 %205 XXX XXX
+%208:	store	 %206 %207
+%209:	ret	 %205
+
+FUNCTION get_token
+
+BASIC BLOCK entry
+%210:	alloca	 XXX
+%211:	call	 XXX malloc
+%212:	bitcast	 %211
+%213:	getelementptr	 tstream_ptr XXX XXX
+%214:	load	 %213
+%215:	call	 %214 get_char
+%216:	br	 while.cond
+
+BASIC BLOCK while.cond
+%217:	phi	 %215 %316
+%218:	phi	 XXX %313
+%219:	phi	 XXX %312
+%220:	icmp	 XXX XXX
+%221:	xor	 %220 XXX
+%222:	br	 %221 while.end while.body
+
+BASIC BLOCK while.body
+%223:	icmp	 %219 XXX
+%224:	br	 %223 if.else if.then
+
+BASIC BLOCK if.then
+%225:	add	 %219 XXX
+%226:	sext	 %219
+%227:	getelementptr	 %210 XXX %226
+%228:	store	 %217 %227
+%229:	sext	 %217
+%230:	call	 %218 %229 next_state
+%231:	br	 if.end
+
+BASIC BLOCK if.else
+%232:	br	 if.end
+
+BASIC BLOCK if.end
+%233:	phi	 %225 %219
+%234:	phi	 %230 XXX
+%235:	icmp	 %234 XXX
+%236:	br	 %235 if.else8 if.then5
+
+BASIC BLOCK if.then5
+%237:	getelementptr	 %210 XXX XXX
+%238:	sext	 %217
+%239:	call	 tstream_ptr %212 %218 %237 %233 %238 error_or_eof_case
+%240:	br	 return
+
+BASIC BLOCK if.else8
+%241:	icmp	 %234 XXX
+%242:	br	 %241 if.else15 if.then11
+
+BASIC BLOCK if.then11
+%243:	sext	 %217
+%244:	getelementptr	 %210 XXX XXX
+%245:	call	 tstream_ptr %212 %243 %244 %233 numeric_case
+%246:	br	 return
+
+BASIC BLOCK if.else15
+%247:	icmp	 %234 XXX
+%248:	br	 %247 if.end25 if.then18
+
+BASIC BLOCK if.then18
+%249:	getelementptr	 %212 XXX XXX
+%250:	store	 XXX %249
+%251:	sext	 %217
+%252:	getelementptr	 tstream_ptr XXX XXX
+%253:	load	 %252
+%254:	call	 %251 %253 unget_char
+%255:	add	 %233 XXX
+%256:	getelementptr	 %210 XXX XXX
+%257:	call	 %256 %255 get_actual_token
+%258:	getelementptr	 %212 XXX XXX
+%259:	getelementptr	 %258 XXX XXX
+%260:	getelementptr	 %210 XXX XXX
+%261:	call	 %259 %260 strcpy
+%262:	br	 return
+
+BASIC BLOCK if.end25
+%263:	br	 if.end26
+
+BASIC BLOCK if.end26
+%264:	br	 if.end27
+
+BASIC BLOCK if.end27
+%265:	switch	 %234 sw.default XXX sw.bb XXX sw.bb XXX sw.bb XXX sw.bb XXX sw.bb XXX sw.bb44 XXX sw.bb44 XXX sw.bb44 XXX sw.bb44 XXX sw.bb44 XXX sw.bb44 XXX sw.bb44 XXX sw.bb44 XXX sw.bb49 XXX sw.bb49 XXX sw.bb58
+
+BASIC BLOCK sw.default
+%266:	br	 sw.epilog
+
+BASIC BLOCK sw.bb
+%267:	getelementptr	 tstream_ptr XXX XXX
+%268:	load	 %267
+%269:	call	 %268 get_char
+%270:	sext	 %269
+%271:	call	 %270 check_delimiter
+%272:	icmp	 %271 XXX
+%273:	br	 %272 if.end41 if.then34
+
+BASIC BLOCK if.then34
+%274:	call	 %234 keyword
+%275:	getelementptr	 %212 XXX XXX
+%276:	store	 %274 %275
+%277:	sext	 %269
+%278:	getelementptr	 tstream_ptr XXX XXX
+%279:	load	 %278
+%280:	call	 %277 %279 unget_char
+%281:	getelementptr	 %212 XXX XXX
+%282:	getelementptr	 %281 XXX XXX
+%283:	store	 XXX %282
+%284:	br	 return
+
+BASIC BLOCK if.end41
+%285:	sext	 %269
+%286:	getelementptr	 tstream_ptr XXX XXX
+%287:	load	 %286
+%288:	call	 %285 %287 unget_char
+%289:	br	 sw.epilog
+
+BASIC BLOCK sw.bb44
+%290:	call	 %234 special
+%291:	getelementptr	 %212 XXX XXX
+%292:	store	 %290 %291
+%293:	getelementptr	 %212 XXX XXX
+%294:	getelementptr	 %293 XXX XXX
+%295:	store	 XXX %294
+%296:	br	 return
+
+BASIC BLOCK sw.bb49
+%297:	getelementptr	 %210 XXX XXX
+%298:	call	 %234 %297 %233 constant
+%299:	getelementptr	 %212 XXX XXX
+%300:	store	 %298 %299
+%301:	getelementptr	 %210 XXX XXX
+%302:	call	 %301 %233 get_actual_token
+%303:	getelementptr	 %212 XXX XXX
+%304:	getelementptr	 %303 XXX XXX
+%305:	getelementptr	 %210 XXX XXX
+%306:	call	 %304 %305 strcpy
+%307:	br	 return
+
+BASIC BLOCK sw.bb58
+%308:	getelementptr	 tstream_ptr XXX XXX
+%309:	load	 %308
+%310:	call	 %309 skip
+%311:	br	 sw.epilog
+
+BASIC BLOCK sw.epilog
+%312:	phi	 %233 XXX %233
+%313:	phi	 %234 XXX %234
+%314:	getelementptr	 tstream_ptr XXX XXX
+%315:	load	 %314
+%316:	call	 %315 get_char
+%317:	br	 while.cond
+
+BASIC BLOCK while.end
+%318:	br	 return
+
+BASIC BLOCK return
+%319:	phi	 %239 %245 %212 %212 %212 %212 XXX
+%320:	ret	 %319
+
+FUNCTION next_state
+
+BASIC BLOCK entry
+%321:	trunc	 XXX
+%322:	icmp	 state XXX
+%323:	br	 %322 if.end if.then
+
+BASIC BLOCK if.then
+%324:	br	 return
+
+BASIC BLOCK if.end
+%325:	sext	 state
+%326:	getelementptr	 base XXX %325
+%327:	load	 %326
+%328:	sext	 %321
+%329:	add	 %327 %328
+%330:	icmp	 %329 XXX
+%331:	br	 %330 if.else22 if.then3
+
+BASIC BLOCK if.then3
+%332:	sext	 state
+%333:	getelementptr	 base XXX %332
+%334:	load	 %333
+%335:	sext	 %321
+%336:	add	 %334 %335
+%337:	sext	 %336
+%338:	getelementptr	 check XXX %337
+%339:	load	 %338
+%340:	icmp	 %339 state
+%341:	br	 %340 if.else if.then12
+
+BASIC BLOCK if.then12
+%342:	sext	 state
+%343:	getelementptr	 base XXX %342
+%344:	load	 %343
+%345:	sext	 %321
+%346:	add	 %344 %345
+%347:	sext	 %346
+%348:	getelementptr	 next XXX %347
+%349:	load	 %348
+%350:	br	 return
+
+BASIC BLOCK if.else
+%351:	sext	 state
+%352:	getelementptr	 default1 XXX %351
+%353:	load	 %352
+%354:	sext	 %321
+%355:	call	 %353 %354 next_state
+%356:	br	 return
+
+BASIC BLOCK if.else22
+%357:	sext	 state
+%358:	getelementptr	 default1 XXX %357
+%359:	load	 %358
+%360:	sext	 %321
+%361:	call	 %359 %360 next_state
+%362:	br	 return
+
+BASIC BLOCK return
+%363:	phi	 state %349 %355 %361
+%364:	ret	 %363
+
+FUNCTION error_or_eof_case
+
+BASIC BLOCK entry
+%365:	trunc	 XXX
+%366:	getelementptr	 tstream_ptr XXX XXX
+%367:	load	 %366
+%368:	call	 %367 is_end_of_character_stream
+%369:	icmp	 %368 XXX
+%370:	br	 %369 if.end if.then
+
+BASIC BLOCK if.then
+%371:	getelementptr	 token_ptr XXX XXX
+%372:	store	 XXX %371
+%373:	getelementptr	 token_ptr XXX XXX
+%374:	getelementptr	 %373 XXX XXX
+%375:	store	 XXX %374
+%376:	br	 return
+
+BASIC BLOCK if.end
+%377:	icmp	 cu_state XXX
+%378:	br	 %377 if.end3 if.then1
+
+BASIC BLOCK if.then1
+%379:	sext	 %365
+%380:	getelementptr	 tstream_ptr XXX XXX
+%381:	load	 %380
+%382:	call	 %379 %381 unget_char
+%383:	add	 token_ind XXX
+%384:	br	 if.end3
+
+BASIC BLOCK if.end3
+%385:	phi	 %383 token_ind
+%386:	getelementptr	 token_ptr XXX XXX
+%387:	store	 XXX %386
+%388:	call	 token_str %385 get_actual_token
+%389:	getelementptr	 token_ptr XXX XXX
+%390:	getelementptr	 %389 XXX XXX
+%391:	call	 %390 token_str strcpy
+%392:	br	 return
+
+BASIC BLOCK return
+%393:	ret	 token_ptr
+
+FUNCTION numeric_case
+
+BASIC BLOCK entry
+%394:	trunc	 XXX
+%395:	sext	 %394
+%396:	call	 %395 check_delimiter
+%397:	icmp	 %396 XXX
+%398:	br	 %397 if.end13 if.then
+
+BASIC BLOCK if.then
+%399:	getelementptr	 token_ptr XXX XXX
+%400:	store	 XXX %399
+%401:	br	 while.cond
+
+BASIC BLOCK while.cond
+%402:	phi	 %394 %413
+%403:	phi	 token_ind %414
+%404:	sext	 %402
+%405:	call	 %404 check_delimiter
+%406:	icmp	 %405 XXX
+%407:	br	 %406 while.end while.body
+
+BASIC BLOCK while.body
+%408:	icmp	 %403 XXX
+%409:	br	 %408 if.end if.then8
+
+BASIC BLOCK if.then8
+%410:	br	 while.end
+
+BASIC BLOCK if.end
+%411:	getelementptr	 tstream_ptr XXX XXX
+%412:	load	 %411
+%413:	call	 %412 get_char
+%414:	add	 %403 XXX
+%415:	sext	 %403
+%416:	getelementptr	 token_str %415
+%417:	store	 %413 %416
+%418:	br	 while.cond
+
+BASIC BLOCK while.end
+%419:	sext	 %402
+%420:	getelementptr	 tstream_ptr XXX XXX
+%421:	load	 %420
+%422:	call	 %419 %421 unget_char
+%423:	add	 %403 XXX
+%424:	call	 token_str %423 get_actual_token
+%425:	getelementptr	 token_ptr XXX XXX
+%426:	getelementptr	 %425 XXX XXX
+%427:	call	 %426 token_str strcpy
+%428:	br	 return
+
+BASIC BLOCK if.end13
+%429:	getelementptr	 token_ptr XXX XXX
+%430:	store	 XXX %429
+%431:	sext	 %394
+%432:	getelementptr	 tstream_ptr XXX XXX
+%433:	load	 %432
+%434:	call	 %431 %433 unget_char
+%435:	add	 token_ind XXX
+%436:	call	 token_str %435 get_actual_token
+%437:	getelementptr	 token_ptr XXX XXX
+%438:	getelementptr	 %437 XXX XXX
+%439:	call	 %438 token_str strcpy
+%440:	br	 return
+
+BASIC BLOCK return
+%441:	ret	 token_ptr
+
+FUNCTION get_actual_token
+
+BASIC BLOCK entry
+%442:	br	 for.cond
+
+BASIC BLOCK for.cond
+%443:	phi	 token_ind %463
+%444:	icmp	 %443 XXX
+%445:	br	 %444 land.end land.rhs
+
+BASIC BLOCK land.rhs
+%446:	sub	 %443 XXX
+%447:	sext	 %446
+%448:	getelementptr	 token_str %447
+%449:	load	 %448
+%450:	sext	 %449
+%451:	sext	 %450
+%452:	call	 __ctype_b_loc
+%453:	load	 %452
+%454:	getelementptr	 %453 %451
+%455:	load	 %454
+%456:	zext	 %455
+%457:	and	 %456 XXX
+%458:	icmp	 %457 XXX
+%459:	br	 land.end
+
+BASIC BLOCK land.end
+%460:	phi	 XXX %458
+%461:	br	 %460 for.end for.body
+
+BASIC BLOCK for.body
+%462:	br	 for.inc
+
+BASIC BLOCK for.inc
+%463:	add	 %443 XXX
+%464:	br	 for.cond
+
+BASIC BLOCK for.end
+%465:	sext	 %443
+%466:	getelementptr	 token_str %465
+%467:	store	 XXX %466
+%468:	br	 for.cond6
+
+BASIC BLOCK for.cond6
+%469:	phi	 XXX %487
+%470:	icmp	 %469 %443
+%471:	br	 %470 for.end20 for.body9
+
+BASIC BLOCK for.body9
+%472:	sext	 %469
+%473:	getelementptr	 token_str %472
+%474:	load	 %473
+%475:	sext	 %474
+%476:	sext	 %475
+%477:	call	 __ctype_b_loc
+%478:	load	 %477
+%479:	getelementptr	 %478 %476
+%480:	load	 %479
+%481:	zext	 %480
+%482:	and	 %481 XXX
+%483:	icmp	 %482 XXX
+%484:	br	 %483 if.then if.end
+
+BASIC BLOCK if.then
+%485:	br	 for.end20
+
+BASIC BLOCK if.end
+%486:	br	 for.inc19
+
+BASIC BLOCK for.inc19
+%487:	add	 %469 XXX
+%488:	br	 for.cond6
+
+BASIC BLOCK for.end20
+%489:	br	 for.cond21
+
+BASIC BLOCK for.cond21
+%490:	phi	 %469 %502
+%491:	phi	 XXX %501
+%492:	icmp	 %490 %443
+%493:	br	 %492 for.end32 for.body24
+
+BASIC BLOCK for.body24
+%494:	sext	 %490
+%495:	getelementptr	 token_str %494
+%496:	load	 %495
+%497:	sext	 %491
+%498:	getelementptr	 token_str %497
+%499:	store	 %496 %498
+%500:	br	 for.inc29
+
+BASIC BLOCK for.inc29
+%501:	add	 %491 XXX
+%502:	add	 %490 XXX
+%503:	br	 for.cond21
+
+BASIC BLOCK for.end32
+%504:	ret	
+
+FUNCTION check_delimiter
+
+BASIC BLOCK entry
+%505:	trunc	 XXX
+%506:	sext	 %505
+%507:	sext	 %506
+%508:	call	 __ctype_b_loc
+%509:	load	 %508
+%510:	getelementptr	 %509 %507
+%511:	load	 %510
+%512:	zext	 %511
+%513:	and	 %512 XXX
+%514:	icmp	 %513 XXX
+%515:	br	 %514 land.lhs.true if.end
+
+BASIC BLOCK land.lhs.true
+%516:	sext	 %505
+%517:	sext	 %516
+%518:	call	 __ctype_b_loc
+%519:	load	 %518
+%520:	getelementptr	 %519 %517
+%521:	load	 %520
+%522:	zext	 %521
+%523:	and	 %522 XXX
+%524:	icmp	 %523 XXX
+%525:	br	 %524 if.then if.end
+
+BASIC BLOCK if.then
+%526:	br	 return
+
+BASIC BLOCK if.end
+%527:	br	 return
+
+BASIC BLOCK return
+%528:	phi	 XXX XXX
+%529:	ret	 %528
+
+FUNCTION keyword
+
+BASIC BLOCK entry
+%530:	switch	 state sw.default XXX sw.bb XXX sw.bb1 XXX sw.bb2 XXX sw.bb3 XXX sw.bb4
+
+BASIC BLOCK sw.bb
+%531:	br	 return
+
+BASIC BLOCK sw.bb1
+%532:	br	 return
+
+BASIC BLOCK sw.bb2
+%533:	br	 return
+
+BASIC BLOCK sw.bb3
+%534:	br	 return
+
+BASIC BLOCK sw.bb4
+%535:	br	 return
+
+BASIC BLOCK sw.default
+%536:	load	 stdout
+%537:	call	 %536 XXX fprintf
+%538:	br	 sw.epilog
+
+BASIC BLOCK sw.epilog
+%539:	call	 XXX exit
+%540:	unreachable	
+
+BASIC BLOCK return
+%541:	phi	 XXX XXX XXX XXX XXX
+%542:	ret	 %541
+
+FUNCTION special
+
+BASIC BLOCK entry
+%543:	switch	 state sw.default XXX sw.bb XXX sw.bb1 XXX sw.bb2 XXX sw.bb3 XXX sw.bb4 XXX sw.bb5 XXX sw.bb6 XXX sw.bb7
+
+BASIC BLOCK sw.bb
+%544:	br	 return
+
+BASIC BLOCK sw.bb1
+%545:	br	 return
+
+BASIC BLOCK sw.bb2
+%546:	br	 return
+
+BASIC BLOCK sw.bb3
+%547:	br	 return
+
+BASIC BLOCK sw.bb4
+%548:	br	 return
+
+BASIC BLOCK sw.bb5
+%549:	br	 return
+
+BASIC BLOCK sw.bb6
+%550:	br	 return
+
+BASIC BLOCK sw.bb7
+%551:	br	 return
+
+BASIC BLOCK sw.default
+%552:	load	 stdout
+%553:	call	 %552 XXX fprintf
+%554:	br	 sw.epilog
+
+BASIC BLOCK sw.epilog
+%555:	call	 XXX exit
+%556:	unreachable	
+
+BASIC BLOCK return
+%557:	phi	 XXX XXX XXX XXX XXX XXX XXX XXX
+%558:	ret	 %557
+
+FUNCTION constant
+
+BASIC BLOCK entry
+%559:	switch	 state sw.default XXX sw.bb XXX sw.bb1
+
+BASIC BLOCK sw.bb
+%560:	br	 return
+
+BASIC BLOCK sw.bb1
+%561:	sub	 token_ind XXX
+%562:	sext	 %561
+%563:	getelementptr	 token_str %562
+%564:	store	 XXX %563
+%565:	br	 return
+
+BASIC BLOCK sw.default
+%566:	br	 sw.epilog
+
+BASIC BLOCK sw.epilog
+%567:	br	 return
+
+BASIC BLOCK return
+%568:	phi	 XXX XXX XXX
+%569:	ret	 %568
+
+FUNCTION skip
+
+BASIC BLOCK entry
+%570:	br	 while.cond
+
+BASIC BLOCK while.cond
+%571:	call	 stream_ptr get_char
+%572:	sext	 %571
+%573:	icmp	 %572 XXX
+%574:	br	 %573 land.end land.rhs
+
+BASIC BLOCK land.rhs
+%575:	call	 stream_ptr is_end_of_character_stream
+%576:	icmp	 %575 XXX
+%577:	xor	 %576 XXX
+%578:	br	 land.end
+
+BASIC BLOCK land.end
+%579:	phi	 XXX %577
+%580:	br	 %579 while.end while.body
+
+BASIC BLOCK while.body
+%581:	br	 while.cond
+
+BASIC BLOCK while.end
+%582:	sext	 %571
+%583:	icmp	 %582 XXX
+%584:	br	 %583 if.end if.then
+
+BASIC BLOCK if.then
+%585:	sext	 %571
+%586:	call	 %585 stream_ptr unget_char
+%587:	br	 if.end
+
+BASIC BLOCK if.end
+%588:	ret	
+
+FUNCTION is_eof_token
+
+BASIC BLOCK entry
+%589:	getelementptr	 t XXX XXX
+%590:	load	 %589
+%591:	icmp	 %590 XXX
+%592:	br	 %591 if.end if.then
+
+BASIC BLOCK if.then
+%593:	br	 return
+
+BASIC BLOCK if.end
+%594:	br	 return
+
+BASIC BLOCK return
+%595:	phi	 XXX XXX
+%596:	ret	 %595

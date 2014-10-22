@@ -1,0 +1,887 @@
+FUNCTION gnu_dev_major
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%1:   L-Before: { }	L-After: { %1 }
+%2:   L-Before: { %1 }	L-After: { %2 }
+%3:   L-Before: { %2 }	L-After: { %2 %3 }
+%4:   L-Before: { %2 %3 }	L-After: { %2 %4 }
+%5:   L-Before: { %2 %4 }	L-After: { %2 %5 }
+%6:   L-Before: { %2 %5 }	L-After: { %2 %6 }
+%7:   L-Before: { %2 %6 }	L-After: { %7 }
+%8:   L-Before: { %7 }	L-After: { %8 }
+%9:   L-Before: { %8 }	L-After: { }
+FUNCTION gnu_dev_minor
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%10:   L-Before: { }	L-After: { %10 }
+%11:   L-Before: { %10 }	L-After: { %10 %11 }
+%12:   L-Before: { %10 %11 }	L-After: { %10 %12 }
+%13:   L-Before: { %10 %12 }	L-After: { %10 %13 }
+%14:   L-Before: { %10 %13 }	L-After: { %10 %14 }
+%15:   L-Before: { %10 %14 }	L-After: { %15 }
+%16:   L-Before: { %15 }	L-After: { %16 }
+%17:   L-Before: { %16 }	L-After: { }
+FUNCTION gnu_dev_makedev
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%18:   L-Before: { }	L-After: { %18 }
+%19:   L-Before: { %18 }	L-After: { %18 %19 }
+%20:   L-Before: { %18 %19 }	L-After: { %18 %20 }
+%21:   L-Before: { %18 %20 }	L-After: { %21 }
+%22:   L-Before: { %21 }	L-After: { %22 }
+%23:   L-Before: { %22 }	L-After: { %22 %23 }
+%24:   L-Before: { %22 %23 }	L-After: { %22 %24 }
+%25:   L-Before: { %22 %24 }	L-After: { %22 %25 }
+%26:   L-Before: { %22 %25 }	L-After: { %26 }
+%27:   L-Before: { %26 }	L-After: { %26 %27 }
+%28:   L-Before: { %26 %27 }	L-After: { %26 %28 }
+%29:   L-Before: { %26 %28 }	L-After: { %26 %29 }
+%30:   L-Before: { %26 %29 }	L-After: { %30 }
+%31:   L-Before: { %30 }	L-After: { }
+FUNCTION stat
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%32:   L-Before: { }	L-After: { %32 }
+%33:   L-Before: { %32 }	L-After: { }
+FUNCTION lstat
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%34:   L-Before: { }	L-After: { %34 }
+%35:   L-Before: { %34 }	L-After: { }
+FUNCTION fstat
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%36:   L-Before: { }	L-After: { %36 }
+%37:   L-Before: { %36 }	L-After: { }
+FUNCTION mknod
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%38:   L-Before: { }	L-After: { %38 }
+%39:   L-Before: { %38 }	L-After: { %38 }
+%40:   L-Before: { %38 }	L-After: { %40 }
+%41:   L-Before: { %40 }	L-After: { }
+FUNCTION fatal
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%42:   L-Before: { }	L-After: { }
+%43:   L-Before: { }	L-After: { }
+%44:   L-Before: { }	L-After: { }
+
+BASIC BLOCK return  L-Before: { }  L-After: { }
+%45:   L-Before: { }	L-After: { }
+FUNCTION error
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%46:   L-Before: { }	L-After: { %46 }
+%47:   L-Before: { %46 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%48:   L-Before: { }	L-After: { %48 }
+%49:   L-Before: { %48 }	L-After: { %48 %49 }
+%50:   L-Before: { %48 %49 }	L-After: { %48 %49 %50 }
+%51:   L-Before: { %48 %49 %50 }	L-After: { }
+%52:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else  L-Before: { }  L-After: { }
+%53:   L-Before: { }	L-After: { %53 }
+%54:   L-Before: { %53 }	L-After: { %53 %54 }
+%55:   L-Before: { %53 %54 }	L-After: { }
+%56:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%57:   L-Before: { }	L-After: { }
+%58:   L-Before: { }	L-After: { }
+FUNCTION xmalloc
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%59:   L-Before: { }	L-After: { }
+%60:   L-Before: { }	L-After: { %60 }
+%61:   L-Before: { %60 }	L-After: { }
+
+BASIC BLOCK land.lhs.true  L-Before: { }  L-After: { }
+%62:   L-Before: { %59 }	L-After: { %62 }
+%63:   L-Before: { %62 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%64:   L-Before: { }	L-After: { %64 }
+%65:   L-Before: { %64 }	L-After: { }
+%66:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%67:   L-Before: { %59 }	L-After: { }
+FUNCTION xrealloc
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%68:   L-Before: { }	L-After: { %68 }
+%69:   L-Before: { %68 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%70:   L-Before: { }	L-After: { }
+%71:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else  L-Before: { }  L-After: { }
+%72:   L-Before: { }	L-After: { }
+%73:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%74:   L-Before: { %70 %72 }	L-After: { }
+%75:   L-Before: { }	L-After: { %75 }
+%76:   L-Before: { %75 }	L-After: { }
+
+BASIC BLOCK land.lhs.true  L-Before: { }  L-After: { }
+%77:   L-Before: { %74 }	L-After: { %77 }
+%78:   L-Before: { %77 }	L-After: { }
+
+BASIC BLOCK if.then4  L-Before: { }  L-After: { }
+%79:   L-Before: { }	L-After: { %79 }
+%80:   L-Before: { %79 }	L-After: { }
+%81:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end6  L-Before: { }  L-After: { }
+%82:   L-Before: { %74 }	L-After: { }
+FUNCTION main
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%83:   L-Before: { }	L-After: { %83 }
+%84:   L-Before: { %83 }	L-After: { }
+%85:   L-Before: { }	L-After: { %85 }
+%86:   L-Before: { %85 }	L-After: { %86 }
+%87:   L-Before: { %86 }	L-After: { }
+%88:   L-Before: { }	L-After: { %88 }
+%89:   L-Before: { %88 }	L-After: { %89 }
+%90:   L-Before: { %89 }	L-After: { }
+
+BASIC BLOCK land.lhs.true  L-Before: { }  L-After: { }
+%91:   L-Before: { }	L-After: { %91 }
+%92:   L-Before: { %91 }	L-After: { %92 }
+%93:   L-Before: { %92 }	L-After: { %93 }
+%94:   L-Before: { %93 }	L-After: { }
+
+BASIC BLOCK if.then  L-Before: { }  L-After: { }
+%95:   L-Before: { }	L-After: { %95 }
+%96:   L-Before: { %95 }	L-After: { %96 }
+%97:   L-Before: { %96 }	L-After: { %97 }
+%98:   L-Before: { %97 }	L-After: { }
+%99:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end  L-Before: { }  L-After: { }
+%100:   L-Before: { }	L-After: { }
+%101:   L-Before: { }	L-After: { }
+%102:   L-Before: { }	L-After: { }
+%103:   L-Before: { }	L-After: { }
+%104:   L-Before: { }	L-After: { }
+
+BASIC BLOCK while.cond  L-Before: { }  L-After: { }
+%105:   L-Before: { %321 %322 %323 %324 %325 %326 %327 %328 }	L-After: { %322 %323 %324 %325 %326 %327 %328 }
+%106:   L-Before: { %322 %323 %324 %325 %326 %327 %328 }	L-After: { %323 %324 %325 %326 %327 %328 }
+%107:   L-Before: { %323 %324 %325 %326 %327 %328 }	L-After: { %324 %325 %326 %327 %328 }
+%108:   L-Before: { %324 %325 %326 %327 %328 }	L-After: { %325 %326 %327 %328 }
+%109:   L-Before: { %325 %326 %327 %328 }	L-After: { %326 %327 %328 }
+%110:   L-Before: { %326 %327 %328 }	L-After: { %327 %328 }
+%111:   L-Before: { %327 %328 }	L-After: { %328 }
+%112:   L-Before: { %328 }	L-After: { }
+%113:   L-Before: { }	L-After: { %113 }
+%114:   L-Before: { %113 }	L-After: { %114 }
+%115:   L-Before: { %114 }	L-After: { }
+
+BASIC BLOCK while.body  L-Before: { }  L-After: { }
+%116:   L-Before: { %113 }	L-After: { }
+
+BASIC BLOCK sw.bb  L-Before: { }  L-After: { }
+%117:   L-Before: { %113 }	L-After: { %113 %117 }
+%118:   L-Before: { %113 %117 }	L-After: { %113 %118 }
+%119:   L-Before: { %113 %118 }	L-After: { %113 %119 }
+%120:   L-Before: { %113 %119 }	L-After: { %113 %120 }
+%121:   L-Before: { %113 %120 }	L-After: { %113 }
+%122:   L-Before: { %113 }	L-After: { %113 %122 }
+%123:   L-Before: { %113 %122 }	L-After: { %113 %123 }
+%124:   L-Before: { %113 %123 }	L-After: { %124 }
+%125:   L-Before: { %124 }	L-After: { %125 }
+%126:   L-Before: { %125 }	L-After: { }
+%127:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb11  L-Before: { }  L-After: { }
+%128:   L-Before: { }	L-After: { %128 }
+%129:   L-Before: { %128 }	L-After: { %129 }
+%130:   L-Before: { %129 }	L-After: { }
+
+BASIC BLOCK if.then13  L-Before: { }  L-After: { }
+%131:   L-Before: { }	L-After: { %131 }
+%132:   L-Before: { %131 }	L-After: { %132 }
+%133:   L-Before: { %132 }	L-After: { %133 }
+%134:   L-Before: { %133 }	L-After: { }
+
+BASIC BLOCK if.then16  L-Before: { }  L-After: { }
+%135:   L-Before: { }	L-After: { %135 }
+%136:   L-Before: { %135 }	L-After: { }
+%137:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end18  L-Before: { }  L-After: { }
+%138:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end19  L-Before: { }  L-After: { }
+%139:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb20  L-Before: { }  L-After: { }
+%140:   L-Before: { }	L-After: { %140 }
+%141:   L-Before: { %140 }	L-After: { %141 }
+%142:   L-Before: { %141 }	L-After: { }
+
+BASIC BLOCK if.then22  L-Before: { }  L-After: { }
+%143:   L-Before: { }	L-After: { %143 }
+%144:   L-Before: { %143 }	L-After: { %144 }
+%145:   L-Before: { %144 }	L-After: { %145 }
+%146:   L-Before: { %145 }	L-After: { }
+
+BASIC BLOCK if.then25  L-Before: { }  L-After: { }
+%147:   L-Before: { }	L-After: { %147 }
+%148:   L-Before: { %147 }	L-After: { }
+%149:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end27  L-Before: { }  L-After: { }
+%150:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end28  L-Before: { }  L-After: { }
+%151:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb29  L-Before: { }  L-After: { }
+%152:   L-Before: { }	L-After: { }
+%153:   L-Before: { }	L-After: { }
+%154:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb30  L-Before: { }  L-After: { }
+%155:   L-Before: { }	L-After: { %155 }
+%156:   L-Before: { %155 }	L-After: { %156 }
+%157:   L-Before: { %156 }	L-After: { }
+
+BASIC BLOCK land.lhs.true32  L-Before: { }  L-After: { }
+%158:   L-Before: { }	L-After: { %158 }
+%159:   L-Before: { %158 }	L-After: { %159 }
+%160:   L-Before: { %159 }	L-After: { %160 }
+%161:   L-Before: { %160 }	L-After: { }
+
+BASIC BLOCK if.then35  L-Before: { }  L-After: { }
+%162:   L-Before: { }	L-After: { %162 }
+%163:   L-Before: { %162 }	L-After: { }
+%164:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end37  L-Before: { }  L-After: { }
+%165:   L-Before: { }	L-After: { }
+%166:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb38  L-Before: { }  L-After: { }
+%167:   L-Before: { }	L-After: { %167 }
+%168:   L-Before: { %167 }	L-After: { %168 }
+%169:   L-Before: { %168 }	L-After: { }
+
+BASIC BLOCK land.lhs.true40  L-Before: { }  L-After: { }
+%170:   L-Before: { }	L-After: { %170 }
+%171:   L-Before: { %170 }	L-After: { %171 }
+%172:   L-Before: { %171 }	L-After: { %172 }
+%173:   L-Before: { %172 }	L-After: { }
+
+BASIC BLOCK if.then43  L-Before: { }  L-After: { }
+%174:   L-Before: { }	L-After: { %174 }
+%175:   L-Before: { %174 }	L-After: { }
+%176:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end45  L-Before: { }  L-After: { }
+%177:   L-Before: { }	L-After: { }
+%178:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb46  L-Before: { }  L-After: { }
+%179:   L-Before: { }	L-After: { %179 }
+%180:   L-Before: { %179 }	L-After: { %180 }
+%181:   L-Before: { %180 }	L-After: { }
+
+BASIC BLOCK land.lhs.true48  L-Before: { }  L-After: { }
+%182:   L-Before: { }	L-After: { %182 }
+%183:   L-Before: { %182 }	L-After: { %183 }
+%184:   L-Before: { %183 }	L-After: { %184 }
+%185:   L-Before: { %184 }	L-After: { }
+
+BASIC BLOCK if.then51  L-Before: { }  L-After: { }
+%186:   L-Before: { }	L-After: { %186 }
+%187:   L-Before: { %186 }	L-After: { }
+%188:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end53  L-Before: { }  L-After: { }
+%189:   L-Before: { }	L-After: { }
+%190:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb54  L-Before: { }  L-After: { }
+%191:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb55  L-Before: { }  L-After: { }
+%192:   L-Before: { }	L-After: { }
+%193:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb56  L-Before: { }  L-After: { }
+%194:   L-Before: { }	L-After: { %194 }
+%195:   L-Before: { %194 }	L-After: { %195 }
+%196:   L-Before: { %195 }	L-After: { }
+
+BASIC BLOCK if.then58  L-Before: { }  L-After: { }
+%197:   L-Before: { }	L-After: { %197 }
+%198:   L-Before: { %197 }	L-After: { }
+%199:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end60  L-Before: { }  L-After: { }
+%200:   L-Before: { }	L-After: { %200 }
+%201:   L-Before: { %200 }	L-After: { }
+%202:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb61  L-Before: { }  L-After: { }
+%203:   L-Before: { }	L-After: { }
+%204:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb62  L-Before: { }  L-After: { }
+%205:   L-Before: { }	L-After: { }
+%206:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb63  L-Before: { }  L-After: { }
+%207:   L-Before: { %111 %112 }	L-After: { %111 %112 %207 }
+%208:   L-Before: { %111 %112 %207 }	L-After: { %111 %112 %208 }
+%209:   L-Before: { %111 %112 %208 }	L-After: { %111 %112 %209 }
+%210:   L-Before: { %111 %112 %209 }	L-After: { %111 %112 %209 %210 }
+%211:   L-Before: { %111 %112 %209 %210 }	L-After: { %111 %112 %209 %211 }
+%212:   L-Before: { %111 %112 %209 %211 }	L-After: { %111 %112 %209 %212 }
+%213:   L-Before: { %111 %112 %209 %212 }	L-After: { %111 %209 %213 }
+%214:   L-Before: { %111 %209 %213 }	L-After: { %111 %209 %213 %214 }
+%215:   L-Before: { %111 %209 %213 %214 }	L-After: { %111 %209 %213 %214 %215 }
+%216:   L-Before: { %111 %209 %213 %214 %215 }	L-After: { %111 %209 %213 }
+%217:   L-Before: { %111 %209 %213 }	L-After: { %111 %213 %217 }
+%218:   L-Before: { %111 %213 %217 }	L-After: { %213 %218 }
+%219:   L-Before: { %213 %218 }	L-After: { %213 %218 }
+%220:   L-Before: { %213 %218 }	L-After: { %220 }
+%221:   L-Before: { %220 }	L-After: { }
+%222:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb74  L-Before: { }  L-After: { }
+%223:   L-Before: { }	L-After: { %223 }
+%224:   L-Before: { %223 }	L-After: { %224 }
+%225:   L-Before: { %224 }	L-After: { %225 }
+%226:   L-Before: { %225 }	L-After: { }
+
+BASIC BLOCK cond.true  L-Before: { }  L-After: { }
+%227:   L-Before: { }	L-After: { %227 }
+%228:   L-Before: { %227 }	L-After: { }
+%229:   L-Before: { }	L-After: { }
+
+BASIC BLOCK cond.false  L-Before: { }  L-After: { }
+%230:   L-Before: { }	L-After: { }
+%231:   L-Before: { }	L-After: { }
+
+BASIC BLOCK cond.end  L-Before: { }  L-After: { }
+%232:   L-Before: { %228 %230 }	L-After: { %232 }
+%233:   L-Before: { %232 }	L-After: { %233 }
+%234:   L-Before: { %233 }	L-After: { }
+
+BASIC BLOCK if.then80  L-Before: { }  L-After: { }
+%235:   L-Before: { }	L-After: { %235 }
+%236:   L-Before: { %235 }	L-After: { %235 %236 }
+%237:   L-Before: { %235 %236 }	L-After: { %235 %237 }
+%238:   L-Before: { %235 %237 }	L-After: { }
+%239:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end82  L-Before: { }  L-After: { }
+%240:   L-Before: { }	L-After: { }
+
+BASIC BLOCK for.cond  L-Before: { }  L-After: { }
+%241:   L-Before: { %111 %246 }	L-After: { %111 %241 }
+%242:   L-Before: { %111 %241 }	L-After: { %241 %242 }
+%243:   L-Before: { %241 %242 }	L-After: { %243 }
+%244:   L-Before: { %243 }	L-After: { }
+
+BASIC BLOCK for.body  L-Before: { }  L-After: { }
+%245:   L-Before: { }	L-After: { }
+
+BASIC BLOCK for.inc  L-Before: { }  L-After: { }
+%246:   L-Before: { %241 }	L-After: { }
+%247:   L-Before: { }	L-After: { }
+
+BASIC BLOCK for.end  L-Before: { }  L-After: { }
+%248:   L-Before: { %112 %241 }	L-After: { }
+%249:   L-Before: { }	L-After: { }
+
+BASIC BLOCK while.cond88  L-Before: { }  L-After: { }
+%250:   L-Before: { %110 %111 %232 %241 %248 %264 %268 %275 %276 }	L-After: { %110 %111 %232 %248 %264 %268 %276 }
+%251:   L-Before: { %110 %111 %232 %248 %264 %268 %276 }	L-After: { %111 %232 %248 %268 %276 }
+%252:   L-Before: { %111 %232 %248 %268 %276 }	L-After: { %232 %248 %276 }
+%253:   L-Before: { %232 %248 %276 }	L-After: { %232 }
+%254:   L-Before: { %232 }	L-After: { %254 }
+%255:   L-Before: { %254 }	L-After: { %255 }
+%256:   L-Before: { %255 }	L-After: { }
+
+BASIC BLOCK land.rhs  L-Before: { }  L-After: { }
+%257:   L-Before: { %232 %250 %252 %253 }	L-After: { %232 %250 %252 %257 }
+%258:   L-Before: { %232 %250 %252 %257 }	L-After: { %232 %252 %257 %258 }
+%259:   L-Before: { %232 %252 %257 %258 }	L-After: { %232 %257 %259 }
+%260:   L-Before: { %232 %257 %259 }	L-After: { %260 }
+%261:   L-Before: { %260 }	L-After: { %261 }
+%262:   L-Before: { %261 }	L-After: { }
+%263:   L-Before: { }	L-After: { }
+
+BASIC BLOCK land.end  L-Before: { }  L-After: { }
+%264:   L-Before: { %251 %261 %262 }	L-After: { %262 }
+%265:   L-Before: { %262 }	L-After: { %265 }
+%266:   L-Before: { %265 }	L-After: { }
+
+BASIC BLOCK while.body98  L-Before: { }  L-After: { }
+%267:   L-Before: { %250 %252 %264 }	L-After: { %250 %252 %267 }
+%268:   L-Before: { %250 %252 %267 }	L-After: { %250 %268 }
+%269:   L-Before: { %250 %268 }	L-After: { %268 %269 }
+%270:   L-Before: { %268 %269 }	L-After: { %270 }
+%271:   L-Before: { %270 }	L-After: { }
+
+BASIC BLOCK if.then104  L-Before: { }  L-After: { }
+%272:   L-Before: { %250 %253 }	L-After: { %253 %272 }
+%273:   L-Before: { %253 %272 }	L-After: { }
+%274:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end107  L-Before: { }  L-After: { }
+%275:   L-Before: { %250 %253 %272 %273 }	L-After: { %253 %273 }
+%276:   L-Before: { %253 %273 }	L-After: { }
+%277:   L-Before: { }	L-After: { }
+
+BASIC BLOCK while.end  L-Before: { }  L-After: { }
+%278:   L-Before: { %232 }	L-After: { %232 %278 }
+%279:   L-Before: { %232 %278 }	L-After: { %279 }
+%280:   L-Before: { %279 }	L-After: { }
+
+BASIC BLOCK if.then110  L-Before: { }  L-After: { }
+%281:   L-Before: { %232 }	L-After: { }
+%282:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end112  L-Before: { }  L-After: { }
+%283:   L-Before: { %111 %252 }	L-After: { %283 }
+%284:   L-Before: { %283 }	L-After: { }
+
+BASIC BLOCK land.lhs.true115  L-Before: { }  L-After: { }
+%285:   L-Before: { %252 %253 }	L-After: { %253 %285 }
+%286:   L-Before: { %253 %285 }	L-After: { %286 }
+%287:   L-Before: { %286 }	L-After: { %287 }
+%288:   L-Before: { %287 }	L-After: { %288 }
+%289:   L-Before: { %288 }	L-After: { %289 }
+%290:   L-Before: { %289 }	L-After: { }
+
+BASIC BLOCK if.then121  L-Before: { }  L-After: { }
+%291:   L-Before: { %252 %253 }	L-After: { %252 %253 }
+%292:   L-Before: { %252 %253 }	L-After: { %292 }
+%293:   L-Before: { %292 }	L-After: { }
+%294:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end124  L-Before: { }  L-After: { }
+%295:   L-Before: { %252 %291 }	L-After: { }
+%296:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb125  L-Before: { }  L-After: { }
+%297:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb126  L-Before: { }  L-After: { }
+%298:   L-Before: { }	L-After: { }
+%299:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb127  L-Before: { }  L-After: { }
+%300:   L-Before: { }	L-After: { }
+%301:   L-Before: { }	L-After: { }
+%302:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb128  L-Before: { }  L-After: { }
+%303:   L-Before: { }	L-After: { }
+%304:   L-Before: { }	L-After: { }
+%305:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb129  L-Before: { }  L-After: { }
+%306:   L-Before: { }	L-After: { }
+%307:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb130  L-Before: { }  L-After: { }
+%308:   L-Before: { }	L-After: { }
+%309:   L-Before: { }	L-After: { }
+%310:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb131  L-Before: { }  L-After: { }
+%311:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb132  L-Before: { }  L-After: { }
+%312:   L-Before: { }	L-After: { }
+%313:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb133  L-Before: { }  L-After: { }
+%314:   L-Before: { }	L-After: { }
+%315:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb134  L-Before: { }  L-After: { }
+%316:   L-Before: { }	L-After: { }
+%317:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.bb135  L-Before: { }  L-After: { }
+%318:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.default  L-Before: { }  L-After: { }
+%319:   L-Before: { }	L-After: { }
+%320:   L-Before: { }	L-After: { }
+
+BASIC BLOCK sw.epilog  L-Before: { }  L-After: { }
+%321:   L-Before: { %105 %106 %107 %108 %109 %110 %111 %112 %209 %213 %219 %253 %264 %295 }	L-After: { %106 %107 %108 %109 %110 %111 %112 %209 %213 %219 %253 %264 %295 }
+%322:   L-Before: { %106 %107 %108 %109 %110 %111 %112 %209 %213 %219 %253 %264 %295 }	L-After: { %107 %108 %109 %110 %111 %112 %209 %213 %219 %253 %264 %295 }
+%323:   L-Before: { %107 %108 %109 %110 %111 %112 %209 %213 %219 %253 %264 %295 }	L-After: { %108 %109 %110 %111 %112 %209 %213 %219 %253 %264 %295 }
+%324:   L-Before: { %108 %109 %110 %111 %112 %209 %213 %219 %253 %264 %295 }	L-After: { %109 %110 %111 %112 %209 %213 %219 %253 %264 %295 }
+%325:   L-Before: { %109 %110 %111 %112 %209 %213 %219 %253 %264 %295 }	L-After: { %110 %111 %112 %209 %213 %219 %253 %264 %295 }
+%326:   L-Before: { %110 %111 %112 %209 %213 %219 %253 %264 %295 }	L-After: { %111 %112 %213 %219 %253 %295 }
+%327:   L-Before: { %111 %112 %213 %219 %253 %295 }	L-After: { %112 %213 %253 }
+%328:   L-Before: { %112 %213 %253 }	L-After: { }
+%329:   L-Before: { }	L-After: { }
+
+BASIC BLOCK while.end136  L-Before: { }  L-After: { }
+%330:   L-Before: { }	L-After: { %330 }
+%331:   L-Before: { %330 }	L-After: { %331 }
+%332:   L-Before: { %331 }	L-After: { }
+
+BASIC BLOCK if.then138  L-Before: { }  L-After: { }
+%333:   L-Before: { }	L-After: { %333 }
+%334:   L-Before: { %333 }	L-After: { }
+%335:   L-Before: { }	L-After: { }
+%336:   L-Before: { }	L-After: { %336 }
+%337:   L-Before: { %336 }	L-After: { }
+%338:   L-Before: { }	L-After: { %338 }
+%339:   L-Before: { %338 }	L-After: { }
+%340:   L-Before: { }	L-After: { }
+%341:   L-Before: { }	L-After: { }
+%342:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end147  L-Before: { }  L-After: { }
+%343:   L-Before: { }	L-After: { %343 }
+%344:   L-Before: { %343 }	L-After: { %344 }
+%345:   L-Before: { %344 }	L-After: { }
+
+BASIC BLOCK if.then149  L-Before: { }  L-After: { }
+%346:   L-Before: { }	L-After: { }
+%347:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end150  L-Before: { }  L-After: { }
+%348:   L-Before: { %112 }	L-After: { %348 }
+%349:   L-Before: { %348 }	L-After: { }
+
+BASIC BLOCK if.then152  L-Before: { }  L-After: { }
+%350:   L-Before: { %111 }	L-After: { %350 }
+%351:   L-Before: { %350 }	L-After: { }
+
+BASIC BLOCK if.then155  L-Before: { }  L-After: { }
+%352:   L-Before: { }	L-After: { %352 }
+%353:   L-Before: { %352 }	L-After: { %353 }
+%354:   L-Before: { %353 }	L-After: { }
+%355:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else  L-Before: { }  L-After: { }
+%356:   L-Before: { %111 }	L-After: { }
+%357:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end156  L-Before: { }  L-After: { }
+%358:   L-Before: { %111 %356 }	L-After: { }
+%359:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else157  L-Before: { }  L-After: { }
+%360:   L-Before: { }	L-After: { %360 }
+%361:   L-Before: { %360 }	L-After: { %361 }
+%362:   L-Before: { %361 }	L-After: { }
+
+BASIC BLOCK if.then160  L-Before: { }  L-After: { }
+%363:   L-Before: { }	L-After: { %363 }
+%364:   L-Before: { %363 }	L-After: { %363 %364 }
+%365:   L-Before: { %363 %364 }	L-After: { %363 }
+%366:   L-Before: { %363 }	L-After: { %366 }
+%367:   L-Before: { %366 }	L-After: { %367 }
+%368:   L-Before: { %367 }	L-After: { %368 }
+%369:   L-Before: { %368 }	L-After: { }
+%370:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else164  L-Before: { }  L-After: { }
+%371:   L-Before: { }	L-After: { }
+%372:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end165  L-Before: { }  L-After: { }
+%373:   L-Before: { %111 %112 %368 %369 }	L-After: { %112 %368 }
+%374:   L-Before: { %112 %368 }	L-After: { }
+%375:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end166  L-Before: { }  L-After: { }
+%376:   L-Before: { %112 %358 %373 %374 }	L-After: { %112 %374 }
+%377:   L-Before: { %112 %374 }	L-After: { }
+%378:   L-Before: { }	L-After: { %378 }
+%379:   L-Before: { %378 }	L-After: { %379 }
+%380:   L-Before: { %379 }	L-After: { }
+
+BASIC BLOCK if.then168  L-Before: { }  L-After: { }
+%381:   L-Before: { }	L-After: { %381 }
+%382:   L-Before: { %381 }	L-After: { }
+%383:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end169  L-Before: { }  L-After: { }
+%384:   L-Before: { }	L-After: { %384 }
+%385:   L-Before: { %384 }	L-After: { %385 }
+%386:   L-Before: { %385 }	L-After: { %386 }
+%387:   L-Before: { %386 }	L-After: { }
+
+BASIC BLOCK land.lhs.true172  L-Before: { }  L-After: { }
+%388:   L-Before: { }	L-After: { %388 }
+%389:   L-Before: { %388 }	L-After: { %389 }
+%390:   L-Before: { %389 }	L-After: { }
+
+BASIC BLOCK if.then175  L-Before: { }  L-After: { }
+%391:   L-Before: { }	L-After: { }
+%392:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end176  L-Before: { }  L-After: { }
+%393:   L-Before: { %376 %377 }	L-After: { %376 %377 %393 }
+%394:   L-Before: { %376 %377 %393 }	L-After: { }
+%395:   L-Before: { }	L-After: { %395 }
+%396:   L-Before: { %395 }	L-After: { %396 }
+%397:   L-Before: { %396 }	L-After: { %397 }
+%398:   L-Before: { %397 }	L-After: { }
+
+BASIC BLOCK land.lhs.true180  L-Before: { }  L-After: { }
+%399:   L-Before: { %108 }	L-After: { %399 }
+%400:   L-Before: { %399 }	L-After: { }
+
+BASIC BLOCK lor.lhs.false  L-Before: { }  L-After: { }
+%401:   L-Before: { %105 }	L-After: { %401 }
+%402:   L-Before: { %401 }	L-After: { }
+
+BASIC BLOCK if.then183  L-Before: { }  L-After: { }
+%403:   L-Before: { }	L-After: { }
+%404:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end184  L-Before: { }  L-After: { }
+%405:   L-Before: { }	L-After: { %405 }
+%406:   L-Before: { %405 }	L-After: { %406 }
+%407:   L-Before: { %406 }	L-After: { }
+
+BASIC BLOCK if.then187  L-Before: { }  L-After: { }
+%408:   L-Before: { }	L-After: { }
+
+BASIC BLOCK while.cond188  L-Before: { }  L-After: { }
+%409:   L-Before: { %479 }	L-After: { }
+%410:   L-Before: { }	L-After: { %410 }
+%411:   L-Before: { %410 }	L-After: { %411 }
+%412:   L-Before: { %411 }	L-After: { }
+
+BASIC BLOCK while.body191  L-Before: { }  L-After: { }
+%413:   L-Before: { }	L-After: { %413 }
+%414:   L-Before: { %413 }	L-After: { %414 }
+%415:   L-Before: { %414 }	L-After: { %415 }
+%416:   L-Before: { %415 }	L-After: { %416 }
+%417:   L-Before: { %416 }	L-After: { %417 }
+%418:   L-Before: { %417 }	L-After: { %418 }
+%419:   L-Before: { %418 }	L-After: { }
+
+BASIC BLOCK if.then197  L-Before: { }  L-After: { }
+%420:   L-Before: { }	L-After: { %420 }
+%421:   L-Before: { %420 }	L-After: { }
+%422:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else199  L-Before: { }  L-After: { }
+%423:   L-Before: { }	L-After: { %423 }
+%424:   L-Before: { %423 }	L-After: { %424 }
+%425:   L-Before: { %424 }	L-After: { %425 }
+%426:   L-Before: { %425 }	L-After: { %426 }
+%427:   L-Before: { %426 }	L-After: { }
+%428:   L-Before: { }	L-After: { %428 }
+%429:   L-Before: { %428 }	L-After: { %429 }
+%430:   L-Before: { %429 }	L-After: { %430 }
+%431:   L-Before: { %430 }	L-After: { %431 }
+%432:   L-Before: { %431 }	L-After: { }
+%433:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end205  L-Before: { }  L-After: { }
+%434:   L-Before: { %432 }	L-After: { %434 }
+%435:   L-Before: { %434 }	L-After: { %435 }
+%436:   L-Before: { %435 }	L-After: { }
+
+BASIC BLOCK if.then208  L-Before: { }  L-After: { }
+%437:   L-Before: { %106 }	L-After: { %437 }
+%438:   L-Before: { %437 }	L-After: { }
+
+BASIC BLOCK if.then210  L-Before: { }  L-After: { }
+%439:   L-Before: { }	L-After: { %439 }
+%440:   L-Before: { %439 }	L-After: { %440 }
+%441:   L-Before: { %440 }	L-After: { %441 }
+%442:   L-Before: { %441 }	L-After: { %442 }
+%443:   L-Before: { %442 }	L-After: { %442 %443 }
+%444:   L-Before: { %442 %443 }	L-After: { %442 %444 }
+%445:   L-Before: { %442 %444 }	L-After: { }
+%446:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end214  L-Before: { }  L-After: { }
+%447:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else215  L-Before: { }  L-After: { }
+%448:   L-Before: { %109 %434 }	L-After: { %109 }
+%449:   L-Before: { %109 }	L-After: { %449 }
+%450:   L-Before: { %449 }	L-After: { }
+
+BASIC BLOCK if.then218  L-Before: { }  L-After: { }
+%451:   L-Before: { }	L-After: { %451 }
+%452:   L-Before: { %451 }	L-After: { %452 }
+%453:   L-Before: { %452 }	L-After: { }
+
+BASIC BLOCK if.then220  L-Before: { }  L-After: { }
+%454:   L-Before: { }	L-After: { %454 }
+%455:   L-Before: { %454 }	L-After: { }
+%456:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end222  L-Before: { }  L-After: { }
+%457:   L-Before: { %448 }	L-After: { }
+%458:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end224  L-Before: { }  L-After: { }
+%459:   L-Before: { %448 }	L-After: { %459 }
+%460:   L-Before: { %459 }	L-After: { }
+
+BASIC BLOCK if.then226  L-Before: { }  L-After: { }
+%461:   L-Before: { %107 }	L-After: { %461 }
+%462:   L-Before: { %461 }	L-After: { }
+
+BASIC BLOCK if.then229  L-Before: { }  L-After: { }
+%463:   L-Before: { }	L-After: { %463 }
+%464:   L-Before: { %463 }	L-After: { }
+%465:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end231  L-Before: { }  L-After: { }
+%466:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else232  L-Before: { }  L-After: { }
+%467:   L-Before: { %107 }	L-After: { %467 }
+%468:   L-Before: { %467 }	L-After: { }
+
+BASIC BLOCK if.then235  L-Before: { }  L-After: { }
+%469:   L-Before: { }	L-After: { %469 }
+%470:   L-Before: { %469 }	L-After: { }
+%471:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end237  L-Before: { }  L-After: { }
+%472:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end238  L-Before: { }  L-After: { }
+%473:   L-Before: { %409 %434 }	L-After: { %434 }
+%474:   L-Before: { %434 }	L-After: { %474 }
+%475:   L-Before: { %474 }	L-After: { }
+
+BASIC BLOCK if.then241  L-Before: { }  L-After: { }
+%476:   L-Before: { %434 }	L-After: { }
+%477:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end243  L-Before: { }  L-After: { }
+%478:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end244  L-Before: { }  L-After: { }
+%479:   L-Before: { %409 %473 }	L-After: { }
+%480:   L-Before: { }	L-After: { %480 }
+%481:   L-Before: { %480 }	L-After: { %481 }
+%482:   L-Before: { %481 }	L-After: { }
+%483:   L-Before: { }	L-After: { }
+
+BASIC BLOCK while.end246  L-Before: { }  L-After: { }
+%484:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else247  L-Before: { }  L-After: { }
+%485:   L-Before: { %109 }	L-After: { %109 %485 }
+%486:   L-Before: { %109 %485 }	L-After: { %109 }
+%487:   L-Before: { %109 }	L-After: { %109 }
+%488:   L-Before: { %109 }	L-After: { %488 }
+%489:   L-Before: { %488 }	L-After: { }
+
+BASIC BLOCK if.then251  L-Before: { }  L-After: { }
+%490:   L-Before: { %487 }	L-After: { }
+%491:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end253  L-Before: { }  L-After: { }
+%492:   L-Before: { %487 }	L-After: { %492 }
+%493:   L-Before: { %492 }	L-After: { }
+
+BASIC BLOCK if.then255  L-Before: { }  L-After: { }
+%494:   L-Before: { %107 }	L-After: { %494 }
+%495:   L-Before: { %494 }	L-After: { }
+
+BASIC BLOCK if.then258  L-Before: { }  L-After: { }
+%496:   L-Before: { }	L-After: { %496 }
+%497:   L-Before: { %496 }	L-After: { }
+%498:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end261  L-Before: { }  L-After: { }
+%499:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else262  L-Before: { }  L-After: { }
+%500:   L-Before: { %107 }	L-After: { %500 }
+%501:   L-Before: { %500 }	L-After: { }
+
+BASIC BLOCK if.then265  L-Before: { }  L-After: { }
+%502:   L-Before: { }	L-After: { %502 }
+%503:   L-Before: { %502 }	L-After: { }
+%504:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end268  L-Before: { }  L-After: { }
+%505:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end269  L-Before: { }  L-After: { }
+%506:   L-Before: { }	L-After: { }
+%507:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end270  L-Before: { }  L-After: { }
+%508:   L-Before: { %409 %506 }	L-After: { }
+%509:   L-Before: { }	L-After: { %509 }
+%510:   L-Before: { %509 }	L-After: { %510 }
+%511:   L-Before: { %510 }	L-After: { %511 }
+%512:   L-Before: { %511 }	L-After: { }
+
+BASIC BLOCK if.then274  L-Before: { }  L-After: { }
+%513:   L-Before: { }	L-After: { %513 }
+%514:   L-Before: { %513 }	L-After: { %513 %514 }
+%515:   L-Before: { %513 %514 }	L-After: { %513 %515 }
+%516:   L-Before: { %513 %515 }	L-After: { }
+%517:   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end277  L-Before: { }  L-After: { }
+%518:   L-Before: { }	L-After: { %518 }
+%519:   L-Before: { %518 }	L-After: { %519 }
+%520:   L-Before: { %519 }	L-After: { }
+
+BASIC BLOCK cond.true279  L-Before: { }  L-After: { }
+%521:   L-Before: { }	L-After: { }
+
+BASIC BLOCK cond.false280  L-Before: { }  L-After: { }
+%522:   L-Before: { }	L-After: { }
+
+BASIC BLOCK cond.end281  L-Before: { }  L-After: { }
+%523:   L-Before: { %508 }	L-After: { %523 }
+%524:   L-Before: { %523 }	L-After: { }
+%525:   L-Before: { }	L-After: { }
+
+BASIC BLOCK return  L-Before: { }  L-After: { }
+%526:   L-Before: { }	L-After: { }
+While deleting: i64 %inc
+Use still stuck around after Def is destroyed:  %keycc.3 = phi i64 [ %keycc.0, %sw.default ], [ %keycc.0, %sw.bb135 ], [ %keycc.0, %sw.bb134 ], [ %keycc.0, %sw.bb133 ], [ %keycc.0, %sw.bb132 ], [ %keycc.0, %sw.bb131 ], [ %keycc.0, %sw.bb130 ], [ %keycc.0, %sw.bb129 ], [ %keycc.0, %sw.bb128 ], [ %keycc.0, %sw.bb127 ], [ %keycc.0, %sw.bb126 ], [ %keycc.0, %sw.bb125 ], [ %keycc.2, %if.end124 ], [ %inc, %sw.bb63 ], [ %keycc.0, %sw.bb62 ], [ %keycc.0, %sw.bb61 ], [ %keycc.0, %if.end60 ], [ %keycc.0, %sw.bb55 ], [ %keycc.0, %sw.bb54 ], [ %keycc.0, %if.end53 ], [ %keycc.0, %if.end45 ], [ %keycc.0, %if.end37 ], [ %keycc.0, %sw.bb29 ], [ %keycc.0, %if.end28 ], [ %keycc.0, %if.end19 ], [ %keycc.0, %sw.bb ]
+opt: /tmp/ll/llvm-3.3.src/lib/IR/Value.cpp:79: virtual llvm::Value::~Value(): Assertion `use_empty() && "Uses remain when a value is destroyed!"' failed.
+0  libLLVM-3.3.so  0x00007f2fda5fc362 llvm::sys::PrintStackTrace(_IO_FILE*) + 34
+1  libLLVM-3.3.so  0x00007f2fda5fe2da
+2  libpthread.so.0 0x0000003adc00f710
+3  libc.so.6       0x0000003adb432635 gsignal + 53
+4  libc.so.6       0x0000003adb433e15 abort + 373
+5  libc.so.6       0x0000003adb42b75e
+6  libc.so.6       0x0000003adb42b820 __assert_perror_fail + 0
+7  libLLVM-3.3.so  0x00007f2fd9f4586f
+8  libLLVM-3.3.so  0x00007f2fd9f17347
+9  P2.so           0x00007f2fd9379a1c
+10 P2.so           0x00007f2fd9379c27
+11 libLLVM-3.3.so  0x00007f2fd9f2de08 llvm::FPPassManager::runOnFunction(llvm::Function&) + 568
+12 libLLVM-3.3.so  0x00007f2fd9f2deeb llvm::FPPassManager::runOnModule(llvm::Module&) + 43
+13 libLLVM-3.3.so  0x00007f2fd9f2d88a llvm::MPPassManager::runOnModule(llvm::Module&) + 666
+14 libLLVM-3.3.so  0x00007f2fd9f2dab7 llvm::PassManagerImpl::run(llvm::Module&) + 247
+15 opt             0x000000000041a567 main + 5607
+16 libc.so.6       0x0000003adb41ed5d __libc_start_main + 253
+17 opt             0x000000000040bc99
+Stack dump:
+0.	Program arguments: opt -load Debug/lib/P2.so -liveVars grep.bc -o grep.liveVars 
+1.	Running pass 'Function Pass Manager' on module 'grep.bc'.
+2.	Running pass 'live vars analysis' on function '@main'

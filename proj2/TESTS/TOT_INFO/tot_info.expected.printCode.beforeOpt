@@ -1,0 +1,766 @@
+tot_info.c:210:25: warning: field '__cd' with variable sized type 'struct __gconv_info' not at the end of a struct or class is a GNU extension [-Wgnu]
+    struct __gconv_info __cd;
+                        ^
+tot_info.c:824:2: warning: control may reach end of non-void function [-Wreturn-type]
+ }
+ ^
+tot_info.c:851:2: warning: control may reach end of non-void function [-Wreturn-type]
+ }
+ ^
+3 warnings generated.
+
+FUNCTION main
+
+BASIC BLOCK entry
+%1:	alloca	 XXX
+%2:	br	 while.cond
+
+BASIC BLOCK while.cond
+%3:	phi	 XXX %3 %3 %112
+%4:	phi	 XXX %4 %4 %113
+%5:	load	 stdin
+%6:	call	 XXX XXX %5 fgets
+%7:	icmp	 %6 XXX
+%8:	br	 %7 while.end while.body
+
+BASIC BLOCK while.body
+%9:	br	 for.cond
+
+BASIC BLOCK for.cond
+%10:	phi	 XXX %29
+%11:	load	 %10
+%12:	sext	 %11
+%13:	icmp	 %12 XXX
+%14:	br	 %13 land.end land.rhs
+
+BASIC BLOCK land.rhs
+%15:	load	 %10
+%16:	sext	 %15
+%17:	sext	 %16
+%18:	call	 __ctype_b_loc
+%19:	load	 %18
+%20:	getelementptr	 %19 %17
+%21:	load	 %20
+%22:	zext	 %21
+%23:	and	 %22 XXX
+%24:	icmp	 %23 XXX
+%25:	br	 land.end
+
+BASIC BLOCK land.end
+%26:	phi	 XXX %24
+%27:	br	 %26 for.end for.body
+
+BASIC BLOCK for.body
+%28:	br	 for.inc
+
+BASIC BLOCK for.inc
+%29:	getelementptr	 %10 XXX
+%30:	br	 for.cond
+
+BASIC BLOCK for.end
+%31:	load	 %10
+%32:	sext	 %31
+%33:	icmp	 %32 XXX
+%34:	br	 %33 if.end if.then
+
+BASIC BLOCK if.then
+%35:	br	 while.cond
+
+BASIC BLOCK if.end
+%36:	load	 %10
+%37:	sext	 %36
+%38:	icmp	 %37 XXX
+%39:	br	 %38 if.end14 if.then12
+
+BASIC BLOCK if.then12
+%40:	load	 stdout
+%41:	call	 XXX %40 fputs
+%42:	br	 while.cond
+
+BASIC BLOCK if.end14
+%43:	call	 %10 XXX r c sscanf
+%44:	icmp	 %43 XXX
+%45:	br	 %44 if.end20 if.then18
+
+BASIC BLOCK if.then18
+%46:	load	 stdout
+%47:	call	 XXX %46 fputs
+%48:	br	 return
+
+BASIC BLOCK if.end20
+%49:	load	 r
+%50:	load	 c
+%51:	mul	 %49 %50
+%52:	icmp	 %51 XXX
+%53:	br	 %52 if.end25 if.then23
+
+BASIC BLOCK if.then23
+%54:	load	 stdout
+%55:	call	 XXX %54 fputs
+%56:	br	 return
+
+BASIC BLOCK if.end25
+%57:	br	 for.cond26
+
+BASIC BLOCK for.cond26
+%58:	phi	 XXX %82
+%59:	load	 r
+%60:	icmp	 %58 %59
+%61:	br	 %60 for.end47 for.body29
+
+BASIC BLOCK for.body29
+%62:	br	 for.cond30
+
+BASIC BLOCK for.cond30
+%63:	phi	 XXX %79
+%64:	load	 c
+%65:	icmp	 %63 %64
+%66:	br	 %65 for.end44 for.body33
+
+BASIC BLOCK for.body33
+%67:	load	 c
+%68:	mul	 %58 %67
+%69:	add	 %68 %63
+%70:	sext	 %69
+%71:	getelementptr	 f XXX %70
+%72:	call	 XXX %71 scanf
+%73:	icmp	 %72 XXX
+%74:	br	 %73 if.end42 if.then40
+
+BASIC BLOCK if.then40
+%75:	load	 stdout
+%76:	call	 XXX %75 fputs
+%77:	br	 return
+
+BASIC BLOCK if.end42
+%78:	br	 for.inc43
+
+BASIC BLOCK for.inc43
+%79:	add	 %63 XXX
+%80:	br	 for.cond30
+
+BASIC BLOCK for.end44
+%81:	br	 for.inc45
+
+BASIC BLOCK for.inc45
+%82:	add	 %58 XXX
+%83:	br	 for.cond26
+
+BASIC BLOCK for.end47
+%84:	load	 r
+%85:	load	 c
+%86:	call	 %84 %85 XXX %1 InfoTbl
+%87:	fcmp	 %86 XXX
+%88:	br	 %87 if.else if.then51
+
+BASIC BLOCK if.then51
+%89:	load	 %1
+%90:	load	 %1
+%91:	call	 %86 %90 QChiSq
+%92:	call	 XXX %86 %89 %91 printf
+%93:	fadd	 %3 %86
+%94:	load	 %1
+%95:	add	 %4 %94
+%96:	br	 if.end68
+
+BASIC BLOCK if.else
+%97:	fcmp	 %86 XXX
+%98:	br	 %97 cond.false cond.true
+
+BASIC BLOCK cond.true
+%99:	br	 cond.end65
+
+BASIC BLOCK cond.false
+%100:	fcmp	 %86 XXX
+%101:	br	 %100 cond.false61 cond.true60
+
+BASIC BLOCK cond.true60
+%102:	br	 cond.end
+
+BASIC BLOCK cond.false61
+%103:	fcmp	 %86 XXX
+%104:	select	 %103 XXX XXX
+%105:	br	 cond.end
+
+BASIC BLOCK cond.end
+%106:	phi	 XXX %104
+%107:	br	 cond.end65
+
+BASIC BLOCK cond.end65
+%108:	phi	 XXX %106
+%109:	load	 stdout
+%110:	call	 %108 %109 fputs
+%111:	br	 if.end68
+
+BASIC BLOCK if.end68
+%112:	phi	 %93 %3
+%113:	phi	 %95 %4
+%114:	br	 while.cond
+
+BASIC BLOCK while.end
+%115:	icmp	 %4 XXX
+%116:	br	 %115 if.end73 if.then71
+
+BASIC BLOCK if.then71
+%117:	load	 stdout
+%118:	call	 XXX %117 fputs
+%119:	br	 return
+
+BASIC BLOCK if.end73
+%120:	call	 %3 %4 QChiSq
+%121:	call	 XXX %3 %4 %120 printf
+%122:	br	 return
+
+BASIC BLOCK return
+%123:	phi	 XXX XXX XXX XXX XXX
+%124:	ret	 %123
+
+FUNCTION InfoTbl
+
+BASIC BLOCK entry
+%125:	sub	 r XXX
+%126:	sub	 c XXX
+%127:	icmp	 %125 XXX
+%128:	br	 %127 lor.lhs.false if.then
+
+BASIC BLOCK lor.lhs.false
+%129:	icmp	 %126 XXX
+%130:	br	 %129 if.end if.then
+
+BASIC BLOCK if.then
+%131:	br	 ret3
+
+BASIC BLOCK if.end
+%132:	mul	 %125 %126
+%133:	store	 %132 pdf
+%134:	sext	 r
+%135:	mul	 %134 XXX
+%136:	call	 %135 malloc
+%137:	bitcast	 %136
+%138:	icmp	 %137 XXX
+%139:	br	 %138 if.end7 if.then6
+
+BASIC BLOCK if.then6
+%140:	br	 ret3
+
+BASIC BLOCK if.end7
+%141:	sext	 c
+%142:	mul	 %141 XXX
+%143:	call	 %142 malloc
+%144:	bitcast	 %143
+%145:	icmp	 %144 XXX
+%146:	br	 %145 if.end14 if.then13
+
+BASIC BLOCK if.then13
+%147:	br	 ret2
+
+BASIC BLOCK if.end14
+%148:	br	 for.cond
+
+BASIC BLOCK for.cond
+%149:	phi	 XXX %176
+%150:	phi	 XXX %174
+%151:	icmp	 %149 r
+%152:	br	 %151 for.end33 for.body
+
+BASIC BLOCK for.body
+%153:	br	 for.cond17
+
+BASIC BLOCK for.cond17
+%154:	phi	 XXX %169
+%155:	phi	 XXX %167
+%156:	icmp	 %154 c
+%157:	br	 %156 for.end for.body20
+
+BASIC BLOCK for.body20
+%158:	mul	 %149 c
+%159:	add	 %158 %154
+%160:	sext	 %159
+%161:	getelementptr	 f %160
+%162:	load	 %161
+%163:	icmp	 %162 XXX
+%164:	br	 %163 if.end25 if.then24
+
+BASIC BLOCK if.then24
+%165:	br	 ret1
+
+BASIC BLOCK if.end25
+%166:	sitofp	 %162
+%167:	fadd	 %155 %166
+%168:	br	 for.inc
+
+BASIC BLOCK for.inc
+%169:	add	 %154 XXX
+%170:	br	 for.cond17
+
+BASIC BLOCK for.end
+%171:	sext	 %149
+%172:	getelementptr	 %137 %171
+%173:	store	 %155 %172
+%174:	fadd	 %150 %155
+%175:	br	 for.inc31
+
+BASIC BLOCK for.inc31
+%176:	add	 %149 XXX
+%177:	br	 for.cond
+
+BASIC BLOCK for.end33
+%178:	fcmp	 %150 XXX
+%179:	br	 %178 if.end37 if.then36
+
+BASIC BLOCK if.then36
+%180:	br	 ret1
+
+BASIC BLOCK if.end37
+%181:	br	 for.cond38
+
+BASIC BLOCK for.cond38
+%182:	phi	 XXX %204
+%183:	icmp	 %182 c
+%184:	br	 %183 for.end60 for.body41
+
+BASIC BLOCK for.body41
+%185:	br	 for.cond43
+
+BASIC BLOCK for.cond43
+%186:	phi	 XXX %198
+%187:	phi	 XXX %196
+%188:	icmp	 %186 r
+%189:	br	 %188 for.end55 for.body46
+
+BASIC BLOCK for.body46
+%190:	mul	 %186 c
+%191:	add	 %190 %182
+%192:	sext	 %191
+%193:	getelementptr	 f %192
+%194:	load	 %193
+%195:	sitofp	 %194
+%196:	fadd	 %187 %195
+%197:	br	 for.inc53
+
+BASIC BLOCK for.inc53
+%198:	add	 %186 XXX
+%199:	br	 for.cond43
+
+BASIC BLOCK for.end55
+%200:	sext	 %182
+%201:	getelementptr	 %144 %200
+%202:	store	 %187 %201
+%203:	br	 for.inc58
+
+BASIC BLOCK for.inc58
+%204:	add	 %182 XXX
+%205:	br	 for.cond38
+
+BASIC BLOCK for.end60
+%206:	call	 %150 log
+%207:	fmul	 %150 %206
+%208:	br	 for.cond63
+
+BASIC BLOCK for.cond63
+%209:	phi	 XXX %245
+%210:	phi	 %207 %225
+%211:	icmp	 %209 r
+%212:	br	 %211 for.end97 for.body66
+
+BASIC BLOCK for.body66
+%213:	sext	 %209
+%214:	getelementptr	 %137 %213
+%215:	load	 %214
+%216:	fcmp	 %215 XXX
+%217:	br	 %216 if.end75 if.then71
+
+BASIC BLOCK if.then71
+%218:	call	 %215 log
+%219:	fmul	 %215 %218
+%220:	fsub	 %210 %219
+%221:	br	 if.end75
+
+BASIC BLOCK if.end75
+%222:	phi	 %220 %210
+%223:	br	 for.cond76
+
+BASIC BLOCK for.cond76
+%224:	phi	 XXX %242
+%225:	phi	 %222 %240
+%226:	icmp	 %224 c
+%227:	br	 %226 for.end94 for.body79
+
+BASIC BLOCK for.body79
+%228:	mul	 %209 c
+%229:	add	 %228 %224
+%230:	sext	 %229
+%231:	getelementptr	 f %230
+%232:	load	 %231
+%233:	sitofp	 %232
+%234:	fcmp	 %233 XXX
+%235:	br	 %234 if.end91 if.then87
+
+BASIC BLOCK if.then87
+%236:	call	 %233 log
+%237:	fmul	 %233 %236
+%238:	fadd	 %225 %237
+%239:	br	 if.end91
+
+BASIC BLOCK if.end91
+%240:	phi	 %238 %225
+%241:	br	 for.inc92
+
+BASIC BLOCK for.inc92
+%242:	add	 %224 XXX
+%243:	br	 for.cond76
+
+BASIC BLOCK for.end94
+%244:	br	 for.inc95
+
+BASIC BLOCK for.inc95
+%245:	add	 %209 XXX
+%246:	br	 for.cond63
+
+BASIC BLOCK for.end97
+%247:	br	 for.cond98
+
+BASIC BLOCK for.cond98
+%248:	phi	 XXX %263
+%249:	phi	 %210 %261
+%250:	icmp	 %248 c
+%251:	br	 %250 for.end113 for.body101
+
+BASIC BLOCK for.body101
+%252:	sext	 %248
+%253:	getelementptr	 %144 %252
+%254:	load	 %253
+%255:	fcmp	 %254 XXX
+%256:	br	 %255 if.end110 if.then106
+
+BASIC BLOCK if.then106
+%257:	call	 %254 log
+%258:	fmul	 %254 %257
+%259:	fsub	 %249 %258
+%260:	br	 if.end110
+
+BASIC BLOCK if.end110
+%261:	phi	 %259 %249
+%262:	br	 for.inc111
+
+BASIC BLOCK for.inc111
+%263:	add	 %248 XXX
+%264:	br	 for.cond98
+
+BASIC BLOCK for.end113
+%265:	fmul	 %249 XXX
+%266:	br	 ret1
+
+BASIC BLOCK ret1
+%267:	phi	 XXX XXX %265
+%268:	bitcast	 %144
+%269:	call	 %268 free
+%270:	br	 ret2
+
+BASIC BLOCK ret2
+%271:	phi	 XXX %267
+%272:	bitcast	 %137
+%273:	call	 %272 free
+%274:	br	 ret3
+
+BASIC BLOCK ret3
+%275:	phi	 XXX XXX %271
+%276:	ret	 %275
+
+FUNCTION QChiSq
+
+BASIC BLOCK entry
+%277:	sitofp	 df
+%278:	fdiv	 %277 XXX
+%279:	fdiv	 chisq XXX
+%280:	call	 %278 %279 QGamma
+%281:	ret	 %280
+
+FUNCTION LGamma
+
+BASIC BLOCK entry
+%282:	fadd	 x XXX
+%283:	fcmp	 %282 XXX
+%284:	br	 %283 if.end if.then
+
+BASIC BLOCK if.then
+%285:	fmul	 XXX %282
+%286:	call	 %285 sin
+%287:	fdiv	 %285 %286
+%288:	call	 %287 log
+%289:	fsub	 XXX %282
+%290:	call	 %289 LGamma
+%291:	fsub	 %288 %290
+%292:	br	 return
+
+BASIC BLOCK if.end
+%293:	fadd	 %282 XXX
+%294:	fadd	 %282 XXX
+%295:	call	 %293 log
+%296:	fmul	 %294 %295
+%297:	fsub	 %293 %296
+%298:	br	 for.cond
+
+BASIC BLOCK for.cond
+%299:	phi	 XXX %311
+%300:	phi	 XXX %309
+%301:	phi	 %282 %307
+%302:	icmp	 %299 XXX
+%303:	br	 %302 for.end for.body
+
+BASIC BLOCK for.body
+%304:	sext	 %299
+%305:	getelementptr	 LGamma.cof XXX %304
+%306:	load	 %305
+%307:	fadd	 %301 XXX
+%308:	fdiv	 %306 %307
+%309:	fadd	 %300 %308
+%310:	br	 for.inc
+
+BASIC BLOCK for.inc
+%311:	add	 %299 XXX
+%312:	br	 for.cond
+
+BASIC BLOCK for.end
+%313:	fsub	 XXX %297
+%314:	fmul	 XXX %300
+%315:	call	 %314 log
+%316:	fadd	 %313 %315
+%317:	br	 return
+
+BASIC BLOCK return
+%318:	phi	 %291 %316
+%319:	ret	 %318
+
+FUNCTION QGamma
+
+BASIC BLOCK entry
+%320:	fadd	 a XXX
+%321:	fcmp	 x %320
+%322:	br	 %321 cond.false cond.true
+
+BASIC BLOCK cond.true
+%323:	call	 a x gser
+%324:	fsub	 XXX %323
+%325:	br	 cond.end
+
+BASIC BLOCK cond.false
+%326:	call	 a x gcf
+%327:	br	 cond.end
+
+BASIC BLOCK cond.end
+%328:	phi	 %324 %326
+%329:	ret	 %328
+
+FUNCTION gser
+
+BASIC BLOCK entry
+%330:	fcmp	 x XXX
+%331:	br	 %330 if.end if.then
+
+BASIC BLOCK if.then
+%332:	br	 for.end
+
+BASIC BLOCK if.end
+%333:	fdiv	 XXX a
+%334:	br	 for.cond
+
+BASIC BLOCK for.cond
+%335:	phi	 %333 %343
+%336:	phi	 a %341
+%337:	phi	 %333 %344
+%338:	phi	 XXX %370
+%339:	icmp	 %338 XXX
+%340:	br	 %339 for.end for.body
+
+BASIC BLOCK for.body
+%341:	fadd	 %336 XXX
+%342:	fdiv	 x %341
+%343:	fmul	 %335 %342
+%344:	fadd	 %337 %343
+%345:	fcmp	 %343 XXX
+%346:	br	 %345 cond.false cond.true
+
+BASIC BLOCK cond.true
+%347:	fsub	 XXX %343
+%348:	br	 cond.end
+
+BASIC BLOCK cond.false
+%349:	br	 cond.end
+
+BASIC BLOCK cond.end
+%350:	phi	 %347 %343
+%351:	fcmp	 %344 XXX
+%352:	br	 %351 cond.false7 cond.true5
+
+BASIC BLOCK cond.true5
+%353:	fsub	 XXX %344
+%354:	br	 cond.end8
+
+BASIC BLOCK cond.false7
+%355:	br	 cond.end8
+
+BASIC BLOCK cond.end8
+%356:	phi	 %353 %344
+%357:	fmul	 %356 XXX
+%358:	fcmp	 %350 %357
+%359:	br	 %358 if.end20 if.then12
+
+BASIC BLOCK if.then12
+%360:	fsub	 XXX x
+%361:	call	 x log
+%362:	fmul	 a %361
+%363:	fadd	 %360 %362
+%364:	call	 a LGamma
+%365:	fsub	 %363 %364
+%366:	call	 %365 exp
+%367:	fmul	 %344 %366
+%368:	br	 for.end
+
+BASIC BLOCK if.end20
+%369:	br	 for.inc
+
+BASIC BLOCK for.inc
+%370:	add	 %338 XXX
+%371:	br	 for.cond
+
+BASIC BLOCK for.end
+%372:	phi	 XXX %367 XXX
+%373:	ret	 %372
+
+FUNCTION gcf
+
+BASIC BLOCK entry
+%374:	br	 for.cond
+
+BASIC BLOCK for.cond
+%375:	phi	 XXX %391
+%376:	phi	 XXX %395
+%377:	phi	 XXX %429
+%378:	phi	 XXX %430
+%379:	phi	 XXX %432
+%380:	phi	 XXX %388
+%381:	phi	 x %398
+%382:	icmp	 %379 XXX
+%383:	br	 %382 for.end for.body
+
+BASIC BLOCK for.body
+%384:	sitofp	 %379
+%385:	fsub	 %384 a
+%386:	fmul	 %380 %385
+%387:	fadd	 %381 %386
+%388:	fmul	 %387 %377
+%389:	fmul	 %375 %385
+%390:	fadd	 %376 %389
+%391:	fmul	 %390 %377
+%392:	fmul	 %384 %377
+%393:	fmul	 x %391
+%394:	fmul	 %392 %376
+%395:	fadd	 %393 %394
+%396:	fmul	 x %388
+%397:	fmul	 %392 %381
+%398:	fadd	 %396 %397
+%399:	fcmp	 %398 XXX
+%400:	br	 %399 if.end37 if.then
+
+BASIC BLOCK if.then
+%401:	fdiv	 XXX %398
+%402:	fmul	 %395 %401
+%403:	fsub	 %402 %378
+%404:	fcmp	 %403 XXX
+%405:	br	 %404 cond.false cond.true
+
+BASIC BLOCK cond.true
+%406:	fsub	 XXX %403
+%407:	br	 cond.end
+
+BASIC BLOCK cond.false
+%408:	br	 cond.end
+
+BASIC BLOCK cond.end
+%409:	phi	 %406 %403
+%410:	fcmp	 %402 XXX
+%411:	br	 %410 cond.false23 cond.true21
+
+BASIC BLOCK cond.true21
+%412:	fsub	 XXX %402
+%413:	br	 cond.end24
+
+BASIC BLOCK cond.false23
+%414:	br	 cond.end24
+
+BASIC BLOCK cond.end24
+%415:	phi	 %412 %402
+%416:	fmul	 XXX %415
+%417:	fcmp	 %409 %416
+%418:	br	 %417 if.end if.then29
+
+BASIC BLOCK if.then29
+%419:	fsub	 XXX x
+%420:	call	 x log
+%421:	fmul	 a %420
+%422:	fadd	 %419 %421
+%423:	call	 a LGamma
+%424:	fsub	 %422 %423
+%425:	call	 %424 exp
+%426:	fmul	 %425 %402
+%427:	br	 for.end
+
+BASIC BLOCK if.end
+%428:	br	 if.end37
+
+BASIC BLOCK if.end37
+%429:	phi	 %401 %377
+%430:	phi	 %402 %378
+%431:	br	 for.inc
+
+BASIC BLOCK for.inc
+%432:	add	 %379 XXX
+%433:	br	 for.cond
+
+BASIC BLOCK for.end
+%434:	phi	 %426 XXX
+%435:	ret	 %434
+
+FUNCTION gnu_dev_major
+
+BASIC BLOCK entry
+%436:	lshr	 __dev XXX
+%437:	and	 %436 XXX
+%438:	lshr	 __dev XXX
+%439:	trunc	 %438
+%440:	and	 %439 XXX
+%441:	zext	 %440
+%442:	or	 %437 %441
+%443:	trunc	 %442
+%444:	ret	 %443
+
+FUNCTION gnu_dev_minor
+
+BASIC BLOCK entry
+%445:	and	 __dev XXX
+%446:	lshr	 __dev XXX
+%447:	trunc	 %446
+%448:	and	 %447 XXX
+%449:	zext	 %448
+%450:	or	 %445 %449
+%451:	trunc	 %450
+%452:	ret	 %451
+
+FUNCTION gnu_dev_makedev
+
+BASIC BLOCK entry
+%453:	and	 __minor XXX
+%454:	and	 __major XXX
+%455:	shl	 %454 XXX
+%456:	or	 %453 %455
+%457:	zext	 %456
+%458:	and	 __minor XXX
+%459:	zext	 %458
+%460:	shl	 %459 XXX
+%461:	or	 %457 %460
+%462:	and	 __major XXX
+%463:	zext	 %462
+%464:	shl	 %463 XXX
+%465:	or	 %461 %464
+%466:	ret	 %465

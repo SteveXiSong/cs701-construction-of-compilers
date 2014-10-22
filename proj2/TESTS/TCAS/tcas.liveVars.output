@@ -1,0 +1,393 @@
+FUNCTION initialize
+
+BASIC BLOCK entry L_Before: { } L-After: { }
+%:1   L-Before: { }	L-After: { }
+%:2   L-Before: { }	L-After: { }
+%:3   L-Before: { }	L-After: { }
+%:4   L-Before: { }	L-After: { }
+%:5   L-Before: { }	L-After: { }
+
+FUNCTION ALIM
+
+BASIC BLOCK entry L_Before: { } L-After: { }
+%:6   L-Before: { }	L-After: { %6 }
+%:7   L-Before: { %6 }	L-After: { %7 }
+%:8   L-Before: { %7 }	L-After: { %8 }
+%:9   L-Before: { %8 }	L-After: { %9 }
+%:10   L-Before: { %9 }	L-After: { }
+
+FUNCTION Inhibit_Biased_Climb
+
+BASIC BLOCK entry L_Before: { } L-After: { }
+%:11   L-Before: { }	L-After: { %11 }
+%:12   L-Before: { %11 }	L-After: { %12 }
+%:13   L-Before: { %12 }	L-After: { }
+
+BASIC BLOCK cond.true L_Before: { } L-After: { }
+%:14   L-Before: { }	L-After: { %14 }
+%:15   L-Before: { %14 }	L-After: { }
+%:16   L-Before: { }	L-After: { }
+
+BASIC BLOCK cond.false L_Before: { } L-After: { }
+%:17   L-Before: { }	L-After: { }
+%:18   L-Before: { }	L-After: { }
+
+BASIC BLOCK cond.end L_Before: { } L-After: { }
+%:19   L-Before: { %15 %17 }	L-After: { %19 }
+%:20   L-Before: { %19 }	L-After: { }
+
+removing useless assignment %15
+removing useless assignment %17
+FUNCTION Non_Crossing_Biased_Climb
+
+BASIC BLOCK entry L_Before: { } L-After: { }
+%:21   L-Before: { }	L-After: { %21 }
+%:22   L-Before: { %21 }	L-After: { %21 %22 }
+%:23   L-Before: { %21 %22 }	L-After: { %23 }
+%:24   L-Before: { %23 }	L-After: { %24 }
+%:25   L-Before: { %24 }	L-After: { %25 }
+%:26   L-Before: { %25 }	L-After: { }
+
+BASIC BLOCK if.then L_Before: { } L-After: { }
+%:27   L-Before: { }	L-After: { %27 }
+%:28   L-Before: { %27 }	L-After: { %28 }
+%:29   L-Before: { %28 }	L-After: { }
+
+BASIC BLOCK lor.rhs L_Before: { } L-After: { }
+%:30   L-Before: { }	L-After: { %30 }
+%:31   L-Before: { %30 }	L-After: { %31 }
+%:32   L-Before: { %31 }	L-After: { }
+
+BASIC BLOCK land.rhs L_Before: { } L-After: { }
+%:33   L-Before: { }	L-After: { %33 }
+%:34   L-Before: { %33 }	L-After: { %33 %34 }
+%:35   L-Before: { %33 %34 }	L-After: { %35 }
+%:36   L-Before: { %35 }	L-After: { }
+%:37   L-Before: { }	L-After: { }
+
+BASIC BLOCK land.end L_Before: { } L-After: { }
+%:38   L-Before: { %36 }	L-After: { }
+%:39   L-Before: { }	L-After: { }
+
+BASIC BLOCK lor.end L_Before: { } L-After: { }
+%:40   L-Before: { %38 }	L-After: { %40 }
+%:41   L-Before: { %40 }	L-After: { }
+%:42   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else L_Before: { } L-After: { }
+%:43   L-Before: { }	L-After: { %43 }
+%:44   L-Before: { %43 }	L-After: { %44 }
+%:45   L-Before: { %44 }	L-After: { }
+
+BASIC BLOCK land.lhs.true L_Before: { } L-After: { }
+%:46   L-Before: { }	L-After: { %46 }
+%:47   L-Before: { %46 }	L-After: { %47 }
+%:48   L-Before: { %47 }	L-After: { }
+
+BASIC BLOCK land.rhs12 L_Before: { } L-After: { }
+%:49   L-Before: { }	L-After: { %49 }
+%:50   L-Before: { %49 }	L-After: { %49 %50 }
+%:51   L-Before: { %49 %50 }	L-After: { }
+%:52   L-Before: { }	L-After: { }
+
+BASIC BLOCK land.end16 L_Before: { } L-After: { }
+%:53   L-Before: { %51 }	L-After: { %53 }
+%:54   L-Before: { %53 }	L-After: { }
+%:55   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end L_Before: { } L-After: { }
+%:56   L-Before: { %41 %54 }	L-After: { %56 }
+%:57   L-Before: { %56 }	L-After: { }
+
+removing useless assignment %36
+removing useless assignment %41
+removing useless assignment %51
+removing useless assignment %54
+FUNCTION Non_Crossing_Biased_Descend
+
+BASIC BLOCK entry L_Before: { } L-After: { }
+%:58   L-Before: { }	L-After: { %58 }
+%:59   L-Before: { %58 }	L-After: { %58 %59 }
+%:60   L-Before: { %58 %59 }	L-After: { %60 }
+%:61   L-Before: { %60 }	L-After: { %61 }
+%:62   L-Before: { %61 }	L-After: { %62 }
+%:63   L-Before: { %62 }	L-After: { }
+
+BASIC BLOCK if.then L_Before: { } L-After: { }
+%:64   L-Before: { }	L-After: { %64 }
+%:65   L-Before: { %64 }	L-After: { %65 }
+%:66   L-Before: { %65 }	L-After: { }
+
+BASIC BLOCK land.lhs.true L_Before: { } L-After: { }
+%:67   L-Before: { }	L-After: { %67 }
+%:68   L-Before: { %67 }	L-After: { %68 }
+%:69   L-Before: { %68 }	L-After: { }
+
+BASIC BLOCK land.rhs L_Before: { } L-After: { }
+%:70   L-Before: { }	L-After: { %70 }
+%:71   L-Before: { %70 }	L-After: { %70 %71 }
+%:72   L-Before: { %70 %71 }	L-After: { }
+%:73   L-Before: { }	L-After: { }
+
+BASIC BLOCK land.end L_Before: { } L-After: { }
+%:74   L-Before: { %72 }	L-After: { %74 }
+%:75   L-Before: { %74 }	L-After: { }
+%:76   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else L_Before: { } L-After: { }
+%:77   L-Before: { }	L-After: { %77 }
+%:78   L-Before: { %77 }	L-After: { %78 }
+%:79   L-Before: { %78 }	L-After: { }
+
+BASIC BLOCK lor.rhs L_Before: { } L-After: { }
+%:80   L-Before: { }	L-After: { %80 }
+%:81   L-Before: { %80 }	L-After: { %81 }
+%:82   L-Before: { %81 }	L-After: { }
+
+BASIC BLOCK land.rhs12 L_Before: { } L-After: { }
+%:83   L-Before: { }	L-After: { %83 }
+%:84   L-Before: { %83 }	L-After: { %83 %84 }
+%:85   L-Before: { %83 %84 }	L-After: { }
+%:86   L-Before: { }	L-After: { }
+
+BASIC BLOCK land.end16 L_Before: { } L-After: { }
+%:87   L-Before: { %85 }	L-After: { }
+%:88   L-Before: { }	L-After: { }
+
+BASIC BLOCK lor.end L_Before: { } L-After: { }
+%:89   L-Before: { %87 }	L-After: { %89 }
+%:90   L-Before: { %89 }	L-After: { }
+%:91   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end L_Before: { } L-After: { }
+%:92   L-Before: { %75 %90 }	L-After: { %92 }
+%:93   L-Before: { %92 }	L-After: { }
+
+removing useless assignment %72
+removing useless assignment %75
+removing useless assignment %85
+removing useless assignment %90
+FUNCTION Own_Below_Threat
+
+BASIC BLOCK entry L_Before: { } L-After: { }
+%:94   L-Before: { }	L-After: { %94 }
+%:95   L-Before: { %94 }	L-After: { %94 %95 }
+%:96   L-Before: { %94 %95 }	L-After: { %96 }
+%:97   L-Before: { %96 }	L-After: { %97 }
+%:98   L-Before: { %97 }	L-After: { }
+
+FUNCTION Own_Above_Threat
+
+BASIC BLOCK entry L_Before: { } L-After: { }
+%:99   L-Before: { }	L-After: { %99 }
+%:100   L-Before: { %99 }	L-After: { %99 %100 }
+%:101   L-Before: { %99 %100 }	L-After: { %101 }
+%:102   L-Before: { %101 }	L-After: { %102 }
+%:103   L-Before: { %102 }	L-After: { }
+
+FUNCTION alt_sep_test
+
+BASIC BLOCK entry L_Before: { } L-After: { }
+%:104   L-Before: { }	L-After: { %104 }
+%:105   L-Before: { %104 }	L-After: { %105 }
+%:106   L-Before: { %105 }	L-After: { }
+
+BASIC BLOCK land.lhs.true L_Before: { } L-After: { }
+%:107   L-Before: { }	L-After: { %107 }
+%:108   L-Before: { %107 }	L-After: { %108 }
+%:109   L-Before: { %108 }	L-After: { }
+
+BASIC BLOCK land.rhs L_Before: { } L-After: { }
+%:110   L-Before: { }	L-After: { %110 }
+%:111   L-Before: { %110 }	L-After: { }
+%:112   L-Before: { }	L-After: { }
+
+BASIC BLOCK land.end L_Before: { } L-After: { }
+%:113   L-Before: { %111 }	L-After: { %113 }
+%:114   L-Before: { %113 }	L-After: { }
+%:115   L-Before: { }	L-After: { %115 }
+%:116   L-Before: { %115 }	L-After: { %116 }
+%:117   L-Before: { %116 }	L-After: { }
+%:118   L-Before: { }	L-After: { %118 }
+%:119   L-Before: { %118 }	L-After: { %119 }
+%:120   L-Before: { %119 }	L-After: { }
+
+BASIC BLOCK land.rhs4 L_Before: { } L-After: { }
+%:121   L-Before: { }	L-After: { %121 }
+%:122   L-Before: { %121 }	L-After: { }
+%:123   L-Before: { }	L-After: { }
+
+BASIC BLOCK land.end7 L_Before: { } L-After: { }
+%:124   L-Before: { %114 %122 }	L-After: { %114 %124 }
+%:125   L-Before: { %114 %124 }	L-After: { %114 }
+%:126   L-Before: { %114 }	L-After: { %126 }
+%:127   L-Before: { %126 }	L-After: { }
+
+BASIC BLOCK land.lhs.true10 L_Before: { } L-After: { }
+%:128   L-Before: { %117 }	L-After: { %128 }
+%:129   L-Before: { %128 }	L-After: { }
+
+BASIC BLOCK land.lhs.true12 L_Before: { } L-After: { }
+%:130   L-Before: { %125 }	L-After: { %130 }
+%:131   L-Before: { %130 }	L-After: { }
+
+BASIC BLOCK lor.lhs.false L_Before: { } L-After: { }
+%:132   L-Before: { %117 }	L-After: { %132 }
+%:133   L-Before: { %132 }	L-After: { }
+
+BASIC BLOCK if.then L_Before: { } L-After: { }
+%:134   L-Before: { }	L-After: { %134 }
+%:135   L-Before: { %134 }	L-After: { %135 }
+%:136   L-Before: { %135 }	L-After: { }
+
+BASIC BLOCK land.rhs16 L_Before: { } L-After: { }
+%:137   L-Before: { }	L-After: { %137 }
+%:138   L-Before: { %137 }	L-After: { }
+%:139   L-Before: { }	L-After: { }
+
+BASIC BLOCK land.end19 L_Before: { } L-After: { }
+%:140   L-Before: { %138 }	L-After: { %140 }
+%:141   L-Before: { %140 }	L-After: { }
+%:142   L-Before: { }	L-After: { %142 }
+%:143   L-Before: { %142 }	L-After: { %143 }
+%:144   L-Before: { %143 }	L-After: { }
+
+BASIC BLOCK land.rhs23 L_Before: { } L-After: { }
+%:145   L-Before: { }	L-After: { %145 }
+%:146   L-Before: { %145 }	L-After: { }
+%:147   L-Before: { }	L-After: { }
+
+BASIC BLOCK land.end26 L_Before: { } L-After: { }
+%:148   L-Before: { %141 %146 }	L-After: { %141 %148 }
+%:149   L-Before: { %141 %148 }	L-After: { %141 }
+%:150   L-Before: { %141 }	L-After: { %150 }
+%:151   L-Before: { %150 }	L-After: { }
+
+BASIC BLOCK land.lhs.true29 L_Before: { } L-After: { }
+%:152   L-Before: { %149 }	L-After: { %152 }
+%:153   L-Before: { %152 }	L-After: { }
+
+BASIC BLOCK if.then31 L_Before: { } L-After: { }
+%:154   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else L_Before: { } L-After: { }
+%:155   L-Before: { %141 }	L-After: { %155 }
+%:156   L-Before: { %155 }	L-After: { }
+
+BASIC BLOCK if.then33 L_Before: { } L-After: { }
+%:157   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else34 L_Before: { } L-After: { }
+%:158   L-Before: { %149 }	L-After: { %158 }
+%:159   L-Before: { %158 }	L-After: { }
+
+BASIC BLOCK if.then36 L_Before: { } L-After: { }
+%:160   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.else37 L_Before: { } L-After: { }
+%:161   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end L_Before: { } L-After: { }
+%:162   L-Before: { }	L-After: { }
+%:163   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end38 L_Before: { } L-After: { }
+%:164   L-Before: { %162 }	L-After: { }
+%:165   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end39 L_Before: { } L-After: { }
+%:166   L-Before: { %164 }	L-After: { }
+%:167   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end40 L_Before: { } L-After: { }
+%:168   L-Before: { %166 }	L-After: { %168 }
+%:169   L-Before: { %168 }	L-After: { }
+
+removing useless assignment %111
+removing useless assignment %114
+removing useless assignment %117
+removing useless assignment %122
+removing useless assignment %125
+removing useless assignment %138
+removing useless assignment %141
+removing useless assignment %146
+removing useless assignment %149
+FUNCTION main
+
+BASIC BLOCK entry L_Before: { } L-After: { }
+%:170   L-Before: { }	L-After: { %170 }
+%:171   L-Before: { %170 }	L-After: { }
+
+BASIC BLOCK if.then L_Before: { } L-After: { }
+%:172   L-Before: { }	L-After: { %172 }
+%:173   L-Before: { %172 }	L-After: { }
+%:174   L-Before: { }	L-After: { %174 }
+%:175   L-Before: { %174 }	L-After: { }
+%:176   L-Before: { }	L-After: { %176 }
+%:177   L-Before: { %176 }	L-After: { }
+%:178   L-Before: { }	L-After: { %178 }
+%:179   L-Before: { %178 }	L-After: { }
+%:180   L-Before: { }	L-After: { %180 }
+%:181   L-Before: { %180 }	L-After: { }
+%:182   L-Before: { }	L-After: { }
+%:183   L-Before: { }	L-After: { }
+
+BASIC BLOCK if.end L_Before: { } L-After: { }
+%:184   L-Before: { }	L-After: { }
+%:185   L-Before: { }	L-After: { %185 }
+%:186   L-Before: { %185 }	L-After: { %186 }
+%:187   L-Before: { %186 }	L-After: { %187 }
+%:188   L-Before: { %187 }	L-After: { }
+%:189   L-Before: { }	L-After: { %189 }
+%:190   L-Before: { %189 }	L-After: { %190 }
+%:191   L-Before: { %190 }	L-After: { %191 }
+%:192   L-Before: { %191 }	L-After: { }
+%:193   L-Before: { }	L-After: { %193 }
+%:194   L-Before: { %193 }	L-After: { %194 }
+%:195   L-Before: { %194 }	L-After: { %195 }
+%:196   L-Before: { %195 }	L-After: { }
+%:197   L-Before: { }	L-After: { %197 }
+%:198   L-Before: { %197 }	L-After: { %198 }
+%:199   L-Before: { %198 }	L-After: { %199 }
+%:200   L-Before: { %199 }	L-After: { }
+%:201   L-Before: { }	L-After: { %201 }
+%:202   L-Before: { %201 }	L-After: { %202 }
+%:203   L-Before: { %202 }	L-After: { %203 }
+%:204   L-Before: { %203 }	L-After: { }
+%:205   L-Before: { }	L-After: { %205 }
+%:206   L-Before: { %205 }	L-After: { %206 }
+%:207   L-Before: { %206 }	L-After: { %207 }
+%:208   L-Before: { %207 }	L-After: { }
+%:209   L-Before: { }	L-After: { %209 }
+%:210   L-Before: { %209 }	L-After: { %210 }
+%:211   L-Before: { %210 }	L-After: { %211 }
+%:212   L-Before: { %211 }	L-After: { }
+%:213   L-Before: { }	L-After: { %213 }
+%:214   L-Before: { %213 }	L-After: { %214 }
+%:215   L-Before: { %214 }	L-After: { %215 }
+%:216   L-Before: { %215 }	L-After: { }
+%:217   L-Before: { }	L-After: { %217 }
+%:218   L-Before: { %217 }	L-After: { %218 }
+%:219   L-Before: { %218 }	L-After: { %219 }
+%:220   L-Before: { %219 }	L-After: { }
+%:221   L-Before: { }	L-After: { %221 }
+%:222   L-Before: { %221 }	L-After: { %222 }
+%:223   L-Before: { %222 }	L-After: { %223 }
+%:224   L-Before: { %223 }	L-After: { }
+%:225   L-Before: { }	L-After: { %225 }
+%:226   L-Before: { %225 }	L-After: { %226 }
+%:227   L-Before: { %226 }	L-After: { %227 }
+%:228   L-Before: { %227 }	L-After: { }
+%:229   L-Before: { }	L-After: { %229 }
+%:230   L-Before: { %229 }	L-After: { %230 }
+%:231   L-Before: { %230 }	L-After: { %231 }
+%:232   L-Before: { %231 }	L-After: { }
+%:233   L-Before: { }	L-After: { %233 }
+%:234   L-Before: { %233 }	L-After: { %233 %234 }
+%:235   L-Before: { %233 %234 }	L-After: { }
+%:236   L-Before: { }	L-After: { }
+%:237   L-Before: { }	L-After: { }
+
+BASIC BLOCK return L_Before: { } L-After: { }
+%:238   L-Before: { }	L-After: { }
+

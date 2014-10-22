@@ -1,0 +1,13 @@
+
+FUNCTION main
+
+BASIC BLOCK entry
+%1:	alloca	 XXX
+%2:	alloca	 XXX
+%3:	alloca	 XXX
+%4:	store	 XXX %1
+%5:	add	 XXX XXX
+%6:	store	 %5 %2
+%7:	add	 %5 XXX
+%8:	store	 %7 %3
+%9:	ret	 XXX

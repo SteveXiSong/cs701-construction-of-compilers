@@ -1,0 +1,25 @@
+
+FUNCTION foo
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%1:   L-Before: { }	L-After: { %1 }
+%2:   L-Before: { %1 }	L-After: { %1 }
+%3:   L-Before: { %1 }	L-After: { %3 }
+%4:   L-Before: { %3 }	L-After: { }
+%5:   L-Before: { }	L-After: { }
+
+FUNCTION main
+
+BASIC BLOCK entry  L-Before: { }  L-After: { }
+%6:   L-Before: { }	L-After: { %6 }
+%7:   L-Before: { %6 }	L-After: { %6 }
+%8:   L-Before: { %6 }	L-After: { %6 %8 }
+%9:   L-Before: { %6 %8 }	L-After: { %6 }
+%10:   L-Before: { %6 }	L-After: { %6 %10 }
+%11:   L-Before: { %6 %10 }	L-After: { %6 }
+%12:   L-Before: { %6 }	L-After: { %6 %12 }
+%13:   L-Before: { %6 %12 }	L-After: { %6 }
+%14:   L-Before: { %6 }	L-After: { %14 }
+%15:   L-Before: { %14 }	L-After: { %15 }
+%16:   L-Before: { %15 }	L-After: { }
+%17:   L-Before: { }	L-After: { }
