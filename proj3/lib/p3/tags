@@ -1,0 +1,80 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BBDomSet	loopInv.cpp	/^typedef map<const BasicBlock *, domSet > BBDomSet;$/;"	t	namespace:__anon2	file:
+BB_dom	loopInv.cpp	/^BBDomSet BB_dom;$/;"	m	namespace:__anon2	file:
+BB_gen	liveVars.cpp	/^map<const BasicBlock * , set<unsigned> >BB_gen;$/;"	m	namespace:__anon1	file:
+BB_kill	liveVars.cpp	/^map<const BasicBlock * , set<unsigned> >BB_kill;$/;"	m	namespace:__anon1	file:
+BB_liveAfter	liveVars.cpp	/^map<BasicBlock *, set<unsigned> > BB_liveAfter;$/;"	m	namespace:__anon1	file:
+BB_liveAfter_inst	liveVars.cpp	/^map<Instruction *, set<unsigned> > BB_liveAfter_inst;$/;"	m	namespace:__anon1	file:
+BB_liveBefore	liveVars.cpp	/^map<BasicBlock *, set<unsigned> > BB_liveBefore;$/;"	m	namespace:__anon1	file:
+BB_liveBefore_inst	liveVars.cpp	/^map<Instruction *, set<unsigned> > BB_liveBefore_inst;$/;"	m	namespace:__anon1	file:
+DEBUG	Makefile	/^DEBUG = ..\/..\/Debug\/lib$/;"	m
+DEBUG_TYPE	liveVars.cpp	15;"	d	file:
+DEBUG_TYPE	loopInv.cpp	15;"	d	file:
+DEBUG_TYPE	printCode.cpp	15;"	d	file:
+ID	liveVars.cpp	/^    static char ID; \/\/ Pass identification, replacement for typeid$/;"	m	class:__anon1::liveVars	file:
+ID	liveVars.cpp	/^char liveVars::ID = 0;$/;"	m	class:__anon1::liveVars	file:
+ID	loopInv.cpp	/^    static char ID; \/\/ Pass identification, replacement for typeid$/;"	m	class:__anon2::loopInv	file:
+ID	loopInv.cpp	/^char loopInv::ID = 0;$/;"	m	class:__anon2::loopInv	file:
+ID	printCode.cpp	/^    static char ID; \/\/ Pass identification, replacement for typeid$/;"	m	class:__anon3::printCode	file:
+ID	printCode.cpp	/^  char printCode::ID = 0;$/;"	m	class:__anon3::printCode	file:
+OBJS	Makefile	/^OBJS = printCode.o  loopInv.o$/;"	m
+PRINTDOM	flags.h	4;"	d
+PRINTLOOPS	flags.h	6;"	d
+PRINTMERGE	flags.h	5;"	d
+PRINTMOVING	flags.h	8;"	d
+PRINTPRE	flags.h	7;"	d
+__FLAGS_H__	flags.h	2;"	d
+compute_genKill	liveVars.cpp	/^	void compute_genKill(Function &F){$/;"	f	class:__anon1::liveVars	file:
+compute_genSet	liveVars.cpp	/^	void compute_genSet(Function::iterator &f_it, set<unsigned> &gen_set ){$/;"	f	class:__anon1::liveVars	file:
+compute_genSet_inst	liveVars.cpp	/^	regSet compute_genSet_inst(Instruction *b_it){$/;"	f	class:__anon1::liveVars	file:
+compute_killSet	liveVars.cpp	/^	void compute_killSet(Function::iterator &f_it, set<unsigned> &kill_set){$/;"	f	class:__anon1::liveVars	file:
+compute_killSet_inst	liveVars.cpp	/^	regSet compute_killSet_inst(Instruction *b_it){$/;"	f	class:__anon1::liveVars	file:
+compute_live	liveVars.cpp	/^	void compute_live(Function &F ){$/;"	f	class:__anon1::liveVars	file:
+compute_liveAfter_inst	liveVars.cpp	/^	regSet compute_liveAfter_inst( const regSet &succ_liveBefore, BasicBlock::iterator b_it_cur){$/;"	f	class:__anon1::liveVars	file:
+compute_liveBefore_inst	liveVars.cpp	/^	regSet compute_liveBefore_inst(const regSet &liveAfter_set, regSet &gen_set, $/;"	f	class:__anon1::liveVars	file:
+compute_live_inst	liveVars.cpp	/^	void compute_live_inst(Function &F){$/;"	f	class:__anon1::liveVars	file:
+compute_useless_inst	liveVars.cpp	/^	list<Instruction *> compute_useless_inst(Function &F){$/;"	f	class:__anon1::liveVars	file:
+doMap	liveVars.cpp	/^	bool doMap(llvm::Instruction *pinst, const unsigned int mapVal){$/;"	f	class:__anon1::liveVars	file:
+doMap	loopInv.cpp	/^	bool doMap(const Instruction *pinst, const unsigned int mapVal){$/;"	f	class:__anon2::loopInv	file:
+doMap	printCode.cpp	/^		bool doMap(llvm::Instruction *pinst, const unsigned int mapVal){$/;"	f	class:__anon3::printCode	file:
+domSet	loopInv.cpp	/^typedef set<const BasicBlock *> domSet ;$/;"	t	namespace:__anon2	file:
+findLoops	loopInv.cpp	/^    void findLoops(const Function &F){$/;"	f	class:__anon2::loopInv	file:
+getAnalysisUsage	liveVars.cpp	/^    virtual void getAnalysisUsage(AnalysisUsage &AU) const {$/;"	f	class:__anon1::liveVars
+getAnalysisUsage	loopInv.cpp	/^    virtual void getAnalysisUsage(AnalysisUsage &AU) const {$/;"	f	class:__anon2::loopInv
+getAnalysisUsage	printCode.cpp	/^    virtual void getAnalysisUsage(AnalysisUsage &AU) const {$/;"	f	class:__anon3::printCode
+inst_map	liveVars.cpp	/^map<llvm::Instruction* , unsigned int> inst_map;$/;"	m	namespace:__anon1	file:
+inst_map	loopInv.cpp	/^map<const Instruction* , unsigned int> inst_map;$/;"	m	namespace:__anon2	file:
+inst_map	printCode.cpp	/^	std::map<llvm::Instruction* , unsigned int> inst_map;$/;"	m	namespace:__anon3	file:
+inst_num	liveVars.cpp	/^unsigned int inst_num = 1  ;$/;"	m	namespace:__anon1	file:
+inst_num	loopInv.cpp	/^unsigned int inst_num = 1  ;$/;"	m	namespace:__anon2	file:
+inst_num	printCode.cpp	/^	unsigned int inst_num = 1  ;$/;"	m	namespace:__anon3	file:
+inst_reg	liveVars.cpp	/^typedef map<llvm::Instruction* , unsigned int> inst_reg;$/;"	t	namespace:__anon1	file:
+isAssign	liveVars.cpp	/^	bool isAssign(Instruction* it){$/;"	f	class:__anon1::liveVars	file:
+itBasicBlock	liveVars.cpp	/^	void itBasicBlock(Function &F){$/;"	f	class:__anon1::liveVars	file:
+itBasicBlock	loopInv.cpp	/^	void itBasicBlock(const Function &F){$/;"	f	class:__anon2::loopInv	file:
+itMap	liveVars.cpp	/^	void itMap(Function &F){$/;"	f	class:__anon1::liveVars	file:
+itMap	loopInv.cpp	/^	void itMap(const Function &F){$/;"	f	class:__anon2::loopInv	file:
+liveVars	liveVars.cpp	/^    liveVars() : FunctionPass(ID) {$/;"	f	class:__anon1::liveVars
+liveVars	liveVars.cpp	/^class liveVars : public FunctionPass {$/;"	c	namespace:__anon1	file:
+loopInv	loopInv.cpp	/^    loopInv() : FunctionPass(ID) {$/;"	f	class:__anon2::loopInv
+loopInv	loopInv.cpp	/^class loopInv : public FunctionPass {$/;"	c	namespace:__anon2	file:
+print	liveVars.cpp	/^    virtual void print(std::ostream &O, const Module *M) const {$/;"	f	class:__anon1::liveVars
+print	loopInv.cpp	/^    virtual void print(std::ostream &O, const Module *M) const {$/;"	f	class:__anon2::loopInv
+print	printCode.cpp	/^    virtual void print(std::ostream &O, const Module *M) const {$/;"	f	class:__anon3::printCode
+printCode	printCode.cpp	/^    printCode() : FunctionPass(ID) {$/;"	f	class:__anon3::printCode
+printCode	printCode.cpp	/^  class printCode : public FunctionPass {$/;"	c	namespace:__anon3	file:
+printSet	liveVars.cpp	/^	void printSet(const regSet &inSet){$/;"	f	class:__anon1::liveVars	file:
+printSet	liveVars.cpp	/^	void printSet(const string cmdName, const string blkName, const regSet &setName){$/;"	f	class:__anon1::liveVars	file:
+print_anal_removing	liveVars.cpp	/^	void print_anal_removing(list<Instruction *> useless_inst){$/;"	f	class:__anon1::liveVars	file:
+print_anal_result	liveVars.cpp	/^	void print_anal_result(Function &F){$/;"	f	class:__anon1::liveVars	file:
+regSet	liveVars.cpp	/^typedef set<unsigned> regSet;$/;"	t	namespace:__anon1	file:
+remove_useless_inst	liveVars.cpp	/^	bool remove_useless_inst(list<Instruction *> useless_inst){$/;"	f	class:__anon1::liveVars	file:
+runOnFunction	liveVars.cpp	/^    virtual bool runOnFunction(Function &F) {$/;"	f	class:__anon1::liveVars
+runOnFunction	loopInv.cpp	/^    virtual bool runOnFunction(Function &F) {$/;"	f	class:__anon2::loopInv
+runOnFunction	printCode.cpp	/^    virtual bool runOnFunction(Function &F) {$/;"	f	class:__anon3::printCode
+useless_regs	liveVars.cpp	/^	set<unsigned> useless_regs;$/;"	m	class:__anon1::liveVars	file:

@@ -1,0 +1,94 @@
+
+BASIC BLOCK entry	1
+%2:	br	 %1 if.else if.then
+%1:	icmp	 XXX XXX
+
+BASIC BLOCK if.then	2
+%4:	br	 if.end
+%3:	add	 XXX XXX
+
+BASIC BLOCK if.else	3
+%6:	br	 if.end
+%5:	add	 XXX XXX
+
+BASIC BLOCK if.end	4
+%10:	br	 while.cond
+%9:	add	 XXX XXX
+%8:	phi	 XXX %5
+%7:	phi	 %3 XXX
+
+BASIC BLOCK while.cond	5
+%15:	br	 %14 while.end while.body
+%14:	icmp	 %12 XXX
+%13:	add	 %12 XXX
+%12:	phi	 %9 %13
+%11:	phi	 %7 %16
+
+BASIC BLOCK while.body	6
+%17:	br	 while.cond
+%16:	add	 %11 XXX
+
+BASIC BLOCK while.end	7
+%19:	ret	 XXX
+%18:	add	 %8 XXX
+before worklist algo: 
+WL:[ 2 3 4 5 6 7  ]
+worklist algo start...  
+WL:[ 3 4 5 6 7  ]
+WL:[ 4 5 6 7 4  ]
+WL:[ 5 6 7 4 4  ]
+WL:[ 6 7 4 4 5  ]
+WL:[ 7 4 4 5 6 7  ]
+WL:[ 4 4 5 6 7 5  ]
+WL:[ 4 5 6 7 5  ]
+WL:[ 5 6 7 5  ]
+WL:[ 6 7 5  ]
+WL:[ 7 5  ]
+WL:[ 5  ]
+WL:[  ]
+worklist algo end 
+------------------------
+1: ( 1 ) 
+2: ( 1 ) ( 2 ) 
+3: ( 1 ) ( 3 ) 
+4: ( 1 ) ( 4 ) 
+5: ( 1 ) ( 4 ) ( 5 ) 
+6: ( 1 ) ( 4 ) ( 5 ) ( 6 ) 
+7: ( 1 ) ( 4 ) ( 5 ) ( 7 ) 
+------------------------
+
+BASIC BLOCK entry	8
+%21:	br	 %20 if.else if.then
+%20:	icmp	 para XXX
+
+BASIC BLOCK if.then	9
+%22:	br	 if.end
+
+BASIC BLOCK if.else	10
+%23:	br	 if.end
+
+BASIC BLOCK if.end	11
+%25:	ret	 %24
+%24:	phi	 XXX XXX
+before worklist algo: 
+WL:[ 9 10 11  ]
+worklist algo start...  
+WL:[ 10 11  ]
+WL:[ 11 11  ]
+WL:[ 11 11  ]
+WL:[ 11  ]
+WL:[  ]
+worklist algo end 
+------------------------
+1: ( 1 ) 
+2: ( 1 ) ( 2 ) 
+3: ( 1 ) ( 3 ) 
+4: ( 1 ) ( 4 ) 
+5: ( 1 ) ( 4 ) ( 5 ) 
+6: ( 1 ) ( 4 ) ( 5 ) ( 6 ) 
+7: ( 1 ) ( 4 ) ( 5 ) ( 7 ) 
+8: ( 8 ) 
+9: ( 8 ) ( 9 ) 
+10: ( 8 ) ( 10 ) 
+11: ( 8 ) ( 11 ) 
+------------------------
