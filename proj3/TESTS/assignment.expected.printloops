@@ -1,0 +1,10 @@
+FUNCTION add
+LOOPS
+Head: while.cond Body: { while.body }
+
+FUNCTION main
+LOOPS
+Head: for.cond Body: { for.body for.body3 for.cond1 for.end for.inc for.inc5 }
+Head: for.cond1 Body: { for.body3 for.inc }
+Head: while.cond Body: { while.body }
+

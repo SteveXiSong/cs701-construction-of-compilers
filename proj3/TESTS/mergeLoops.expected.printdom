@@ -1,0 +1,9 @@
+
+FUNCTION main
+BASIC BLOCK entry  DOM-Before: { }  DOM-After: { entry }
+BASIC BLOCK while.cond  DOM-Before: { entry }  DOM-After: { entry while.cond }
+BASIC BLOCK while.body  DOM-Before: { entry while.cond }  DOM-After: { entry while.body while.cond }
+BASIC BLOCK if.then  DOM-Before: { entry while.body while.cond }  DOM-After: { entry if.then while.body while.cond }
+BASIC BLOCK if.else  DOM-Before: { entry while.body while.cond }  DOM-After: { entry if.else while.body while.cond }
+BASIC BLOCK if.end  DOM-Before: { entry while.body while.cond }  DOM-After: { entry if.end while.body while.cond }
+BASIC BLOCK while.end  DOM-Before: { entry while.cond }  DOM-After: { entry while.cond while.end }

@@ -1,0 +1,8 @@
+
+FUNCTION main
+BASIC BLOCK entry  DOM-Before: { }  DOM-After: { entry }
+BASIC BLOCK L  DOM-Before: { entry }  DOM-After: { L entry }
+BASIC BLOCK if.then  DOM-Before: { L entry }  DOM-After: { L entry if.then }
+BASIC BLOCK if.end  DOM-Before: { L entry }  DOM-After: { L entry if.end }
+BASIC BLOCK if.then4  DOM-Before: { L entry if.end }  DOM-After: { L entry if.end if.then4 }
+BASIC BLOCK if.end5  DOM-Before: { L entry if.end }  DOM-After: { L entry if.end if.end5 }

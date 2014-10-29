@@ -4,14 +4,19 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+BBBackedgeMap	loopInv.cpp	/^typedef map<const BasicBlock*, const BasicBlock *> BBBackedgeMap;$/;"	t	namespace:__anon2	file:
 BBDomSet	loopInv.cpp	/^typedef map<const BasicBlock *, domSet > BBDomSet;$/;"	t	namespace:__anon2	file:
-BB_dom	loopInv.cpp	/^BBDomSet BB_dom;$/;"	m	namespace:__anon2	file:
+BB_backedge	loopInv.cpp	/^    BBBackedgeMap BB_backedge;$/;"	m	class:__anon2::loopInv	file:
+BB_dom	loopInv.cpp	/^    BBDomSet BB_dom;$/;"	m	class:__anon2::loopInv	file:
 BB_gen	liveVars.cpp	/^map<const BasicBlock * , set<unsigned> >BB_gen;$/;"	m	namespace:__anon1	file:
 BB_kill	liveVars.cpp	/^map<const BasicBlock * , set<unsigned> >BB_kill;$/;"	m	namespace:__anon1	file:
 BB_liveAfter	liveVars.cpp	/^map<BasicBlock *, set<unsigned> > BB_liveAfter;$/;"	m	namespace:__anon1	file:
 BB_liveAfter_inst	liveVars.cpp	/^map<Instruction *, set<unsigned> > BB_liveAfter_inst;$/;"	m	namespace:__anon1	file:
 BB_liveBefore	liveVars.cpp	/^map<BasicBlock *, set<unsigned> > BB_liveBefore;$/;"	m	namespace:__anon1	file:
 BB_liveBefore_inst	liveVars.cpp	/^map<Instruction *, set<unsigned> > BB_liveBefore_inst;$/;"	m	namespace:__anon1	file:
+BB_map	loopInv.cpp	/^    map<const BasicBlock* , unsigned int> BB_map;$/;"	m	class:__anon2::loopInv	file:
+BB_num	loopInv.cpp	/^unsigned int BB_num = 1  ;$/;"	m	namespace:__anon2	file:
+BBworklist	loopInv.cpp	/^typedef deque<const BasicBlock *> BBworklist;$/;"	t	namespace:__anon2	file:
 DEBUG	Makefile	/^DEBUG = ..\/..\/Debug\/lib$/;"	m
 DEBUG_TYPE	liveVars.cpp	15;"	d	file:
 DEBUG_TYPE	loopInv.cpp	15;"	d	file:
@@ -28,7 +33,11 @@ PRINTLOOPS	flags.h	6;"	d
 PRINTMERGE	flags.h	5;"	d
 PRINTMOVING	flags.h	8;"	d
 PRINTPRE	flags.h	7;"	d
+STEVE_DEBUG	loopInv.cpp	41;"	d	file:
 __FLAGS_H__	flags.h	2;"	d
+body	loopInv.cpp	/^    set<const BasicBlock*> body;$/;"	m	class:__anon2::naturalLoop	file:
+combineLoops	loopInv.cpp	/^    void combineLoops(naturalLoopMap &naturalLoops){$/;"	f	class:__anon2::loopInv	file:
+comp_NL	loopInv.cpp	/^struct comp_NL{$/;"	s	namespace:__anon2	file:
 compute_genKill	liveVars.cpp	/^	void compute_genKill(Function &F){$/;"	f	class:__anon1::liveVars	file:
 compute_genSet	liveVars.cpp	/^	void compute_genSet(Function::iterator &f_it, set<unsigned> &gen_set ){$/;"	f	class:__anon1::liveVars	file:
 compute_genSet_inst	liveVars.cpp	/^	regSet compute_genSet_inst(Instruction *b_it){$/;"	f	class:__anon1::liveVars	file:
@@ -39,14 +48,24 @@ compute_liveAfter_inst	liveVars.cpp	/^	regSet compute_liveAfter_inst( const regS
 compute_liveBefore_inst	liveVars.cpp	/^	regSet compute_liveBefore_inst(const regSet &liveAfter_set, regSet &gen_set, $/;"	f	class:__anon1::liveVars	file:
 compute_live_inst	liveVars.cpp	/^	void compute_live_inst(Function &F){$/;"	f	class:__anon1::liveVars	file:
 compute_useless_inst	liveVars.cpp	/^	list<Instruction *> compute_useless_inst(Function &F){$/;"	f	class:__anon1::liveVars	file:
+doBBMap	loopInv.cpp	/^	bool doBBMap(const BasicBlock *pBB, const unsigned int mapVal){$/;"	f	class:__anon2::loopInv	file:
 doMap	liveVars.cpp	/^	bool doMap(llvm::Instruction *pinst, const unsigned int mapVal){$/;"	f	class:__anon1::liveVars	file:
 doMap	loopInv.cpp	/^	bool doMap(const Instruction *pinst, const unsigned int mapVal){$/;"	f	class:__anon2::loopInv	file:
 doMap	printCode.cpp	/^		bool doMap(llvm::Instruction *pinst, const unsigned int mapVal){$/;"	f	class:__anon3::printCode	file:
 domSet	loopInv.cpp	/^typedef set<const BasicBlock *> domSet ;$/;"	t	namespace:__anon2	file:
+findBackedges	loopInv.cpp	/^    void findBackedges(const Function &F){$/;"	f	class:__anon2::loopInv	file:
+findLoopInv	loopInv.cpp	/^    void findLoopInv(){$/;"	f	class:__anon2::loopInv	file:
 findLoops	loopInv.cpp	/^    void findLoops(const Function &F){$/;"	f	class:__anon2::loopInv	file:
+findNaturalLoops	loopInv.cpp	/^    naturalLoopMap findNaturalLoops(){$/;"	f	class:__anon2::loopInv	file:
 getAnalysisUsage	liveVars.cpp	/^    virtual void getAnalysisUsage(AnalysisUsage &AU) const {$/;"	f	class:__anon1::liveVars
 getAnalysisUsage	loopInv.cpp	/^    virtual void getAnalysisUsage(AnalysisUsage &AU) const {$/;"	f	class:__anon2::loopInv
 getAnalysisUsage	printCode.cpp	/^    virtual void getAnalysisUsage(AnalysisUsage &AU) const {$/;"	f	class:__anon3::printCode
+getBody	loopInv.cpp	/^    const set<const BasicBlock*> *getBody() const{$/;"	f	class:__anon2::naturalLoop
+getBody	loopInv.cpp	/^    set<const BasicBlock*> *getBody() {$/;"	f	class:__anon2::naturalLoop
+getHead	loopInv.cpp	/^    const BasicBlock* getHead() const{$/;"	f	class:__anon2::naturalLoop
+getSize	loopInv.cpp	/^    int getSize(){$/;"	f	class:__anon2::naturalLoop
+head	loopInv.cpp	/^    const BasicBlock* head;$/;"	m	class:__anon2::naturalLoop	file:
+insertBody	loopInv.cpp	/^    void insertBody(const BasicBlock *bodyBB){$/;"	f	class:__anon2::naturalLoop
 inst_map	liveVars.cpp	/^map<llvm::Instruction* , unsigned int> inst_map;$/;"	m	namespace:__anon1	file:
 inst_map	loopInv.cpp	/^map<const Instruction* , unsigned int> inst_map;$/;"	m	namespace:__anon2	file:
 inst_map	printCode.cpp	/^	std::map<llvm::Instruction* , unsigned int> inst_map;$/;"	m	namespace:__anon3	file:
@@ -55,6 +74,8 @@ inst_num	loopInv.cpp	/^unsigned int inst_num = 1  ;$/;"	m	namespace:__anon2	file
 inst_num	printCode.cpp	/^	unsigned int inst_num = 1  ;$/;"	m	namespace:__anon3	file:
 inst_reg	liveVars.cpp	/^typedef map<llvm::Instruction* , unsigned int> inst_reg;$/;"	t	namespace:__anon1	file:
 isAssign	liveVars.cpp	/^	bool isAssign(Instruction* it){$/;"	f	class:__anon1::liveVars	file:
+isInBody	loopInv.cpp	/^    bool isInBody(const BasicBlock * findBB){$/;"	f	class:__anon2::naturalLoop
+itBBMap	loopInv.cpp	/^	void itBBMap(const Function &F){$/;"	f	class:__anon2::loopInv	file:
 itBasicBlock	liveVars.cpp	/^	void itBasicBlock(Function &F){$/;"	f	class:__anon1::liveVars	file:
 itBasicBlock	loopInv.cpp	/^	void itBasicBlock(const Function &F){$/;"	f	class:__anon2::loopInv	file:
 itMap	liveVars.cpp	/^	void itMap(Function &F){$/;"	f	class:__anon1::liveVars	file:
@@ -63,18 +84,37 @@ liveVars	liveVars.cpp	/^    liveVars() : FunctionPass(ID) {$/;"	f	class:__anon1:
 liveVars	liveVars.cpp	/^class liveVars : public FunctionPass {$/;"	c	namespace:__anon1	file:
 loopInv	loopInv.cpp	/^    loopInv() : FunctionPass(ID) {$/;"	f	class:__anon2::loopInv
 loopInv	loopInv.cpp	/^class loopInv : public FunctionPass {$/;"	c	namespace:__anon2	file:
+loopInvInst	loopInv.cpp	/^    set<const Instruction *> loopInvInst;$/;"	m	class:__anon2::loopInv	file:
+moveLoopInvInstOut	loopInv.cpp	/^    void moveLoopInvInstOut(){$/;"	f	class:__anon2::loopInv	file:
+naturalLoop	loopInv.cpp	/^    naturalLoop(){$/;"	f	class:__anon2::naturalLoop
+naturalLoop	loopInv.cpp	/^    naturalLoop(const BasicBlock *loopHead){$/;"	f	class:__anon2::naturalLoop
+naturalLoop	loopInv.cpp	/^class naturalLoop{$/;"	c	namespace:__anon2	file:
+naturalLoopList	loopInv.cpp	/^typedef list<naturalLoop* > naturalLoopList;$/;"	t	namespace:__anon2	file:
+naturalLoopMap	loopInv.cpp	/^typedef map<const BasicBlock *,  naturalLoopList> naturalLoopMap;$/;"	t	namespace:__anon2	file:
+naturalLoopSet	loopInv.cpp	/^typedef set<naturalLoop*, comp_NL> naturalLoopSet;$/;"	t	namespace:__anon2	file:
+operator ()	loopInv.cpp	/^    bool operator()(naturalLoop* const NL1, naturalLoop* const NL2)const{$/;"	f	struct:__anon2::comp_NL
 print	liveVars.cpp	/^    virtual void print(std::ostream &O, const Module *M) const {$/;"	f	class:__anon1::liveVars
 print	loopInv.cpp	/^    virtual void print(std::ostream &O, const Module *M) const {$/;"	f	class:__anon2::loopInv
 print	printCode.cpp	/^    virtual void print(std::ostream &O, const Module *M) const {$/;"	f	class:__anon3::printCode
+printBB_backedge	loopInv.cpp	/^    void printBB_backedge(){$/;"	f	class:__anon2::loopInv	file:
+printBody	loopInv.cpp	/^    void printBody(){$/;"	f	class:__anon2::naturalLoop
 printCode	printCode.cpp	/^    printCode() : FunctionPass(ID) {$/;"	f	class:__anon3::printCode
 printCode	printCode.cpp	/^  class printCode : public FunctionPass {$/;"	c	namespace:__anon3	file:
+printLoops	loopInv.cpp	/^    void printLoops(){$/;"	f	class:__anon2::loopInv	file:
+printNL	loopInv.cpp	/^    void printNL(string header, const naturalLoopMap &naturalLoops){$/;"	f	class:__anon2::loopInv	file:
 printSet	liveVars.cpp	/^	void printSet(const regSet &inSet){$/;"	f	class:__anon1::liveVars	file:
 printSet	liveVars.cpp	/^	void printSet(const string cmdName, const string blkName, const regSet &setName){$/;"	f	class:__anon1::liveVars	file:
+printSortedNL	loopInv.cpp	/^    void printSortedNL(string str){$/;"	f	class:__anon2::loopInv	file:
+printWorklist	loopInv.cpp	/^    void printWorklist(BBworklist &worklist){$/;"	f	class:__anon2::loopInv	file:
+print_BB_dom	loopInv.cpp	/^    void print_BB_dom(){$/;"	f	class:__anon2::loopInv	file:
 print_anal_removing	liveVars.cpp	/^	void print_anal_removing(list<Instruction *> useless_inst){$/;"	f	class:__anon1::liveVars	file:
 print_anal_result	liveVars.cpp	/^	void print_anal_result(Function &F){$/;"	f	class:__anon1::liveVars	file:
+print_domSet	loopInv.cpp	/^    void print_domSet(const domSet &inSet){$/;"	f	class:__anon2::loopInv	file:
 regSet	liveVars.cpp	/^typedef set<unsigned> regSet;$/;"	t	namespace:__anon1	file:
 remove_useless_inst	liveVars.cpp	/^	bool remove_useless_inst(list<Instruction *> useless_inst){$/;"	f	class:__anon1::liveVars	file:
 runOnFunction	liveVars.cpp	/^    virtual bool runOnFunction(Function &F) {$/;"	f	class:__anon1::liveVars
 runOnFunction	loopInv.cpp	/^    virtual bool runOnFunction(Function &F) {$/;"	f	class:__anon2::loopInv
 runOnFunction	printCode.cpp	/^    virtual bool runOnFunction(Function &F) {$/;"	f	class:__anon3::printCode
+setHead	loopInv.cpp	/^    void setHead(const BasicBlock *loopHead){$/;"	f	class:__anon2::naturalLoop
+sortedNaturalLoops	loopInv.cpp	/^    naturalLoopSet sortedNaturalLoops;$/;"	m	class:__anon2::loopInv	file:
 useless_regs	liveVars.cpp	/^	set<unsigned> useless_regs;$/;"	m	class:__anon1::liveVars	file:

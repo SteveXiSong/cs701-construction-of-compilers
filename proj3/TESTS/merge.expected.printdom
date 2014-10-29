@@ -1,0 +1,14 @@
+
+FUNCTION main
+BASIC BLOCK entry  DOM-Before: { }  DOM-After: { entry }
+BASIC BLOCK H  DOM-Before: { entry }  DOM-After: { H entry }
+BASIC BLOCK if.then  DOM-Before: { H entry }  DOM-After: { H entry if.then }
+BASIC BLOCK if.end  DOM-Before: { H entry }  DOM-After: { H entry if.end }
+BASIC BLOCK if.then3  DOM-Before: { H entry if.end }  DOM-After: { H entry if.end if.then3 }
+BASIC BLOCK if.then6  DOM-Before: { H entry if.end if.then3 }  DOM-After: { H entry if.end if.then3 if.then6 }
+BASIC BLOCK if.else  DOM-Before: { H entry if.end if.then3 }  DOM-After: { H entry if.else if.end if.then3 }
+BASIC BLOCK if.else7  DOM-Before: { H entry if.end }  DOM-After: { H entry if.else7 if.end }
+BASIC BLOCK if.then10  DOM-Before: { H entry if.else7 if.end }  DOM-After: { H entry if.else7 if.end if.then10 }
+BASIC BLOCK if.else11  DOM-Before: { H entry if.else7 if.end }  DOM-After: { H entry if.else11 if.else7 if.end }
+BASIC BLOCK T  DOM-Before: { H entry if.end }  DOM-After: { H T entry if.end }
+BASIC BLOCK DONE  DOM-Before: { H entry if.then }  DOM-After: { DONE H entry if.then }

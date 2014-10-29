@@ -1,0 +1,9 @@
+
+FUNCTION foo
+BASIC BLOCK entry  DOM-Before: { }  DOM-After: { entry }
+BASIC BLOCK return  DOM-Before: { }  DOM-After: { }
+
+FUNCTION main
+BASIC BLOCK entry  DOM-Before: { }  DOM-After: { entry }
+BASIC BLOCK if.then  DOM-Before: { entry }  DOM-After: { entry if.then }
+BASIC BLOCK if.end  DOM-Before: { entry }  DOM-After: { entry if.end }

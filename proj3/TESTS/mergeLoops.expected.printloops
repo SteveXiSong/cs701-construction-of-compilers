@@ -1,0 +1,4 @@
+FUNCTION main
+LOOPS
+Head: while.cond Body: { if.else if.end if.then while.body }
+

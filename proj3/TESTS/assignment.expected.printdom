@@ -1,0 +1,20 @@
+
+FUNCTION add
+BASIC BLOCK entry  DOM-Before: { }  DOM-After: { entry }
+BASIC BLOCK while.cond  DOM-Before: { entry }  DOM-After: { entry while.cond }
+BASIC BLOCK while.body  DOM-Before: { entry while.cond }  DOM-After: { entry while.body while.cond }
+BASIC BLOCK while.end  DOM-Before: { entry while.cond }  DOM-After: { entry while.cond while.end }
+
+FUNCTION main
+BASIC BLOCK entry  DOM-Before: { }  DOM-After: { entry }
+BASIC BLOCK for.cond  DOM-Before: { entry }  DOM-After: { entry for.cond }
+BASIC BLOCK for.body  DOM-Before: { entry for.cond }  DOM-After: { entry for.body for.cond }
+BASIC BLOCK for.cond1  DOM-Before: { entry for.body for.cond }  DOM-After: { entry for.body for.cond for.cond1 }
+BASIC BLOCK for.body3  DOM-Before: { entry for.body for.cond for.cond1 }  DOM-After: { entry for.body for.body3 for.cond for.cond1 }
+BASIC BLOCK for.inc  DOM-Before: { entry for.body for.body3 for.cond for.cond1 }  DOM-After: { entry for.body for.body3 for.cond for.cond1 for.inc }
+BASIC BLOCK for.end  DOM-Before: { entry for.body for.cond for.cond1 }  DOM-After: { entry for.body for.cond for.cond1 for.end }
+BASIC BLOCK for.inc5  DOM-Before: { entry for.body for.cond for.cond1 for.end }  DOM-After: { entry for.body for.cond for.cond1 for.end for.inc5 }
+BASIC BLOCK for.end7  DOM-Before: { entry for.cond }  DOM-After: { entry for.cond for.end7 }
+BASIC BLOCK while.cond  DOM-Before: { entry for.cond for.end7 }  DOM-After: { entry for.cond for.end7 while.cond }
+BASIC BLOCK while.body  DOM-Before: { entry for.cond for.end7 while.cond }  DOM-After: { entry for.cond for.end7 while.body while.cond }
+BASIC BLOCK while.end  DOM-Before: { entry for.cond for.end7 while.cond }  DOM-After: { entry for.cond for.end7 while.cond while.end }
