@@ -1,2 +1,8 @@
-moving instruction %24
-moving instruction %25
+FUNCTION add
+LOOPS
+Head: while.cond Body: { while.body }
+FUNCTION main
+LOOPS
+Head: for.cond Body: { for.body for.cond1 for.body3 for.inc for.end for.inc5 }
+Head: for.cond1 Body: { for.body3 for.inc }
+Head: while.cond Body: { while.body }

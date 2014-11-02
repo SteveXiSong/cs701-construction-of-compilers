@@ -264,23 +264,14 @@ class loopInv : public FunctionPass {
                 f_it != f_it_end; f_it++){
             BB_dom[f_it] = init_domN;
 		}
-        //^^^^^^^^^^^^^^^^^^^^^^
+
 		for(Function::const_iterator f_it = F.begin(), f_it_end = F.end();
                 f_it != f_it_end; f_it++){
             init_domN.insert(f_it);
 		}
         //except N0
-		//for(Function::const_iterator f_it = (++F.begin()), f_it_end = F.end();
-        //        f_it != f_it_end; f_it++){
-        //    BB_dom[f_it] = init_domN;
-		//}
-        //initDom( F.begin(), BB_dom, init_domN);
 
         //push all nodes but N0 into worklist
-        //for(Function::const_iterator f_it = (++F.begin()), it_end = F.end();
-        //        f_it!=it_end; f_it ++){
-        //    worklist.push_back( f_it);
-        //}
         //initialize the worklist with the successors of entry block instead
         //of all blocks
         set<const BasicBlock *> visitedBB;
@@ -592,32 +583,43 @@ class loopInv : public FunctionPass {
                 continue;
 
             //fill int the Preds
+            //for(pred_iterator pred_it =pred_begin(headBB);
+            //        pred_it != pred_end(headBB); pred_it++){
+            //    asize++;
+            //}
             int asize=0;
-
             for(pred_iterator pred_it =pred_begin(headBB);
-                    pred_it != pred_end(headBB); pred_it++){
-                asize++;
+                    pred_it != pred_end(headBB) ; pred_it++){
+                if( (*it_NL)->getBody()->find(*pred_it) == (*it_NL)->getBody()->end()){
+                    asize++;
+                }
             }
 
-            //cerr << "pred num " << asize <<endl;
+            BasicBlock *Preds[asize];
+            int i = 0;
+            for(pred_iterator pred_it =pred_begin(headBB);
+                    pred_it != pred_end(headBB) ; pred_it++){
+                if( (*it_NL)->getBody()->find(*pred_it) == (*it_NL)->getBody()->end()){
+                    //cerr << "Here:" << BB_map[*pred_it] << endl;
+                    Preds[i] = *pred_it;
+                    i++;
+                }
+            }
 
             BasicBlock * preHeader;
-            if( asize != 1){
+            if( asize > 1 ){
                 //find pred of the header
-                BasicBlock *Preds[asize];
-                int i = 0;
-                for(pred_iterator pred_it =pred_begin(headBB);
-                        pred_it != pred_end(headBB) && i < asize; pred_it++, i++){
-                    Preds[i] = *pred_it;
-                }
-
                 //add preheader
                 preHeader = SplitBlockPredecessors(headBB, ArrayRef<BasicBlock *>(Preds, asize), "PreHeader", 0);
 #ifdef PRINTPRE
                 cerr << "adding preheader for loop with header " << headBB->getName().str()<<endl;
 #endif
+            } else if( asize == 1 ){
+                preHeader = Preds[0];
+                //cerr << "preHeader:"<<BB_map[preHeader] << endl;
             } else {
-                preHeader = *pred_begin(headBB);
+                cerr << "pred header error" << endl;
+                exit(0);
             }
 
             //insert the instruction into the basic block, before the terminator,
@@ -630,7 +632,9 @@ class loopInv : public FunctionPass {
 #ifdef PRINTMOVING
                 cerr << "moving instruction %" << inst_map[(*it_IS)] << endl;
 #endif
+                LoopInvariantInstructionCount++;
                 isModified = true;
+
             }
         }
         return isModified;
