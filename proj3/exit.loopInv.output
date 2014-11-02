@@ -7,12 +7,11 @@ BASIC BLOCK entry	1
 BASIC BLOCK return	2
 %4:	ret	
 before worklist algo: 
-WL:[ 2  ]
-worklist algo start...  
 WL:[  ]
+worklist algo start...  
 FUNCTION foo
 
-BASIC BLOCK return 2 DOM-Before: { entry( 1 ) }  DOM-After: { return( 2 ) entry( 1 ) }
+BASIC BLOCK return 2 DOM-Before: { }  DOM-After: { }
 BASIC BLOCK entry 1 DOM-Before: { }  DOM-After: { entry( 1 ) }
 
 findBackedges ... 

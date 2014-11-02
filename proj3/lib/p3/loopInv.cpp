@@ -40,7 +40,7 @@
 #include <list>
 #include <stack>
 
-#define STEVE_DEBUG
+//#define STEVE_DEBUG
 
 using namespace llvm;
 using namespace std;
@@ -225,6 +225,7 @@ class loopInv : public FunctionPass {
 		}
 	}
 
+
     void printWorklist(BBworklist &worklist){
         cerr << "WL:[ ";
         for(BBworklist::const_iterator it=worklist.begin(),it_end=worklist.end();
@@ -232,6 +233,19 @@ class loopInv : public FunctionPass {
             cerr << BB_map[ *it ] << " ";
         }
         cerr << " ]" << endl;
+    }
+
+    void initDom(const BasicBlock *blk, BBDomSet &BB_dom, domSet &init_domN,
+            set<const BasicBlock *> &visitedBB){
+        BB_dom[blk] = init_domN;
+        visitedBB.insert(blk);
+        for( succ_const_iterator it = succ_begin(blk);
+                it!=succ_end(blk); it++){
+            if( visitedBB.find(*it) != visitedBB.end() )
+                continue;
+            initDom(*it, BB_dom, init_domN, visitedBB);
+        }
+        return;
     }
 
     BBDomSet findBBDom(const Function &F){
@@ -245,21 +259,37 @@ class loopInv : public FunctionPass {
 
         //dom(N) = {all nodes}
         domSet init_domN;
+        //set all blank ********
+		for(Function::const_iterator f_it = (++F.begin()), f_it_end = F.end();
+                f_it != f_it_end; f_it++){
+            BB_dom[f_it] = init_domN;
+		}
+        //^^^^^^^^^^^^^^^^^^^^^^
 		for(Function::const_iterator f_it = F.begin(), f_it_end = F.end();
                 f_it != f_it_end; f_it++){
             init_domN.insert(f_it);
 		}
         //except N0
-		for(Function::const_iterator f_it = (++F.begin()), f_it_end = F.end();
-                f_it != f_it_end; f_it++){
-            BB_dom[f_it] = init_domN;
-		}
+		//for(Function::const_iterator f_it = (++F.begin()), f_it_end = F.end();
+        //        f_it != f_it_end; f_it++){
+        //    BB_dom[f_it] = init_domN;
+		//}
+        //initDom( F.begin(), BB_dom, init_domN);
 
         //push all nodes but N0 into worklist
-        for(Function::const_iterator f_it = (++F.begin()), it_end = F.end();
-                f_it!=it_end; f_it ++){
-            worklist.push_back( f_it);
+        //for(Function::const_iterator f_it = (++F.begin()), it_end = F.end();
+        //        f_it!=it_end; f_it ++){
+        //    worklist.push_back( f_it);
+        //}
+        //initialize the worklist with the successors of entry block instead
+        //of all blocks
+        set<const BasicBlock *> visitedBB;
+        for(succ_const_iterator it = succ_begin(F.begin());
+                it != succ_end(F.begin()); it++){
+            initDom( *it, BB_dom, init_domN, visitedBB);
+            worklist.push_back(*it);
         }
+
 #ifdef STEVE_DEBUG
         cerr << "before worklist algo: " <<endl;
         printWorklist(worklist);
@@ -267,6 +297,9 @@ class loopInv : public FunctionPass {
 #endif
 
         do{
+            if( worklist.empty() )
+                break;
+
             const BasicBlock * BBN = worklist.front();
             worklist.pop_front();
 
@@ -566,10 +599,11 @@ class loopInv : public FunctionPass {
                 asize++;
             }
 
-            cerr << "pred num " << asize <<endl;
+            //cerr << "pred num " << asize <<endl;
 
             BasicBlock * preHeader;
             if( asize != 1){
+                //find pred of the header
                 BasicBlock *Preds[asize];
                 int i = 0;
                 for(pred_iterator pred_it =pred_begin(headBB);

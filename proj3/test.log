@@ -6,7 +6,7 @@ assignment:
     PRINTMOVING 1
 
 exit:
-    PRINTDOM    0 
+    PRINTDOM    1
     PRINTMERGE  1
     PRINTLOOPS  1 
     PRINTPRE    1
