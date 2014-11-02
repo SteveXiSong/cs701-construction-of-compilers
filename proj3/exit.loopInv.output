@@ -1,0 +1,62 @@
+
+BASIC BLOCK entry	1
+%1:	call	 XXX msg printf
+%2:	call	 XXX exit
+%3:	unreachable	
+
+BASIC BLOCK return	2
+%4:	ret	
+before worklist algo: 
+WL:[ 2  ]
+worklist algo start...  
+WL:[  ]
+FUNCTION foo
+
+BASIC BLOCK return 2 DOM-Before: { entry( 1 ) }  DOM-After: { return( 2 ) entry( 1 ) }
+BASIC BLOCK entry 1 DOM-Before: { }  DOM-After: { entry( 1 ) }
+
+findBackedges ... 
+Backedge: 
+findNaturalLoops ... 
+Natural loops(pre-combination): 
+combineLoops ... 
+Natural loops(post-combination): 
+Sorted natural loops: 
+Loop invariant: 
+moveLoopInvInstOut ... 
+
+BASIC BLOCK entry	3
+%5:	alloca	 XXX
+%6:	call	 XXX %5 __isoc99_scanf
+%7:	load	 %5
+%8:	icmp	 %7 XXX
+%9:	br	 %8 if.end if.then
+
+BASIC BLOCK if.then	4
+%10:	call	 XXX foo
+%11:	br	 if.end
+
+BASIC BLOCK if.end	5
+%12:	call	 XXX printf
+%13:	ret	 XXX
+before worklist algo: 
+WL:[ 4 5  ]
+worklist algo start...  
+WL:[ 5  ]
+WL:[ 5  ]
+WL:[  ]
+FUNCTION main
+
+BASIC BLOCK entry 3 DOM-Before: { }  DOM-After: { entry( 3 ) }
+BASIC BLOCK if.then 4 DOM-Before: { entry( 3 ) }  DOM-After: { entry( 3 ) if.then( 4 ) }
+BASIC BLOCK if.end 5 DOM-Before: { entry( 3 ) }  DOM-After: { entry( 3 ) if.end( 5 ) }
+
+findBackedges ... 
+Backedge: 
+findNaturalLoops ... 
+Natural loops(pre-combination): 
+combineLoops ... 
+Natural loops(post-combination): 
+Sorted natural loops: 
+Loop invariant: 
+moveLoopInvInstOut ... 

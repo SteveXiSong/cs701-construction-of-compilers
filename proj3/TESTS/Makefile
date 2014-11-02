@@ -44,9 +44,7 @@ plugin:
 	opt -load Debug/lib/P3.so -sameRhs $*.bc -o $*.sameRhs
 	mv $*.sameRhs $*.bc
 
-%: %.c
-
 # clean up generated files
 clean:
-	make -C lib/p3 clean
+	#make -C lib/p3 clean
 	rm -f *.bc *.exe *.ll *.s

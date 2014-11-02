@@ -76,6 +76,13 @@ public:
         return &(this->loopInvInsts);
     }
 
+    bool isInLoopInvInsts(const Instruction * cmpInst) const{
+        if( loopInvInsts.find(cmpInst) == loopInvInsts.end()){
+            return false;
+        }
+        return true;
+    }
+
     void setHead(const BasicBlock *loopHead){
         this->head = loopHead;
     }
@@ -111,10 +118,17 @@ public:
     }
 
     void printBody(){
+        cerr<<" Body: { ";
         for(set<const BasicBlock*>::const_iterator it = body.begin();it != body.end(); it++){
+            if( *it == head )
+                continue;
             cerr << (*it)->getName().str() << " ";
         }
-        cerr<<endl;
+        cerr<<"}"<<endl;
+    }
+
+    void printHead(){
+        cerr << "Head: " <<  head->getName().str();
     }
 };
 
@@ -262,7 +276,10 @@ class loopInv : public FunctionPass {
 
             //dom(Z) = Z U ( ^<Y in pred(Z)> dom(Y) )
             domSet domZ(BB_dom[BBN]);
+            if( pred_begin(BBN) == pred_end(BBN))
+                break;
             domSet domYAll(BB_dom[ *pred_begin(BBN)]);
+
             for(const_pred_iterator pred_it = pred_begin(BBN), pred_it_end = pred_end(BBN);
                     pred_it != pred_it_end; pred_it++){
                     domSet newDomSet, domY(BB_dom[*pred_it]);
@@ -298,6 +315,9 @@ class loopInv : public FunctionPass {
     }
 
     BBBackedgeMap findBackedges(const Function &F, BBDomSet &BB_dom){
+#ifdef STEVE_DEBUG
+        cerr<< "findBackedges ... "<<endl;
+#endif
         //const DominatorTree & DT = getAnalysis<DominatorTree>();
         //do DFS to traverse the tree and find back edges
         BBBackedgeMap BB_backedge;
@@ -342,6 +362,9 @@ class loopInv : public FunctionPass {
     }
 
     naturalLoopMap findNaturalLoops(const BBBackedgeMap &BB_backedge){
+#ifdef STEVE_DEBUG
+        cerr<< "findNaturalLoops ... "<<endl;
+#endif
         naturalLoopMap naturalLoops;
 
         cout<<"***Warning: didn't take care of irreducible CFG" <<endl;
@@ -390,6 +413,9 @@ class loopInv : public FunctionPass {
     }
 
     naturalLoopSet combineLoops(naturalLoopMap &naturalLoops){
+#ifdef STEVE_DEBUG
+        cerr<< "combineLoops ... "<<endl;
+#endif
         naturalLoopSet sortedNaturalLoops;
         for(naturalLoopMap::iterator it_NL = naturalLoops.begin();
                 it_NL!=naturalLoops.end(); it_NL++){
@@ -424,7 +450,6 @@ class loopInv : public FunctionPass {
 #ifdef STEVE_DEBUG
         printNL("Natural loops(post-combination): ", naturalLoops);
         printSortedNL("Sorted natural loops: ", sortedNaturalLoops);
-        //cerr << "combineLoops end" <<endl;
 #endif
         return sortedNaturalLoops;
     }
@@ -446,7 +471,9 @@ class loopInv : public FunctionPass {
     //the instruction is not a call or invoke
     //the instruction is not a Phi
     void findLoopInv(naturalLoopSet &sortedNaturalLoops){
+#ifdef STEVE_DEBUG
         cerr << "Loop invariant: "<<endl;
+#endif
         for(naturalLoopSet::iterator it = sortedNaturalLoops.begin();
                 it != sortedNaturalLoops.end(); it++){
             naturalLoop * NL = (*it); //ptr to naturalLoop
@@ -458,12 +485,12 @@ class loopInv : public FunctionPass {
 
                     bool isInv = true, isInvDefOut = true;
                     switch(it_BB->getOpcode()){
-                        case 10: //division
-                        case 11: //remainder
-                        case 21: case 22: case 23: case 24: case 25: case 26:
-                        case 29: //call
-                        case 4:  //invoke
-                        case 27: //phi
+                        case 14:case 15: case 16: //division
+                        case 17:case 18: case 19: //remainder
+                        case 26: case 27: case 28: case 29: case 30: case 31: case 32://mem
+                        case 48: //call
+                        case 5:  //invoke
+                        case 47: //phi
                             continue;
                         default:
                             break;
@@ -471,9 +498,9 @@ class loopInv : public FunctionPass {
                     if(it_BB->isTerminator())
                         continue;
 
-                    //literals or def outside loop
+                    //operands are literals or def outside loop
                     for( unsigned i =0; i < it_BB->getNumOperands();i++){
-                        //inst def outside or not
+                        //whether inst def outside
 					    if( isa<Instruction>( (*it_BB).getOperand(i)) ){
                             for(set<const BasicBlock *>::const_iterator it_loop = NL->getBody()->begin();
                                     it_loop != NL->getBody()->end(); it_loop++){
@@ -481,6 +508,9 @@ class loopInv : public FunctionPass {
                                         it_loopBB != (*it_loop)->end(); it_loopBB++){
                                     const Instruction * op = (Instruction *)(*it_BB).getOperand(i);
                                     if( (const Instruction *)it_loopBB == op ){
+                                        if( NL->isInLoopInvInsts((const Instruction *)it_loopBB) ){
+                                            continue;
+                                        }
                                         isInv = false;
                                     }
                                 }
@@ -488,10 +518,17 @@ class loopInv : public FunctionPass {
 					    }
                         //not literal
 					    else if( (*it_BB).getOperand(i)->hasName() ){
+                            if( (*it_BB).getOperand(i)->getName().str() == "argv"){
+                                //cerr << "argv" << endl;
+                                continue;
+                            }
+                            if( (*it_BB).getOperand(i)->getName().str() == "argc"){
+                                //cerr << "argc" << endl;
+                                continue;
+                            }
                             isInv = false;
                             break;
 					    }
-                        //is literal
                     }
 
                     if(isInv){
@@ -506,6 +543,9 @@ class loopInv : public FunctionPass {
     }
 
     bool moveLoopInvInstOut(naturalLoopSet &sortedNaturalLoops){
+#ifdef STEVE_DEBUG
+        cerr<< "moveLoopInvInstOut ... "<<endl;
+#endif
         //creat and fill the a Preds array, an array of blocks, preds should be BB**
         bool isModified = false;
 
@@ -525,42 +565,60 @@ class loopInv : public FunctionPass {
                     pred_it != pred_end(headBB); pred_it++){
                 asize++;
             }
-            BasicBlock *Preds[asize];
-            int i = 0;
-            for(pred_iterator pred_it =pred_begin(headBB);
-                    pred_it != pred_end(headBB) && i < asize; pred_it++, i++){
-                Preds[i] = *pred_it;
+
+            cerr << "pred num " << asize <<endl;
+
+            BasicBlock * preHeader;
+            if( asize != 1){
+                BasicBlock *Preds[asize];
+                int i = 0;
+                for(pred_iterator pred_it =pred_begin(headBB);
+                        pred_it != pred_end(headBB) && i < asize; pred_it++, i++){
+                    Preds[i] = *pred_it;
+                }
+
+                //add preheader
+                preHeader = SplitBlockPredecessors(headBB, ArrayRef<BasicBlock *>(Preds, asize), "PreHeader", 0);
+#ifdef PRINTPRE
+                cerr << "adding preheader for loop with header " << headBB->getName().str()<<endl;
+#endif
+            } else {
+                preHeader = *pred_begin(headBB);
             }
 
-            //add preheader
-            BasicBlock* preHeader = SplitBlockPredecessors(headBB, ArrayRef<BasicBlock *>(Preds, asize), "TRY", 0);
-#ifdef PRINTPRE
-            cerr << "adding preheader for loop with header " << headBB->getName().str()<<endl;
-#endif
             //insert the instruction into the basic block, before the terminator,
             //using getTerminator()
             Instruction * terminator = preHeader->getTerminator();
 
             for(set<const Instruction *>::iterator it_IS = loopInvInsts->begin();
                     it_IS != loopInvInsts->end(); it_IS++){
-                //Instruction * newInst = new Instruction((Instruction *)(*it_IS) );
-                Instruction *newInst =
-                    new Instruction() ;
-                preHeader->getInstList().insert(terminator, newInst);
+                ((Instruction*)(*it_IS))->moveBefore(terminator);
+#ifdef PRINTMOVING
+                cerr << "moving instruction %" << inst_map[(*it_IS)] << endl;
+#endif
                 isModified = true;
             }
-
-            //remove loop invariant instruction from the prior block.
-            for(set<const Instruction *>::iterator it_IS = loopInvInsts->begin();
-                    it_IS != loopInvInsts->end(); it_IS++){
-
-            }
         }
-
         return isModified;
     }
 
-    void print_domSet(const domSet &inSet){
+    void print_BeforedomSet(const domSet &inSet, const BasicBlock * thisBB){
+        cerr << "DOM-Before: { " ;
+        for(domSet::const_iterator it=inSet.begin(), it_end = inSet.end();it!=it_end;it++){
+            if( (*it) == thisBB)
+                continue;
+
+            cerr << (*it)->getName().str();
+#ifdef STEVE_DEBUG
+            cerr << "( "<< BB_map[(*it)] << " )";
+#endif
+            cerr << " ";
+        }
+        cerr << "} ";
+    }
+
+    void print_AfterdomSet(const domSet &inSet){
+        cerr << " DOM-After: { " ;
         for(domSet::const_iterator it=inSet.begin(), it_end = inSet.end();it!=it_end;it++){
             cerr << (*it)->getName().str();
 #ifdef STEVE_DEBUG
@@ -568,27 +626,30 @@ class loopInv : public FunctionPass {
 #endif
             cerr << " ";
         }
+        cerr << "}";
     }
 
     void print_BB_dom(BBDomSet &BB_dom){
         cerr<<endl;
         for(BBDomSet::const_iterator it = BB_dom.begin(), it_end = BB_dom.end();
             it!= it_end; it++){
-            cerr << (it->first)->getName().str() << " "
+            cerr <<"BASIC BLOCK "<< (it->first)->getName().str() << " "
 #ifdef STEVE_DEBUG
                 << BB_map[it->first]
 #endif
-                << ":\t" ;
-            print_domSet( it->second );
+            << " ";
+            print_BeforedomSet( it->second, it->first );
+            print_AfterdomSet( it->second );
             cerr<<endl;
         }
         cerr << endl;
     }
 
     void printLoops(const naturalLoopSet &sortedNaturalLoops){
-        cerr<<endl;
+        cerr << "LOOPS" << endl;
         for( naturalLoopSet::const_iterator it = sortedNaturalLoops.begin();
                 it!=sortedNaturalLoops.end(); it ++){
+                (*it)->printHead();
                 (*it)->printBody();
         }
     }
@@ -615,6 +676,7 @@ class loopInv : public FunctionPass {
         BBDomSet BB_dom = findBBDom(F);
 
 #ifdef PRINTDOM
+        cerr << "FUNCTION " << F.getName().str() << "\n";
         print_BB_dom(BB_dom);
 #endif
         //find back edges
@@ -627,6 +689,7 @@ class loopInv : public FunctionPass {
         naturalLoopSet sortedLoops = combineLoops( naturalLoops );
 
 #ifdef PRINTLOOPS
+        cerr << "FUNCTION " << F.getName().str() << "\n";
         printLoops(sortedLoops);
 #endif
 

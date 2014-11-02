@@ -1,0 +1,27 @@
+FUNCTION foo
+
+BASIC BLOCK entry
+%1:	call	 XXX msg printf
+%2:	call	 XXX exit
+%3:	unreachable	
+
+BASIC BLOCK return
+%4:	ret	
+
+FUNCTION main
+
+BASIC BLOCK entry
+%5:	alloca	 XXX
+%6:	call	 XXX %5 __isoc99_scanf
+%7:	load	 %5
+%8:	icmp	 %7 XXX
+%9:	br	 %8 if.end if.then
+
+BASIC BLOCK if.then
+%10:	call	 XXX foo
+%11:	br	 if.end
+
+BASIC BLOCK if.end
+%12:	call	 XXX printf
+%13:	ret	 XXX
+

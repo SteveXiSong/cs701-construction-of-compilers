@@ -55,11 +55,11 @@ int func(int para){
 }
 
 void loopInv(){
-    int inv = 0;
+    int init = 0;
     int flag = 1;
+    int inv;
     while( flag ){
-        inv = 1;
-        flag = 0;
+        inv = init;
     }
     return ;
 }

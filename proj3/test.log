@@ -1,0 +1,49 @@
+assignment:
+    PRINTDOM    1                                                                                                                                                                      
+    PRINTMERGE  1
+    PRINTLOOPS  1
+    PRINTPRE    1
+    PRINTMOVING 1
+
+exit:
+    PRINTDOM    0 
+    PRINTMERGE  1
+    PRINTLOOPS  1 
+    PRINTPRE    1
+    PRINTMOVING 1
+
+inner:
+    PRINTDOM    1
+    PRINTMERGE  1
+    PRINTLOOPS  1
+    PRINTPRE    0: 3 predecessors, so i am not sure when to add preheader and when not!
+    PRINTMOVING 1
+
+irreducible:
+    PRINTDOM    1
+    PRINTMERGE  1
+    PRINTLOOPS  1
+    PRINTPRE    1
+    PRINTMOVING 1
+
+merge:
+    PRINTDOM    1
+    PRINTMERGE  1
+    PRINTLOOPS  1
+    PRINTPRE    1
+    PRINTMOVING 1
+    
+mergeloops:
+    PRINTDOM    1                                                                                                                         
+    PRINTMERGE  1
+    PRINTLOOPS  1
+    PRINTPRE    1
+    PRINTMOVING 1
+    
+noHead:
+    PRINTDOM    1
+    PRINTMERGE  1 
+    PRINTLOOPS  1
+    PRINTPRE    1 
+    PRINTMOVING 1
+
